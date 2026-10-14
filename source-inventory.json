@@ -1,0 +1,1418 @@
+[
+  {
+    "path": "source/call-feasibility/probe.c",
+    "sha256": "5730dad155cf0d1d1d19f58cd753a3fb9ee26b30669279bfd8346a706ac1e4bd"
+  },
+  {
+    "path": "source/gallery-music/bridge-src/MusicBridge.java",
+    "sha256": "d52356cc52aa42584d66f2e256d35dba38bb52f1e1f8c8339b94ac167315299e"
+  },
+  {
+    "path": "source/gallery-music/bridge-stubs/org/retrobridge/playmusic2012/store/MusicFile.java",
+    "sha256": "5663b15a248cefd7fbc590ee18f4ac0f39049e54af731d1b4e3efb116aa37694"
+  },
+  {
+    "path": "source/gallery-music/bridge-stubs/org/retrobridge/playmusic2012/store/Store.java",
+    "sha256": "ea8b9062fc66b431715438065e0c9177151b70bfd3eac7d45ea0745a71da69dd"
+  },
+  {
+    "path": "source/gallery-music/build_music.py",
+    "sha256": "6101e58e4467edc4f7f9d2fb4bf97e12b26cbcf34173019d02858be659107846"
+  },
+  {
+    "path": "source/gallery-music/music_albums.py",
+    "sha256": "df6b527ea01467205626bf865eae1cd4fb7d8fbc1bef930dbb105968ed75a597"
+  },
+  {
+    "path": "source/gallery-music/music_auth.py",
+    "sha256": "81553c1a355efba26c7d6d550bdc8d707a34a0ba04b0a71e6d8bf20b843b5e51"
+  },
+  {
+    "path": "source/gallery-music/music_server.py",
+    "sha256": "f1cf0a76f2b936684052d7cf52efadf4579918ab27b036ce20ef4905011ca72d"
+  },
+  {
+    "path": "source/gallery-music/music_signature.py",
+    "sha256": "82c625b2bc994da31b40d6fb95101def20c70640bf8632fd82c6191fd4d12aa1"
+  },
+  {
+    "path": "source/gallery-music/music_tracks.py",
+    "sha256": "8ac4b567ffd0a11f08e64ea58d0a28dd6794f8795928bdab886f549bb621f343"
+  },
+  {
+    "path": "source/gallery-music/music_uploads.py",
+    "sha256": "84121aa8c74a96ae277ba2f95a0818c0e01ae4a94d6cc96fba10ed292704a7d7"
+  },
+  {
+    "path": "source/gallery-music/prepare_music_decode.py",
+    "sha256": "1286978374273a24dbca575aa23056dfdc271162e152a4e3c8f719bfbf04d62e"
+  },
+  {
+    "path": "source/gallery-music/prepare_music_runtime.sh",
+    "sha256": "f298d7504abca2c10865f74fc353050dc1bab41eff02afad0cbf2cae5371d362"
+  },
+  {
+    "path": "source/gallery-music/start.sh",
+    "sha256": "bea02111a7305538d4f30d9e57b83ab0db1473df0479b4e4264ac971cf5f24ea"
+  },
+  {
+    "path": "source/gallery-music/upload_sabr.js",
+    "sha256": "00ac21345852c7f194f3944e938fd75c89868b8d54d6f8df01a5ea258c9518ed"
+  },
+  {
+    "path": "source/gmail-bridge/build_s2.py",
+    "sha256": "b25fcbc271b71a6dbce302bde1578daa8bc02cfa9c85e80a205ccbbd4c6c4b2c"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/build.gradle",
+    "sha256": "01aa3b324caa7830d1812d29f67c8d8250f17dfd2dc84b4a792556b79b2df630"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/gradle.properties",
+    "sha256": "64b8433fbc67aea07a10f2c9957bce55d4f2dc19ee481faa24b8c0f394676c86"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/settings.gradle",
+    "sha256": "b7a8e786977740efb2e8e26cbae33f76244190fc404a2a059e6a088fea9cce47"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/AndroidManifest.xml",
+    "sha256": "c703c7a3e90fc0d29af45300e91598a46eb9365889f8e3874071a7b80c3f59f5"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/GmailActions.java",
+    "sha256": "40f8e5fcd8f7ff082697fc2a5378d380e5fab077c86aef80c02c0a8186ac3616"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/GmailBridge.java",
+    "sha256": "4401830731bd0bd9279ac7499cee35b260514315ca872d650754ae89d1f70caa"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/GmailUploads.java",
+    "sha256": "ad1e793a3ee9c542ccc7a23a39cbefb2fe78efbc8b7b63ac3af031a8317e5101"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/GoogleApi.java",
+    "sha256": "f51e427954cc7e221de286248a877d89405acdf732cead934740982e36ca4d8c"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/MailAccount.java",
+    "sha256": "38552823e9c17ae5f5925962f6df1bf2ec85c652af9602af065795bdf3073a62"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/MailProvider.java",
+    "sha256": "c4cc7f308cd6482aec41fe19b1f788b12473c69a3981096b97b4cb368c80cbf2"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/SetupActivity.java",
+    "sha256": "f0fb51357af90bb1c52feffec5475ba41dfbfc34961135dda0546735a34c321c"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/YouTubeAccount.java",
+    "sha256": "1edf38823f508097eef7d9e373ea80c9e00add7714ebe91513ae2e2383f0859e"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/YouTubeActions.java",
+    "sha256": "a3a2bfee4b4cc294223dd72875c5af113681a91fd586152633664c1f4df975b3"
+  },
+  {
+    "path": "source/gmail-bridge/pixel/src/main/java/org/retrobridge/galaxymail/pixel/YouTubeActionSpec.java",
+    "sha256": "73b81ad5cc110be1805861c3a0e1a0d43f6dee93f329cb4a643e2c7d8ed20e9c"
+  },
+  {
+    "path": "source/gmail-bridge/s2-src/PixelAttachments.java",
+    "sha256": "cbbb9363baf7439da3305cb6a1c83cc63d93c5f8f1940f8e72351e518e187991"
+  },
+  {
+    "path": "source/gmail-bridge/s2-src/PixelAuthenticator.java",
+    "sha256": "55caea58fa9c52c0a39293d4d0ab79f35109439fa4317cc6798f7b695aee59e9"
+  },
+  {
+    "path": "source/gmail-bridge/s2-src/PixelBoot.java",
+    "sha256": "021a337109ab7cbeac9bb329fa7250114c0d2591141353d6d84b16d89c3dbbf3"
+  },
+  {
+    "path": "source/gmail-bridge/s2-src/PixelMail.java",
+    "sha256": "c7c9de7a24330d29c27579a9da8b66df582b592b8b35a87430071eb31cec5465"
+  },
+  {
+    "path": "source/gmail-bridge/s2-src/PixelOutbox.java",
+    "sha256": "aa6a889fa2aeab1f8c256a57097c9723a771d425254e0ff61ddb4cde2fe4c25f"
+  },
+  {
+    "path": "source/gmail-bridge/s2-src/PixelSetup.java",
+    "sha256": "3659d216718341504bed1d311d37429a1f9a27558f9034e266c19d76af4ba11d"
+  },
+  {
+    "path": "source/gmail-bridge/s2-stubs/MailEngine.java",
+    "sha256": "ce6f6ac3c89f38abd460e53b914352f13a7c7b32aef8cbb9e4ad36d4cf0f4dcc"
+  },
+  {
+    "path": "source/google-widget/build_widget.py",
+    "sha256": "58871b3cdcbf6b7b5586751c0adadc81af8d8fdd98f2e43167048d4cb4878109"
+  },
+  {
+    "path": "source/launcher-cleanup/build.py",
+    "sha256": "5a1c85de18a8d3008af1026144a3579a2ba559b88a07866b38a158050864ca12"
+  },
+  {
+    "path": "source/launcher-cleanup/launcher-entries.sh",
+    "sha256": "4f805300ca81b87a03cab96a9005a752062ea0c8b288764c79b1328edb6f33ac"
+  },
+  {
+    "path": "source/launcher-cleanup/LauncherEntries.java",
+    "sha256": "7b80b36a4ec8f219e9901201776a39ea738d72ac777c436891f7c11d4195bf05"
+  },
+  {
+    "path": "source/legacy-services/BOUNCY-CASTLE-LICENSE.txt",
+    "sha256": "b3c0e23a6fd287e05c4849faa17632d0b31bdc31fccc409caeb7661caea9d967"
+  },
+  {
+    "path": "source/legacy-services/browsing/backend.js",
+    "sha256": "db6d3171be5e8aa4bb8b419d559840f657761bd7c0bec8e903201a966b6838bf"
+  },
+  {
+    "path": "source/legacy-services/browsing/galaxy-browse.js",
+    "sha256": "1af9b20b7d88be2f4ffb032c6618e145ae5dbbd01a05dfdba51a094a278f91b4"
+  },
+  {
+    "path": "source/legacy-services/browsing/yt2009templates.js",
+    "sha256": "9ddbd8476b19642085dede89746aea153bbdf2f23d8736bcf84820bad27e080d"
+  },
+  {
+    "path": "source/legacy-services/browsing/yt2009utils.js",
+    "sha256": "ae76b3f270bf76ada225f103dca588e8979c346b51841a0f90d17f0a37e38edf"
+  },
+  {
+    "path": "source/legacy-services/build.py",
+    "sha256": "214fc11b8daa829699552d0704f17a96c4d55769aeba942d27940045ba42a3c6"
+  },
+  {
+    "path": "source/legacy-services/build_pixel.py",
+    "sha256": "77acaef3fc92e9db766c58990f3e282beccfc91dedf17a3f3187563346333f51"
+  },
+  {
+    "path": "source/legacy-services/build_trust_store.py",
+    "sha256": "8f650c4645cff38507650dbada267c981bfaf159847600a1005c710770cca4fa"
+  },
+  {
+    "path": "source/legacy-services/common/codec/AcknowledgeInd.java",
+    "sha256": "7a27bb4b9d56613afafb3772c3b77c12fb3df2415d7dc502a91faae42ceccf16"
+  },
+  {
+    "path": "source/legacy-services/common/codec/Base64.java",
+    "sha256": "fb8f6f0521f990b8bf93c10eadf2a157bb542b635488da9ffee07869ecad6699"
+  },
+  {
+    "path": "source/legacy-services/common/codec/CharacterSets.java",
+    "sha256": "8d54b89ab6c653bc72fa87be60f970cb7da5968d3c243bcbdd481553efb6b15c"
+  },
+  {
+    "path": "source/legacy-services/common/codec/ContentType.java",
+    "sha256": "7cfcc93cd7f60f20a44ad142ca165ebcc2c764e67f001fb57d01fd341afb67e5"
+  },
+  {
+    "path": "source/legacy-services/common/codec/DeliveryInd.java",
+    "sha256": "f62e3bc099558cfbf6e6227cd51b624db0524ad53d93a497edbe8af2e3797d61"
+  },
+  {
+    "path": "source/legacy-services/common/codec/EncodedStringValue.java",
+    "sha256": "036f6105a16e90bc1af153d7c06ecc74446ad331f10d303bf6f239398dad37e8"
+  },
+  {
+    "path": "source/legacy-services/common/codec/GenericPdu.java",
+    "sha256": "d28ea019238de1bbc0b01147fab8b2c651b10440f4e41307978ad617b744df7e"
+  },
+  {
+    "path": "source/legacy-services/common/codec/InvalidHeaderValueException.java",
+    "sha256": "91c7cbb7aa60e8f6a57601f3cd7dba66cc9ae2ba35f7ac9a7737d85b852dd628"
+  },
+  {
+    "path": "source/legacy-services/common/codec/MmsException.java",
+    "sha256": "3f85555879bb9a31c80c828848070ed82d0fcba4e35901ad000e3656f6c4fbb7"
+  },
+  {
+    "path": "source/legacy-services/common/codec/MultimediaMessagePdu.java",
+    "sha256": "35fb19ac52beea35482b67552ca96fe2c5bb1259ce38ce4a34865818855251e7"
+  },
+  {
+    "path": "source/legacy-services/common/codec/NotificationInd.java",
+    "sha256": "f8c74865a3e27943d35e79459a6a575fa351a865c4990389ba17b4351dfa3a11"
+  },
+  {
+    "path": "source/legacy-services/common/codec/NotifyRespInd.java",
+    "sha256": "9a9cf3c18974c71cfb353b9d37df14720350f7d457657a070e28ac6f76ec376d"
+  },
+  {
+    "path": "source/legacy-services/common/codec/PduBody.java",
+    "sha256": "2a2be6282d59fd31537e9ffe16807360846d89a86a11285daeca377aa652b162"
+  },
+  {
+    "path": "source/legacy-services/common/codec/PduComposer.java",
+    "sha256": "e08658b36933b1863231ab1ad2c6cf7fb5fd7ba290adb9ea40daebd4f869e28e"
+  },
+  {
+    "path": "source/legacy-services/common/codec/PduContentTypes.java",
+    "sha256": "f45de25d6fd425a9b49d8c812feb0acf0e97c0f1104fa6990c71c385e6322d28"
+  },
+  {
+    "path": "source/legacy-services/common/codec/PduHeaders.java",
+    "sha256": "fa02e784b114e3499c7b623d836c9314b32c56fb34398ef5af7dc31fc2ccd392"
+  },
+  {
+    "path": "source/legacy-services/common/codec/PduParser.java",
+    "sha256": "044c3c9f651e4ee1427b55638178cbd28e64c0a2ba5a144cf343885dea5f8ad5"
+  },
+  {
+    "path": "source/legacy-services/common/codec/PduPart.java",
+    "sha256": "0939a89be45f84e8e9403a169698879460e297fe65be72b03c2e688371a3617a"
+  },
+  {
+    "path": "source/legacy-services/common/codec/QuotedPrintable.java",
+    "sha256": "c4a756f9faa9c7e1197bad56ec5c4710cba2a0941fcae80cd0f7f4444f48642e"
+  },
+  {
+    "path": "source/legacy-services/common/codec/ReadOrigInd.java",
+    "sha256": "8509e7124b20d47e674695df79383982a6fb58870dce3d4898ae969ae3ec8a90"
+  },
+  {
+    "path": "source/legacy-services/common/codec/ReadRecInd.java",
+    "sha256": "c242d69a8f49c940c183458ebd407859a629758f9ede69921e719a4a2981abfb"
+  },
+  {
+    "path": "source/legacy-services/common/codec/RetrieveConf.java",
+    "sha256": "aef46f03e22d81964ea06156ad571dce6da1351b18ffb09874f1363c34ce3a62"
+  },
+  {
+    "path": "source/legacy-services/common/codec/SendConf.java",
+    "sha256": "581289b18ef57d5e0d515b87cf34dc27e62a836dab225f7ddb7f4b13b640fdb2"
+  },
+  {
+    "path": "source/legacy-services/common/codec/SendReq.java",
+    "sha256": "3abb945561168efc94fa185a2ac4a1677c98849905077de3bcd38cbcef71167e"
+  },
+  {
+    "path": "source/legacy-services/common/MediaPayload.java",
+    "sha256": "84592dc7d85eda5f612e023bec1ccc6373f731ad124a6a3fdd00d3a5e514db1e"
+  },
+  {
+    "path": "source/legacy-services/common/SocketWorkers.java",
+    "sha256": "7b2dc36e8f2a3a60f4437f667839c12ac6446dc4097d1e49088d41a4746eb70b"
+  },
+  {
+    "path": "source/legacy-services/common/Wire.java",
+    "sha256": "0f02460d9422895a12ca16b2a0c2b43731117fa8145bc269bc2587e534c4734b"
+  },
+  {
+    "path": "source/legacy-services/pixel/AndroidManifest.xml",
+    "sha256": "b0ab1ee0dd5a3f7e4a5d77dc4fdadd4bfdfdc08a893272417bf1b7857bb90570"
+  },
+  {
+    "path": "source/legacy-services/pixel/assets/catalog/catalog.json",
+    "sha256": "61145e5bc6da094bbad1223eb0989f12a3b6b2de9c008f2c65cb6ada63c648db"
+  },
+  {
+    "path": "source/legacy-services/pixel/assets/reddit-reader.js",
+    "sha256": "4403c95d5bc66b0a82fe793af675ae38ce59a431ecad3e30633a04ce5c4d06f4"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable/companion_foreground.xml",
+    "sha256": "d94891e9ba22d426f843660f7c8fcdc3a538ed8914026151f9bc352220b9998a"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-hdpi/service_foreground.png",
+    "sha256": "0f561819b75806f328e2e7efbcfe10d05b63fbc5de5693466dfb10018c455aa0"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-hdpi/service_notification.png",
+    "sha256": "e6656c16df8ba1816e1b7e438c44b6a0bf2527c54bb4c9818b9119e9ff3f9187"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-mdpi/service_foreground.png",
+    "sha256": "d695dcfadfb4d8b11e3f3ce88378f6eaf3d706da1b4448ff87590e3d20fadbfa"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-mdpi/service_notification.png",
+    "sha256": "54e8aed8f577b263fe475e790b9c1f27ec24723d7fb69df88d7dfd1e113c0771"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-xhdpi/service_foreground.png",
+    "sha256": "eaa3d497a3779d225ea0bd3134daa1cc001afb9481ef238c68605a9ce59d0f8c"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-xhdpi/service_notification.png",
+    "sha256": "8c643f874dabd64d9f02bcef9591147e5c9af8191822afba2475a7aa5ec76764"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-xxhdpi/service_foreground.png",
+    "sha256": "899baed80aa3c4c76a80623c60fe3849c58a95ad5c335efd4f6908ddc4a7d916"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-xxhdpi/service_notification.png",
+    "sha256": "911adaa00f444632264630ba7a7ed92163097eee6b05fee6cc8a09a27b4eb262"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-xxxhdpi/service_foreground.png",
+    "sha256": "098deebeb9da13e786d096efad45ed2291112e95cfc2aca9e55aab439a0aee2e"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/drawable-xxxhdpi/service_notification.png",
+    "sha256": "9dbd6d45ef5bd8cf255057faf0eed7988536b6f1fc9a8e75a54e5eac237b6d36"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/mipmap-anydpi-v26/app_icon.xml",
+    "sha256": "cc4203db3068157c9f9d96cd6d8abefae6246aa90435e10e83254a18326d30c5"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/mipmap-hdpi/app_icon.png",
+    "sha256": "e266c7548ee0923560dd0830f607d9e046e0e9dba1bc1dba52f757fef2243217"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/mipmap-mdpi/app_icon.png",
+    "sha256": "ec733d7459a27e2f8a4302b7c5d7303a4d6853de715324b2f34f0f93dbf8dae0"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/mipmap-xhdpi/app_icon.png",
+    "sha256": "cb1ef9bbf2d9daa5ceca82260a3cbc182cb0d7d91a5f2561f8977b93af6ef7da"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/mipmap-xxhdpi/app_icon.png",
+    "sha256": "cefece29aeb855dae9bbd1c02e4631c2ec2a2ff6a18aeb75e4d2a5fba23a3045"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/mipmap-xxxhdpi/app_icon.png",
+    "sha256": "e166cbeb90eb1a88f7d0d2781f4b238530b94ea3b7b06b20822c416ff32f177c"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/values/companion_icon.xml",
+    "sha256": "4addd22dcea1e16cb8e7f21d0fc4d3bd55a3558e4f737a788d69b61276a5ac51"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/values/icon_colors.xml",
+    "sha256": "8add6274bcfd56b05ced180e9aa50e5eb58d3be18ebeed2978451d515726c16f"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/values/themes.xml",
+    "sha256": "08a3a95f3cc14d63b1427e246ab8f548d5fe4f5a71c8b225c012a0957ccb8897"
+  },
+  {
+    "path": "source/legacy-services/pixel/res/values-night/themes.xml",
+    "sha256": "4c83c3df6c51b1d28f1881315a6a652c28428b854ecf3824c02297118b43364a"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/BootReceiver.java",
+    "sha256": "95c13a2257b93af8b1f2d21b317106eb3c2239471f341a2c89c67643e081ff24"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/CalendarFeed.java",
+    "sha256": "22b04ec9e503a569a1a43977544b8d07b42e6c43621aeb8f7a3a659fbed0167e"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/CameraBackupEndpoint.java",
+    "sha256": "0cd4d175c428445732f99a5ecef9b3a1638af0f2e2b8f01b36a1b9d5fdc2cf6c"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/CatalogActivity.java",
+    "sha256": "2b9bc8ad1e1937e70b3f74ba1a09f0d282eab724439e140c21c761dc815e1803"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/CatalogEndpoint.java",
+    "sha256": "9fce0731fd5f83cca8780af0b15f461a72ff513ccbb8d5b348466eb62724aac4"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/CatalogLibrary.java",
+    "sha256": "83c43b5611a6f43292f74fe8b54fa7c570344364a5351b255825e977d3015673"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/Certificates.java",
+    "sha256": "553ad8fd1ed4b5c891d848701b1f1cd24754e9bed57630e851738b9960cb921e"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/CompanionApp.java",
+    "sha256": "18bbf403717a983695a2b1e8213b830ffa90d56c322560cb217c82bcf3c7dff9"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/GmailEndpoint.java",
+    "sha256": "746cfb896349352d09e94ab79df4b1dcb9ec9c5a90f80e348524026e043cf19f"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/HotspotLink.java",
+    "sha256": "932f45d1d6e1b1ca0ed0642a07b3cf8e3d76bcc7a1733255bb1a8d8664b76a68"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/IncomingMedia.java",
+    "sha256": "68d2a05609d91dace10a50d27e4992b64ecb55208d23022b3b386a38f9be9fdd"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/LegacyService.java",
+    "sha256": "9b335aff8c975363acf36649e4c460cd2583c86e5ad8ebf8edd52bc328b3d7ef"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/LegacyTls.java",
+    "sha256": "c80c451dc7c4db232b2f3144631e739a3daae7683b37d836518d1c7047952ffd"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/LibraryImport.java",
+    "sha256": "2b7a7e2431ccd801db5fbabecfe98e02a7e942fd96d9347b3582291776edcef6"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/LocationFeed.java",
+    "sha256": "f77c0add9dc74a0d0b1fd7b781f64b6454bb48ea9e99eeb2cc19f2ff197a2f76"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/MainActivity.java",
+    "sha256": "a9f198ed7ee047034226c4a7d7e42506ce6d9777c53aabc41a18f593d537afcc"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/MediaEndpoint.java",
+    "sha256": "ae162290d44a552a3bf96163bf4ed4b725d2f6d7316f46d8f8afc2ccf9acae1d"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/MediaJobs.java",
+    "sha256": "0f2acacf0477bb11367a6eac05f929708035ccd5c7d6ad7ca446f58df1d82100"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/MediaPdu.java",
+    "sha256": "cb370f5a376a33dcf2bffffe77497e404b8b64c516218eeb8633f72059a3b8b8"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/MediaPduProvider.java",
+    "sha256": "343fb0d120d9231ab06ed337dcab863c04610c6cc2d92b40283f1dc0f82b532e"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/MediaRelay.java",
+    "sha256": "b8278db04e0eba3d438e867f9b99404e81d44b6b451064f1ea397047cec505ea"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/MediaResultReceiver.java",
+    "sha256": "a6dcf37f3d24055b77868490d8a9057e4e328b9ba54977877870670619898f69"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/MusicEndpoint.java",
+    "sha256": "e3ddc37833456c5035cae97cf3c5035dd1b2f86f07ee5ecc41f7febfd745efe8"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/MusicRuntime.java",
+    "sha256": "1d04c4962b7c5a594adea01b49197cafa322f2b3d244deb6f08b32b214f5adf4"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/PlatformText.java",
+    "sha256": "6faafdca8b01c178131b9d2dba412316569c2edda2fdf3212e68085863246c92"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/PlatformTextJobs.java",
+    "sha256": "48e874b39155111b0d02751ae9f5927d54f8d9063276776f4eb9566be0d6f69c"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/PlatformTextResult.java",
+    "sha256": "a389bdc5602d41279a69e9eca8525b45747b7ba0cfdf8ececfaf88d4274ce244"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/ProxyServer.java",
+    "sha256": "17f5e5aea1ebfa334ae9afa442bc7241c55e4fc7bd467d558d6ee2447ecf6fdb"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/RcsEndpoint.java",
+    "sha256": "9c40f6bb43ad610b6c2878c227e7e24490faece572df739e66b2a9c85b02844f"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/RcsJobs.java",
+    "sha256": "74d512aa786e5c7c87ae641b8885b8a815a6250753d62600b0ffc9321e078cd2"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/RcsNotificationListener.java",
+    "sha256": "1a7e5ac4fda92bd8eaa6449d9aa571c113c18a49911f4951dba62cb776390bb4"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/RcsRelay.java",
+    "sha256": "d863d6ccb34a1648aa829daf727d5ae807bd97768b0b0e7311dd0a5d0ea34700"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/RcsSetupActivity.java",
+    "sha256": "7ec31e17666f55404d30bc8c4db67f389556d9795469e4bdfc12dad458f4dab9"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/RedditBrowserService.java",
+    "sha256": "75a81d0cfb7fd50011a20127810032839d58637856eac1c95e03ab87c27ec013"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/RedditEndpoint.java",
+    "sha256": "a81f31a96d8a6378b2c63adf961d65822240f2413814cceec8638f7df03945ed"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/RedditLoadPolicy.java",
+    "sha256": "4a7cc5cffd8ea37f1c53837a4fbed8968157b3c408d50f79db15b842f292a419"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/RedditWebEndpoint.java",
+    "sha256": "1895319578fbbe110348e39c2d7a89eb3fc2be83622e6987e4b3d8dbee0e6a22"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/SearchEndpoint.java",
+    "sha256": "6062419aa548403419f11f840fb7442d282122ea4e980df320dd60c174ba19b8"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/SearchLinks.java",
+    "sha256": "820a87b487bf665b4649ef9cfba0298572382c4492f6d6d7bb7f2ed403fff6fe"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/SpeechEndpoint.java",
+    "sha256": "315eb3c4a0b534c237daf8e6c186c1a1744541b08dc2cceeef28935298c88889"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/Weather.java",
+    "sha256": "c7e364cfd20aa8a8b0fd72f35cc6b04bf1a392813430b1765e897a58a7408ebc"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeAccountFeeds.java",
+    "sha256": "90eb02f885f612e4af8b36ca2ffacd42347996d605b6766acfc1478159c71f1a"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeChannelSearch.java",
+    "sha256": "72ab6b5873e36671b2e4e462685b978a1d6a43ce4b6ac912408080dc453865e3"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeComments.java",
+    "sha256": "9dcf56eb5d1aaa1c654b36f4d0d5794769efa32f569ff7ead5bc6eb95fb5c7d2"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeControls.java",
+    "sha256": "9405d3771139c2c3b437d5cb1938fbd92ea903c32cc30e8af93ff0eb0f0b076f"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeControlXml.java",
+    "sha256": "210e08257cf090dd0388ce119feb5af7729eea55d883b04446d6aadc2a634706"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeLibraryFeeds.java",
+    "sha256": "8241b22d5c80def7499d2956a7ba2e927c245c166453db4d1eb51242a3f397ad"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeRelay.java",
+    "sha256": "93fc1bdcb6b33a2b5c3a097b3aab2ae22ded926f598a36d18502765a0df0b758"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeRuntime.java",
+    "sha256": "b8f0eaf631bd0fd47e4685fe058ea8a172a623cb4b2dfc112653923528c21848"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeThumbnails.java",
+    "sha256": "32bc0361e61cf9597697da30630de9fde3ef41d606388228d91982c05554086a"
+  },
+  {
+    "path": "source/legacy-services/pixel/src/YouTubeVideoFeeds.java",
+    "sha256": "257d800e9bb64cb89a9cce62c648fc3a0f11f1a67abe9257b64185526a9803d3"
+  },
+  {
+    "path": "source/legacy-services/pixel-gradle/build.gradle",
+    "sha256": "5d82a6becd5cb7e5782338acebc6216def44721e49d17c88c0bf5f7f8e660e63"
+  },
+  {
+    "path": "source/legacy-services/pixel-gradle/gradle.properties",
+    "sha256": "64b8433fbc67aea07a10f2c9957bce55d4f2dc19ee481faa24b8c0f394676c86"
+  },
+  {
+    "path": "source/legacy-services/pixel-gradle/settings.gradle",
+    "sha256": "ad385adb8620aca00b5b0c8c7ecf26da9a8d1a6f49312b1f6111a930bbf8a834"
+  },
+  {
+    "path": "source/legacy-services/s2/AndroidManifest.xml",
+    "sha256": "9c7347c4b9c1581f8910ecb287c2e88f6959adab0eac5313ac08a2db93dd69d8"
+  },
+  {
+    "path": "source/legacy-services/s2/legacy_discovery.c",
+    "sha256": "427e31a0d038cd9c4c522e78a6a5c5ec28a083cee080edb148a62604b7ce1453"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-hdpi/app_icon.png",
+    "sha256": "e266c7548ee0923560dd0830f607d9e046e0e9dba1bc1dba52f757fef2243217"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-hdpi/service_notification.png",
+    "sha256": "6f3e97bc3bbedbe4e957466a9ee5f1f6ee35f38392457bc43db3b67600574160"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-mdpi/app_icon.png",
+    "sha256": "ec733d7459a27e2f8a4302b7c5d7303a4d6853de715324b2f34f0f93dbf8dae0"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-mdpi/service_notification.png",
+    "sha256": "21f9d657c62621ef80e2eb1e3ee83a1156936c52bbe4f6f4a0dfc2a06e210bf5"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-xhdpi/app_icon.png",
+    "sha256": "cb1ef9bbf2d9daa5ceca82260a3cbc182cb0d7d91a5f2561f8977b93af6ef7da"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-xhdpi/service_notification.png",
+    "sha256": "24b330f5effdfda42432b664db7f9a8578d367f46d83b62fea44158de67e284e"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-xxhdpi/app_icon.png",
+    "sha256": "cefece29aeb855dae9bbd1c02e4631c2ec2a2ff6a18aeb75e4d2a5fba23a3045"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-xxhdpi/service_notification.png",
+    "sha256": "407cf1b640c895b8feddc1df809bed4d7fc1e18d627a2a76e2e27cae710bf6c9"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-xxxhdpi/app_icon.png",
+    "sha256": "e166cbeb90eb1a88f7d0d2781f4b238530b94ea3b7b06b20822c416ff32f177c"
+  },
+  {
+    "path": "source/legacy-services/s2/res/drawable-xxxhdpi/service_notification.png",
+    "sha256": "75ac579b2838ccb5db282f686e033f52803a1a15505f5d95833b025c4def79a6"
+  },
+  {
+    "path": "source/legacy-services/s2/src/BootReceiver.java",
+    "sha256": "8db70186971eab667a73e166ab7d4b5222372e4a105ae62e129b7a00e4c5c884"
+  },
+  {
+    "path": "source/legacy-services/s2/src/CalendarAudit.java",
+    "sha256": "1e39e0c8092582d6b32c19e07c4374291421bd31eaebea1f4a1d347a160533f3"
+  },
+  {
+    "path": "source/legacy-services/s2/src/CalendarMirror.java",
+    "sha256": "01d6367809e21c109d6160d35f07015499938bca15feb1bcf0df7918fe60177d"
+  },
+  {
+    "path": "source/legacy-services/s2/src/CameraBackup.java",
+    "sha256": "0419ea70b75f1ded8425993993e3030332864bac0199eedd471ca4c0547bc269"
+  },
+  {
+    "path": "source/legacy-services/s2/src/CompanionControlService.java",
+    "sha256": "d40b0b6c34d4e30646c4c7dc2426ac314727f3d584bf6ad77c108405405d645a"
+  },
+  {
+    "path": "source/legacy-services/s2/src/DeviceLink.java",
+    "sha256": "dba307706d2f99701edfb37e2138ee93e86a570aeebe5119d41b58d6d68fc9ff"
+  },
+  {
+    "path": "source/legacy-services/s2/src/HotspotLink.java",
+    "sha256": "529f9b0c9bb925f9daf8ce20b4191acfd393d7b704ecc48da8b5624074f5ae83"
+  },
+  {
+    "path": "source/legacy-services/s2/src/IncomingMms.java",
+    "sha256": "06d7b595a450ded0b92428a272db1b8d65b8365245f03c677918efe2a3ecd0d1"
+  },
+  {
+    "path": "source/legacy-services/s2/src/LegacyDiscovery.java",
+    "sha256": "a679ad0e9da0b6cf0714e0772ec8a88002d1c21c5dcc0c2c3e69b91b59375191"
+  },
+  {
+    "path": "source/legacy-services/s2/src/LegacyService.java",
+    "sha256": "cb863edb021513e304303c53662da7edc22fe782ffad12d59b0c27cfd35e7b3e"
+  },
+  {
+    "path": "source/legacy-services/s2/src/LocationMirror.java",
+    "sha256": "b70e2e7a341e875ca2ed6f3db82de0240e78f460f8be25aa2c480fe1ee4e328c"
+  },
+  {
+    "path": "source/legacy-services/s2/src/MainActivity.java",
+    "sha256": "2a9c159cb680e31ade57209db00eb2715fb4396719df06904cc143812d5afedd"
+  },
+  {
+    "path": "source/legacy-services/s2/src/MediaSetupActivity.java",
+    "sha256": "bd34c119bfd7d47a22921be799dd67f809c12b2fac93212aa44efa69bc5be70f"
+  },
+  {
+    "path": "source/legacy-services/s2/src/MmsRelay.java",
+    "sha256": "2c5af1e3773022a0084000666e0b6ae72ce57df6f508d1ec7c890b881863cc07"
+  },
+  {
+    "path": "source/legacy-services/s2/src/NotificationLinkService.java",
+    "sha256": "a61d85402330b0c12f2a708bd2242d00cf9b9763b99423ff34a7133b8e7ecacc"
+  },
+  {
+    "path": "source/legacy-services/s2/src/PixelRecognitionService.java",
+    "sha256": "ee11d3467a8e3d131f03be7ba74302a2940ed61911f1d6ada5e5e934a747644d"
+  },
+  {
+    "path": "source/legacy-services/s2/src/Probe.java",
+    "sha256": "adb8f1be3bfa7e0e5be1ea12e8534b75fda18145522a4bfad570a3e640629059"
+  },
+  {
+    "path": "source/legacy-services/s2/src/RequestWifi.java",
+    "sha256": "45a49ee2a816ee8d798871277ca9ba2d437ebc56d0265cad04de8db4dceaa3d7"
+  },
+  {
+    "path": "source/legacy-services/s2/src/SpeechActivity.java",
+    "sha256": "19722fe083a5725183e8c1ab1d12476254e2dc9b423d650fe0784c7b6d33d997"
+  },
+  {
+    "path": "source/legacy-services/s2/src/WeatherProbe.java",
+    "sha256": "9156e3bd2a23e3011492236566d00814bc55aae45cc8b47c9f4a66f37c92e075"
+  },
+  {
+    "path": "source/legacy-services/s2/src/YouTubeLocal.java",
+    "sha256": "816fde57fea65c2e9f87d32dfa392ebc177335bca240530abf7807efb66c4fd3"
+  },
+  {
+    "path": "source/legacy-services/s2/src/YouTubeSecure.java",
+    "sha256": "0f305e6d3faa0edd27cb3ef09878a0bde5c6707bbe65ac49ed327493c4547179"
+  },
+  {
+    "path": "source/legacy-services/streaming/build_youtube.py",
+    "sha256": "ef9e4662c76bd771bcdf7e4b0b6ec06ab09490c9fbedccd6a67b71602a8cd7ba"
+  },
+  {
+    "path": "source/legacy-services/streaming/galaxy-stream.js",
+    "sha256": "6622e49f5533c3375299c6e043f7746961b0416b1648eb5d4e6a3122ca942230"
+  },
+  {
+    "path": "source/legacy-services/streaming/patch_runtime.py",
+    "sha256": "3fed4dd1ef85a5b3b301e2e5b0b9e9fbefe3ffdee97b7c3cbb69826540874a96"
+  },
+  {
+    "path": "source/legacy-services/termux/configure_startup.sh",
+    "sha256": "2ad6b289114b5e56c9724a18c0c466e965067b1b0e4fa4b15d3694627beff835"
+  },
+  {
+    "path": "source/legacy-services/termux/galaxy-init.js",
+    "sha256": "4d57a7c292d7029756f6cfaea89ac763ca515789d1d24da842dbeb0a9aeea846"
+  },
+  {
+    "path": "source/legacy-services/termux/galaxy-youtube.sh",
+    "sha256": "dbd58a4a13ec1434217044e0915ab8fcd63ad2684888d4d63be18e49297ff825"
+  },
+  {
+    "path": "source/legacy-services/termux/install_packages.sh",
+    "sha256": "5e92a5f56cf09ed0644981fe01740402a3fab48962df42400d0361dd0fd0c7ca"
+  },
+  {
+    "path": "source/legacy-services/termux/prepare_youtube.py",
+    "sha256": "be632f369d01df3570053964089aeec88c27322e955cf1905a492cc52c693ce4"
+  },
+  {
+    "path": "source/legacy-services/termux/setup_backend.sh",
+    "sha256": "5ac4a43983f2f15d4a3d1e5d64e1ff4a0aa229f69b7357013f0e7bd1a5b8d867"
+  },
+  {
+    "path": "source/legacy-services/termux/sign_youtube.py",
+    "sha256": "4ea91fe876dd50caea48dc4249f5db52b7b97f07281b676f66e4315e7f1d056a"
+  },
+  {
+    "path": "source/legacy-services/termux/upgrade_packages.sh",
+    "sha256": "5597ec080cc80c642c831b8627d3c42204bed929d6d62a8e9b6d395da0756e8c"
+  },
+  {
+    "path": "source/legacy-services/trust_store.c",
+    "sha256": "19c32e82ee2b6f7fc440526d8f6805459cf86ea94b66d5f7e843721fe3fecbbf"
+  },
+  {
+    "path": "source/peggle-debug-tools/build_atomic_fix.py",
+    "sha256": "501100c36d4a813a901e29a74f732bbfdf9f9c91af9cd1d32e1611a620af39fb"
+  },
+  {
+    "path": "source/pixel-consolidation/build_google.py",
+    "sha256": "6a77199b0ec77bdcdeec9d41b5599e66a56062ee0732764a1fcd0c970d8ec428"
+  },
+  {
+    "path": "source/pixel-consolidation/ui/org/retrobridge/companion/ui/Ui.java",
+    "sha256": "349811b1c4964ee43615d04b64e8e2a333c75b69c139b00e003c6f22ccbd37d5"
+  },
+  {
+    "path": "source/play-store-investigation/build.py",
+    "sha256": "f32be50664121dcd2a459c0274febed9df92801c4f408de718d5db59ceafe071"
+  },
+  {
+    "path": "source/play-store-investigation/installer/AndroidManifest.xml",
+    "sha256": "851f2945f849cfbbbff51e08afce9070aa9e0b308cb3741f8d434a2011eac1f0"
+  },
+  {
+    "path": "source/play-store-investigation/installer/build.py",
+    "sha256": "8b84009578e778a8075c7f5b958e023fab77427cdd48ea619e8882a5826e1a73"
+  },
+  {
+    "path": "source/play-store-investigation/installer/CallerCheck.java",
+    "sha256": "30b5524d2a732c70443ea7628b6de3e0da9bdab17594d7e5ce48af7636da671b"
+  },
+  {
+    "path": "source/play-store-investigation/installer/VerifiedInstaller.java",
+    "sha256": "07d33497d98f4e1de59a15953e97adbcf744f7da1f0e9cbf84b5719391264ac3"
+  },
+  {
+    "path": "source/play-store-investigation/src/CatalogArt.java",
+    "sha256": "a808968c9380d9d9d9d2131b462f021d7734bf95317788f2bddfa2b304618ac1"
+  },
+  {
+    "path": "source/play-store-investigation/src/PixelCatalog.java",
+    "sha256": "658fa3d5ab11f20ec107c575bf2619aec9206b1c52d1c766a4a3f2dac33cae46"
+  },
+  {
+    "path": "source/play-store-investigation/src/PixelInstall.java",
+    "sha256": "194e598a164c7955b7739985583fd6cef3964325d7655b9ee239132ca36a481c"
+  },
+  {
+    "path": "source/play-store-investigation/src/PixelInstallerService.java",
+    "sha256": "5cc41ee2ee8dba68a5adcd7bdb947f63b389484f812eb38da785dc435714601b"
+  },
+  {
+    "path": "source/reddit-compatibility/build_rif.py",
+    "sha256": "1c73d7c2f678036db7e38cc4c9f60dc6453f10f2c98762140eb50188b5c93812"
+  },
+  {
+    "path": "source/reddit-compatibility/media-v05/galaxy-reddit-media.js",
+    "sha256": "a142196060d189ecc7559976da9b169c734167d26b775713aab61cea76785124"
+  },
+  {
+    "path": "source/sms-companion-v12/AndroidManifest.xml",
+    "sha256": "749f35ef042edd44d81747ba245df2b1ddea7dadb6a285e23984e0c66cbae7a0"
+  },
+  {
+    "path": "source/sms-companion-v12/BootReceiver.java",
+    "sha256": "f6768c1e6bf9e5898db95ce39e46416bf45cddd507b48f4d23a97df47f0bf699"
+  },
+  {
+    "path": "source/sms-companion-v12/build.py",
+    "sha256": "1162e2f385cf0daeff32afcefedd85311e42323e7e124b4d63181c817a10826c"
+  },
+  {
+    "path": "source/sms-companion-v12/CdmaCodec.java",
+    "sha256": "4d515a128647bc053b985a73a35d024d70e693f04c40d571f2451fe0f79f231f"
+  },
+  {
+    "path": "source/sms-companion-v12/CompanionService.java",
+    "sha256": "de072cb41ca99159217c4f78eabf5b10cb6b5574c4f840807c334ab4f29d8c2c"
+  },
+  {
+    "path": "source/sms-companion-v12/hfp_discovery.c",
+    "sha256": "695064df289864235c6e2e06d68b07468d3d071c0d479f6d567a1924e0a6e71f"
+  },
+  {
+    "path": "source/sms-companion-v12/HfpDiscovery.java",
+    "sha256": "d7110dc6b58c3989a4368e6011bd7906f3bb7a20e56d324f07c4202a7664e507"
+  },
+  {
+    "path": "source/sms-companion-v12/HfpProtocol.java",
+    "sha256": "5f199a7aca7df2f42ebc85fd42ea3f2a43709e8369cf8c78cd83f7cfeab61b8f"
+  },
+  {
+    "path": "source/sms-companion-v12/MapBMessage.java",
+    "sha256": "a4035e19fc3bdf04b2f880932dfaef3bd35dab4f13ffbd3d29a17c2faed392f3"
+  },
+  {
+    "path": "source/sms-companion-v12/MapClient.java",
+    "sha256": "e3d816eef971f528bfe29018947c5bb3b9c515379ce8c8df66c880e006924fc1"
+  },
+  {
+    "path": "source/sms-companion-v12/MapMessage.java",
+    "sha256": "53acf7c5bdceb8bd3eceef4545340b96bfe613145b49a810739beb1697a34f7a"
+  },
+  {
+    "path": "source/sms-companion-v12/MapObex.java",
+    "sha256": "91e24a511aa9b2a58e132622d0194f12adef6721f5a20181889e40c62d9dce7b"
+  },
+  {
+    "path": "source/sms-companion-v12/MicrophoneBuffer.java",
+    "sha256": "1ab2ab607cde9ec52e0f80f242cddfa5b8ccaf5c0cbee07a554ac90265b1b623"
+  },
+  {
+    "path": "source/sms-companion-v12/MicrophoneGate.java",
+    "sha256": "1b10e6c5003cb046e3ce8fbdb280c958cafe378bdd548a02811acc1b5ed8f698"
+  },
+  {
+    "path": "source/sms-companion-v12/MicrophonePacer.java",
+    "sha256": "fbbd4b0a096c2c0c6c03ff243da8c1c5ccc9269e3969bef5987403cac7aaf2be"
+  },
+  {
+    "path": "source/sms-companion-v12/NotificationCoordinator.java",
+    "sha256": "5ed382e9bc4a418251b76436bef63aae975231f93f4683635a8adb3658983a75"
+  },
+  {
+    "path": "source/sms-companion-v12/ProbeActivity.java",
+    "sha256": "c69fdc3f547b3d7f337e52522f94023d10dde3ec0373f35e5541d3b5877775b4"
+  },
+  {
+    "path": "source/sms-companion-v12/RcsClient.java",
+    "sha256": "adf25c7db37a117da4361c904bbe72344f897875f62ecb77de558b8708c2e088"
+  },
+  {
+    "path": "source/sms-companion-v12/ReconnectPolicy.java",
+    "sha256": "8489c70922dabd65de661070a98905ef7a073c46e0e28e84f93586a6d5c62821"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-hdpi/app_icon.png",
+    "sha256": "05a63bce634bec25d1f677db136da67d8b010bbe528d8beed2bd3acc79a11016"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-hdpi/service_notification.png",
+    "sha256": "e9d0d91df9a14c8c502ce30aff42b3862e93c26a9637bcf555e1b7093d3c94df"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-mdpi/app_icon.png",
+    "sha256": "06939b1b6f7b6a0222731b9e747186377e4614a5af9126a812765c37c60abcf3"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-mdpi/service_notification.png",
+    "sha256": "a645fa11d13972b323db1271c52524001fa24106158b49f4975e5a9a7b845909"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-xhdpi/app_icon.png",
+    "sha256": "e21d8d937975a414a1a956eadabd68c8e3b972ae9d5eeea3a6c50b076e613c4b"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-xhdpi/service_notification.png",
+    "sha256": "e083db47a069712952f5590dd6147874979eeec9be42596c105d92dbadcf41e6"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-xxhdpi/app_icon.png",
+    "sha256": "9a10f2404a9d7226e41503b96a38d6acf0b82070289c75d8551f801a820524be"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-xxhdpi/service_notification.png",
+    "sha256": "e484a06dde879c0d97b2d60ef6127432d86bf2b0599cc65965ce536a1a20b182"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-xxxhdpi/app_icon.png",
+    "sha256": "01258039f95af6bc0f33c4ea7876db548fae5d5c6227b6a91c09835f513c98c0"
+  },
+  {
+    "path": "source/sms-companion-v12/res/drawable-xxxhdpi/service_notification.png",
+    "sha256": "a11c25baf6309a60df2be957d0459017733e324f38875a274b9de1ff11833584"
+  },
+  {
+    "path": "source/sms-companion-v12/SmsDelivery.java",
+    "sha256": "bdc418fe2f3055fa307c6f03d3a0494f8dece8333c76246e7884c4d594fdf524"
+  },
+  {
+    "path": "source/sms-companion-v12/SmsJournal.java",
+    "sha256": "a32c3a9a3a8b679fc8f7dcd08b0c83a76c00f83562de1f4dacb5489f3daca49c"
+  },
+  {
+    "path": "source/sms-companion-v12/SmsPartPlan.java",
+    "sha256": "88b865ea23a68c6557d2de7956beb8422a637dc1cea822ab500ed35851bd45fc"
+  },
+  {
+    "path": "source/sms-companion-v12/SmsService.java",
+    "sha256": "d2fe0397ca0cc2d9415862971f47ba6b97f621cb0defaf7e8a7d4d5e4ac760a9"
+  },
+  {
+    "path": "source/stock-bluetooth-fix/build_patch.py",
+    "sha256": "3058f72adff9f3915284eb56261705692b017e14a9dc4ec72c78051d18c24dab"
+  },
+  {
+    "path": "source/stock-bluetooth-fix/build_validation.py",
+    "sha256": "37074a6752a7d8729303c84dbfeff93b5dde6e20a68397bb4885520c7691abf1"
+  },
+  {
+    "path": "source/stock-bluetooth-fix/compat.ld",
+    "sha256": "ee5e7f2960a4aaa3ee130f1366e0d6c650cc68a2ba2df450eb6d4e4fb6057f77"
+  },
+  {
+    "path": "source/stock-bluetooth-fix/compat.S",
+    "sha256": "18b03f1faab417bcdfd82d2ffbafbd439038716f5d86f16d263e8c55a1a9d029"
+  },
+  {
+    "path": "source/stock-bluetooth-fix/validation.c",
+    "sha256": "af00a7b9c42f41fd30b93d41d30fe601d9ebae4682b4a5c5fb668787007c6700"
+  },
+  {
+    "path": "source/stock-bluetooth-fix/ValidationMain.java",
+    "sha256": "d95398e04bc1c10512ed3e6b3b444ee8dd03c0247760ea4c69bbcba793cc4985"
+  },
+  {
+    "path": "source/stock-bluetooth-install/build.py",
+    "sha256": "02bae5fba1ce7f519c67c3b4995fd56d2b8c3af39591c1931966ec5733c3730e"
+  },
+  {
+    "path": "source/stock-bluetooth-install/install.c",
+    "sha256": "dd69a6bbee0cbbded0e0b232a24776b7a1a3c1050916be9d4d14ba0338faa931"
+  },
+  {
+    "path": "source/stock-bluetooth-install/sha256.c",
+    "sha256": "57f87801b7d390f7fef9ac4fa46f069de987310c137f2b1f959772e8775d0365"
+  },
+  {
+    "path": "source/stock-bluetooth-install/sha256.h",
+    "sha256": "1222d71dc44733bfcd367633e4a06e3b5ff5fff87daf6a52d545b7e3b5d1e07f"
+  },
+  {
+    "path": "source/stock-identity/build.py",
+    "sha256": "11cf6362ef79b534013707da9d0fce80e7e8867c3b10a55898cc56b161d6f0fe"
+  },
+  {
+    "path": "source/stock-identity/IdentityChecks.java",
+    "sha256": "83ac00907c8d875ca26088018a90db625243daebf205a824463a7f557c736411"
+  },
+  {
+    "path": "source/stock-identity/IdentityChecksTest.java",
+    "sha256": "57dc7dc3ebba196aded139dfa2e7d93326d854569104f2ccc28809eb4ebcb1af"
+  },
+  {
+    "path": "source/stock-identity/IdentityMain.java",
+    "sha256": "b33f5eebf6db6a1336dd0d376c7cff3ee91b06efc962a369410b7c4cb76f45fc"
+  },
+  {
+    "path": "source/stock-install/build.py",
+    "sha256": "82ea8188d59328275855ba8774e6dd331354b5b42815be2d7ffd0bc42edda111"
+  },
+  {
+    "path": "source/stock-install/freeze_manifest.py",
+    "sha256": "a4570045d890e4c9fef43b3a0720b170c71a4e9993910352313a106ce91cddf3"
+  },
+  {
+    "path": "source/stock-install/install.c",
+    "sha256": "9cfe746caeb108d2038856cbccb52499d55c162530ac2d253721016745233601"
+  },
+  {
+    "path": "source/stock-install/transaction.c",
+    "sha256": "9ab31c924a76b15d36280424cce671b932eeed64cca3fc2aa034c6d375e61c67"
+  },
+  {
+    "path": "source/stock-install/transaction.h",
+    "sha256": "36552a77c5fdb43f5cebe1b0a132c455918a7ee12fe83ffc67a1769dbef6432e"
+  },
+  {
+    "path": "source/stock-install/transaction_test.cjs",
+    "sha256": "3791e019c7c20d7ce5542b25d6aa3be046ea641c7860e277426ecdcfe80106e3"
+  },
+  {
+    "path": "source/stock-install/wasm_memory.c",
+    "sha256": "c37394b615b825d6c312deb6fec0f9d780df54cd37cf2cd6f1e56f499308dbc6"
+  },
+  {
+    "path": "source/stock-sms-native/bridge_core.c",
+    "sha256": "a06026134c9e575a24c385e4187a56bc5826db38a321270932d0874918fdd99b"
+  },
+  {
+    "path": "source/stock-sms-native/bridge_core.h",
+    "sha256": "3836eb9940b546ec23698df4d64264496f7288ae29eb12ff3ba2cb5aaae3cce4"
+  },
+  {
+    "path": "source/stock-sms-native/build.py",
+    "sha256": "98d466e2b860f27fd3388930e623f654b9df61861f83988a490f6395638051ea"
+  },
+  {
+    "path": "source/stock-sms-native/candidate_self_test.c",
+    "sha256": "51e455b8f4fb70bb9a99b5705b5e0c7b7436a2be9887debc8e1a103905532aa6"
+  },
+  {
+    "path": "source/stock-sms-native/config.example",
+    "sha256": "572a5293837a89688501da5b034f746ccc084e6311cc455f5c1e4c88c2d932e2"
+  },
+  {
+    "path": "source/stock-sms-native/lifecycle.c",
+    "sha256": "60167e6a6dfa6ad9fcb6d8105e4bc4c54fb1b95610a3be59740e50c88350800b"
+  },
+  {
+    "path": "source/stock-sms-native/lifecycle.h",
+    "sha256": "cd1a914276b806f761c1e276960197bc4ca163a9b9a5a96141e42fd0fd38afa9"
+  },
+  {
+    "path": "source/stock-sms-native/mute_core.c",
+    "sha256": "0aada9346a103184b3f3884f5e11af0953055eba24428d68a4b87048c285a0ca"
+  },
+  {
+    "path": "source/stock-sms-native/mute_core.h",
+    "sha256": "7e17b3cbfc5ab764028df631a2978bf139c9bbbdb72df06ddfc0e4fc1f05fa4e"
+  },
+  {
+    "path": "source/stock-sms-native/persistent_support.inc",
+    "sha256": "4675942114f53d74f88e1b7e06daab8639bab9713f77de0d7abc453957bffeaf"
+  },
+  {
+    "path": "source/stock-sms-native/PROTOCOL.txt",
+    "sha256": "c4ef213a05e506cc77a28f3e6a3d064153062b06eedc3f7524b5dee7db317c2d"
+  },
+  {
+    "path": "source/stock-sms-native/samsung_ril.h",
+    "sha256": "052471ea7ca390752865dd58d5b62e325391f8aa0061b32b3ed6de83c0fb80ee"
+  },
+  {
+    "path": "source/stock-sms-native/self_test.cjs",
+    "sha256": "23051ca57f00559491668e4c6074c0d0162e04e506e1a4c60d0f369ea75cdce5"
+  },
+  {
+    "path": "source/stock-sms-native/sha256.c",
+    "sha256": "57f87801b7d390f7fef9ac4fa46f069de987310c137f2b1f959772e8775d0365"
+  },
+  {
+    "path": "source/stock-sms-native/sha256.h",
+    "sha256": "1222d71dc44733bfcd367633e4a06e3b5ff5fff87daf6a52d545b7e3b5d1e07f"
+  },
+  {
+    "path": "source/stock-sms-native/sms_address.c",
+    "sha256": "74a12c1ce941255229e4ba735891694549683f59736a705f26898439c5166ffc"
+  },
+  {
+    "path": "source/stock-sms-native/sms_address.h",
+    "sha256": "1550c1e34ede43e9db813a0967b0e494fdd89a82ee94986cc841966d63dcc277"
+  },
+  {
+    "path": "source/stock-sms-native/sms_address_tests.c",
+    "sha256": "d22b81999d3e216d656b4c8a4ca1ba77e86272a76742bff2f8c37b684c708c14"
+  },
+  {
+    "path": "source/stock-sms-native/sms_batch.c",
+    "sha256": "688ee483f0ad3f536cfbae46f40766b7542c3f8a58e06feba16d642051bdaa89"
+  },
+  {
+    "path": "source/stock-sms-native/sms_batch.h",
+    "sha256": "375e312db05381d918123dafd7f48cac041b87f0faea5740a6686d73f8e6ee01"
+  },
+  {
+    "path": "source/stock-sms-native/sms_batch_tests.c",
+    "sha256": "b9b5f99965e147bc50fa627963e71a3ae25c5639dd736deebef4d035cfc9f738"
+  },
+  {
+    "path": "source/stock-sms-native/sms_core.c",
+    "sha256": "fd1d1153da5f9cc96f83a4b8f0b101b90c88cb3c4be2cb780940b6a09e34d861"
+  },
+  {
+    "path": "source/stock-sms-native/sms_core.h",
+    "sha256": "bca071bc0b672a6cf55f730397fee056cee0dcd46e1e0c22991f1ba346fbb490"
+  },
+  {
+    "path": "source/stock-sms-native/sms_delivery.inc",
+    "sha256": "034fb8e81e65c72689dd5ade188b0cacecf038c22f94d95ae84c7b86086adce1"
+  },
+  {
+    "path": "source/stock-sms-native/sms_runtime.inc",
+    "sha256": "46dbf4b11851b8ff60a83a54a23a30d5b8c56587e4e19c32dfb0dbb62cef051e"
+  },
+  {
+    "path": "source/stock-sms-native/sms_tests.c",
+    "sha256": "d119ab2aed6e07d0a206f4e414a29b41dbb776982beb64ed0537348d1c0be0c8"
+  },
+  {
+    "path": "source/stock-sms-native/stock_ril.c",
+    "sha256": "9a02eb1db9d5fa3390cb87af574c6d02048e1fb82d00082eae3344b7e92bd3e0"
+  },
+  {
+    "path": "source/stock-sms-native/wasm_memory.c",
+    "sha256": "bd001fd49a34d06e4b190e272b623440b0cb6bcc49066951b4fb27875b2286d1"
+  },
+  {
+    "path": "source/telegram-classic/prepare_assets.py",
+    "sha256": "686151a2da04bb6da5ac7eedac86dc3f3da84625083cc3ab203ac20286c23b26"
+  },
+  {
+    "path": "source/telegram-companion/protocol.md",
+    "sha256": "6ebc8094c5cb8cd4947c777ab6f88254a4e5bb8a2d6be3e587e27aa98c57f4dd"
+  },
+  {
+    "path": "source/telegram-companion/Wire.java",
+    "sha256": "fb462ee5374661560bf912793256988dba74b4d035ace97f6f5c082e67730a9a"
+  },
+  {
+    "path": "source/telegram-pixel-app/AndroidManifest.xml",
+    "sha256": "862096f6435920cb2c3a2b609894aff661185db0219381b6d499431fc149704f"
+  },
+  {
+    "path": "source/telegram-pixel-app/build.py",
+    "sha256": "d8764e98575c70acdfc10994af3c7f6b35c6e617d4f04250d211a07cc0e7eb61"
+  },
+  {
+    "path": "source/telegram-pixel-app/res/drawable/chat_icon.xml",
+    "sha256": "f5cca377fe476512b4240b8e9f1e7b32b9fb0d7483c951dc329c9b54d8603e4b"
+  },
+  {
+    "path": "source/telegram-pixel-app/res/drawable/notification.xml",
+    "sha256": "d1d150d0a754d05a1c520d844aecf8b16e1bc71608c88f6d8f71ecccf3fbc43f"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/AttachmentChunks.java",
+    "sha256": "60d40cff0ecab14778b22766df69104f78e90ce42a267885fd0d8a6649b89e08"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/BootReceiver.java",
+    "sha256": "8edfe221af13d3f7e179ccc2df29d55fe83cc0b90fe1c8f5be1604f488a9702a"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/EngineRules.java",
+    "sha256": "e6a940ed3abe23ff08b5e275a2582593978afd0b3826420d2bbd2f989034f6ad"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/MediaFeatures.java",
+    "sha256": "715264c99b76895d29373d4f0bae87caf28cb6ca546759c9a411ff6fe56e8975"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/MediaFiles.java",
+    "sha256": "4885eb5b8af79f7cecf96f4e49eca4de0dd58f4d07f04195eb65eaadcfe8b31d"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/ReactionIcons.java",
+    "sha256": "c222d8eced4c771bff4ce52aa68b922cb7b2b10ec99781651145be8f12828c0d"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/Reactions.java",
+    "sha256": "d17aa5b4c33ac71e9e5421126be2b53237b661e1a22f671db7986d320536dacd"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/RelayService.java",
+    "sha256": "4c81526f8ccc3e909675e42fe5cf3cac272f47fda3f57a9acf080b44389f104f"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/Secrets.java",
+    "sha256": "db4e177132af70d48d83748ab35cc42eb42096e7a990a0163b536c6072d1aeed"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/SendJournal.java",
+    "sha256": "6928c82734cd7782660c90ed1199ff78d47b19d40652c0b958b823ff5c4afa93"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/SetupActivity.java",
+    "sha256": "3a8b0ae7c3719001f6a966cdab151512b8c8e0e95e21baceb5d344ec120ebac5"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/Startup.java",
+    "sha256": "4ee6658a90ee982727c17a44ba98d2854d1a82ce7f833dc571cd7158c5cfd4e0"
+  },
+  {
+    "path": "source/telegram-pixel-app/src/TelegramEngine.java",
+    "sha256": "4cd7375354e70c164f841e730194ab0882d2d9cd0d0371002a8428f05e3ee7f1"
+  },
+  {
+    "path": "source/telegram-pixel-engine/build_engine.py",
+    "sha256": "cc62527f79049eb204d7c9b0477c67172e24a8f82269dbe48f749ca5d437e83b"
+  },
+  {
+    "path": "source/telegram-pixel-engine/build_openssl.sh",
+    "sha256": "dddfb0483884eeba27c7d63f124b5325806b2d1f2bd42e9a6001a230e7a0cc6b"
+  },
+  {
+    "path": "source/telegram-pixel-engine/candidate/java/org/drinkless/tdlib/JsonClient.java",
+    "sha256": "0cecc3b8957f680c3706e3b9d062238a2e0eb467195acef797ead10bad630d8b"
+  },
+  {
+    "path": "source/telegram-pixel-engine/candidate/licenses/Android-NDK-NOTICE.txt",
+    "sha256": "2905ac5c59628352af990c748a8f4c3675a04f36eca7914612e3068661d2c6a6"
+  },
+  {
+    "path": "source/telegram-pixel-engine/candidate/licenses/LLVM-runtime-NOTICE.txt",
+    "sha256": "f96f763beb66a7ba7a667647fc64c0226ace875e590c831fdd9579ec1c1d91e1"
+  },
+  {
+    "path": "source/telegram-pixel-engine/candidate/licenses/OpenSSL-Apache-2.0.txt",
+    "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+  },
+  {
+    "path": "source/telegram-pixel-engine/candidate/licenses/SQLite.txt",
+    "sha256": "c5be4f05a1af4d7d67593d03a5e87a5996537768e181c9b9ebc31645055a9a08"
+  },
+  {
+    "path": "source/telegram-pixel-engine/candidate/licenses/TDLib-Boost-1.0.txt",
+    "sha256": "beb8e42e9d6b4284e03304d05a81a0755200a965fc8d0a5e0aea1e84cf805d6e"
+  },
+  {
+    "path": "source/telegram-pixel-engine/host_environment.cmd",
+    "sha256": "d83325e495da4e28c1b3a81e5037df8493c4777d6149f403a685c38a316d5e00"
+  },
+  {
+    "path": "source/telegram-s2-client/AndroidManifest.xml",
+    "sha256": "4e45b013c11ba0fe91f5528cfc99617b298345fe590c7fe30fcfa8da6c8e2b0e"
+  },
+  {
+    "path": "source/telegram-s2-client/AttachmentJob.java",
+    "sha256": "2beadb24da4daab313402117567c006180ec433878c1cebac438b7838b751d2e"
+  },
+  {
+    "path": "source/telegram-s2-client/AttachmentUi.java",
+    "sha256": "367ebaad245e98c7ca57f5f4e6876548d11f9f85278ab75119508bf5e2661176"
+  },
+  {
+    "path": "source/telegram-s2-client/BootReceiver.java",
+    "sha256": "90280182af009c4b07ffcd49017c54a725f8e5872d45fc72f731e5e6e129ca5a"
+  },
+  {
+    "path": "source/telegram-s2-client/build.py",
+    "sha256": "4ee328c95c6ea88992427c4c2b83edb7874fa565977a2a3e0afc7161b6e21242"
+  },
+  {
+    "path": "source/telegram-s2-client/ChatActivity.java",
+    "sha256": "caaac73485bb6e6753b3cbee211630d07202b10b1bc2254e1a910c205825debd"
+  },
+  {
+    "path": "source/telegram-s2-client/ChatService.java",
+    "sha256": "aea4cec3e6fdca95e5b0e265cca0ca2407c7bfdd0555948f22d34beb826ff10c"
+  },
+  {
+    "path": "source/telegram-s2-client/ChatStore.java",
+    "sha256": "324eb1ce843454f6a2ed16c2a2d5be476fdaa5bff7b7654fd9276b2fbfb9c718"
+  },
+  {
+    "path": "source/telegram-s2-client/ClassicUi.java",
+    "sha256": "668b02a9e4bef9cd2187d5fe695702e585ef9d493c1afa20e152b4fb3ffc0129"
+  },
+  {
+    "path": "source/telegram-s2-client/ClientRules.java",
+    "sha256": "9428f3806371c23953a411f7c25ce70e6481115e05bbad6878f489c027c2ea84"
+  },
+  {
+    "path": "source/telegram-s2-client/ClientRulesTest.java",
+    "sha256": "ae2e2da58150b4a4bd8c7d2be4e0def32325e9ab1cd72854c6955a31a1b85824"
+  },
+  {
+    "path": "source/telegram-s2-client/legacy_discovery.c",
+    "sha256": "7717e7b03c4edfeb68d111a7bee161d181a601d487ae4a7ff74aa97f1810f3db"
+  },
+  {
+    "path": "source/telegram-s2-client/legacy_discovery_test.c",
+    "sha256": "d5acbc8c01774a9f3e0653f3b5a15d28c2097b4d0284cf1ef991e3d8a7bf3f97"
+  },
+  {
+    "path": "source/telegram-s2-client/LegacyDiscovery.java",
+    "sha256": "cfffc1b12500633804df5e30f434211b0f06b89227351fdaebc91e7249555e30"
+  },
+  {
+    "path": "source/telegram-s2-client/MediaActivity.java",
+    "sha256": "16668d6b5d3f24c1ae4b0e39a418292dae8cd0e99257cc09516bc5c2f0ae447d"
+  },
+  {
+    "path": "source/telegram-s2-client/MediaClient.java",
+    "sha256": "41b0d7ad2fc584729c562096ffe5487c0a504f54c198aeab5951031471d67f14"
+  },
+  {
+    "path": "source/telegram-s2-client/MediaProvider.java",
+    "sha256": "059072a68e8ddc670b21d4658bee62dcd509bfd9a82bd9c561d0555101dcf960"
+  },
+  {
+    "path": "source/telegram-s2-client/NotificationLinkService.java",
+    "sha256": "eaa1cc9dfce1df0453798d6f7ee18cc519fda7229e0013a6e6cbc002ddb9f764"
+  },
+  {
+    "path": "source/telegram-s2-client/ReactionIcons.java",
+    "sha256": "0aaf7548a11be844c5ddcd4c74b64341cb1ab9ccd3a2e26366baa3115d643c64"
+  },
+  {
+    "path": "source/telegram-s2-client/ReactionUi.java",
+    "sha256": "bc2bcbbce29e2a731c192e3f424a0a910740a08bdbd82eeac19e9ba22d92219f"
+  },
+  {
+    "path": "source/telegram-s2-client/res/drawable/notification.xml",
+    "sha256": "44a43718a88e42d11241718e3e07c3a220f8ef227681628c72fe840ea6e260df"
+  },
+  {
+    "path": "source/telegram-s2-client/res/values/styles.xml",
+    "sha256": "0199c33a2ca2694c66f5f1200549e8c09c0c38dc7854d132a3b2040f67d9bb72"
+  },
+  {
+    "path": "source/telegram-s2-client/Wire.java",
+    "sha256": "fb462ee5374661560bf912793256988dba74b4d035ace97f6f5c082e67730a9a"
+  },
+  {
+    "path": "source/youtube-google/build.py",
+    "sha256": "342a381f3e20a72fe2450e57d1eac33f1cbd5635f3785833663b65cd0614ecf5"
+  },
+  {
+    "path": "source/youtube-google/galaxy-stream-fixed.js",
+    "sha256": "d721b2fc50823cd780a5fde8e8ef9b0c4e30537c1a1c665f68eb84892d5214c2"
+  },
+  {
+    "path": "source/youtube-google/PixelSignIn.java",
+    "sha256": "2c2289338c04983d87816153aac8625c406ca6dc1985ae9b0777b8408a77d595"
+  },
+  {
+    "path": "source/youtube-google/stubs/GDataRequest.java",
+    "sha256": "3a779786d480e8103dcc9cc18b1f8225b410dcd3ea060fe6393ba2a93533d9cb"
+  },
+  {
+    "path": "source/youtube-google/stubs/UserAuth.java",
+    "sha256": "20a34ddf3846662bf02aa0d8f34b4b855afd05100ac3641d359f8b72e3cc6f26"
+  },
+  {
+    "path": "source/youtube-google/stubs/UserAuthorizer.java",
+    "sha256": "e177aac2f06f020562ee398120ca9736f3c1fe933b330e62975599b94c6c7a5d"
+  }
+]

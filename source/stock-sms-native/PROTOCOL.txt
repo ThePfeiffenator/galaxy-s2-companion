@@ -1,0 +1,145 @@
+SMS NATIVE CANDIDATE - protocol 2, isolated from HFP
+2026-10-12. This document describes the candidate, not device validation.
+
+Transport and admission
+-----------------------
+Native client abstract AF_UNIX SOCK_STREAM address remains:
+  org.retrobridge.callprobe.smsril.v1
+The socket name is retained; the mandatory handshake version is now 2.
+Same immutable config as voice: exact org.retrobridge.callprobe UID/APK/signer/JAR.
+Identity is freshly verified before each connection; SO_PEERCRED must equal the
+configured application UID. The app checks UID 0. This is an independent socket,
+thread, queue and epoch. Strict ASCII, tabs and LF only; CR/NUL rejected. Maximum
+line is 800 bytes excluding LF. No message content or caller identity is logged.
+The exact ARM32 abstract sockaddr is built with scalar volatile byte stores;
+system-header assertions check its layout and the public namespace uses 38 bytes.
+
+Connection handshake:
+  native -> HELLO<TAB>2<LF>
+  app    -> READY<TAB>2<LF>
+READY means this SMS connection can accept jobs; it does not imply voice ready.
+Version 1 and the former per-segment INCOMING/ACK path are not admitted.
+
+Outgoing SMS (unchanged)
+-----------------------
+  native -> SEND<TAB>id<TAB>remainingMs<TAB>uptimeDeadlineMs<TAB>hex372<LF>
+  app    -> RESULT<TAB>id<TAB>OK|ERROR|UNKNOWN<LF>
+id: positive canonical decimal 1..2147483647, never reused within worker life.
+remainingMs: 1..90000. uptimeDeadlineMs is absolute S2 CLOCK_MONOTONIC millis.
+App uses SystemClock.uptimeMillis, not elapsedRealtime or wall clock; it must
+reject before a Push if expired and use the smaller of the absolute deadline
+and receiptUptime+remainingMs with an operational margin before Push.
+Exact factory clock proof: libandroid_runtime JNI table 0xc29c4 entry 1 names
+uptimeMillis()J -> Thumb 0x609f0 -> PLT 0x3a5f4/GOT 0xbe97c relocation
+android::uptimeMillis. libutils Thumb 0x20cfc calls systemTime(1) 0x21afc;
+its clock table 0x2b750 is [0,1,2,3,0], and PLT 0x13bf8/GOT 0x2e194 is
+clock_gettime. Java uptime therefore uses CLOCK_MONOTONIC 1 divided by 1e6.
+hex372: 744 lowercase hexadecimal characters, exact ARM32 Samsung SMS struct.
+Queue 8; native deadline 90 seconds from enqueue. Data is copied before the
+libril callback returns. Success returns the exact 12-byte SmsResponse and the
+original bearer ID. ERROR/UNKNOWN/timeout/disconnect use generic RIL error 2,
+never retry error 10. Late results cannot double-complete; results processed
+at/after deadline fail. Cancellation cannot undo a send already dispatched.
+The native bridge never replays outgoing messages.
+
+CRITICAL APP REQUIREMENT: Samsung may translate send failure to NO_SERVICE when
+voice goes offline, then automatically retry the same outbox URI with new CDMA
+IDs. Manual resend/new composition can create another row. The durable app
+journal must block uncertain duplicate Push operations by recipient and whole
+text across these cases. Generic RIL error 2 alone is insufficient.
+
+Incoming complete-message batch
+-------------------------------
+  app    -> BEGIN<TAB>stableId<TAB>count<LF>
+  app    -> PART<TAB>stableId<TAB>sequence<TAB>hex372<LF>
+  app    -> COMMIT<TAB>stableId<LF>
+  native -> BATCH_RESULT<TAB>stableId<TAB>OK|ERROR|UNKNOWN<LF>
+stableId is exactly 32 lowercase hexadecimal characters for one whole message.
+count is canonical decimal 1..255. sequence is canonical decimal 1..count and
+must arrive strictly in ascending order. The same ID is required on every row.
+One batch may be assembled. Deadline is 10 seconds from BEGIN to COMMIT; all
+rows must be present before COMMIT. Malformed/out-of-order/expired assembly
+closes the SMS connection without publishing anything. Each 372-byte incoming
+struct must pass native bounds/enums validation, including teleservice 4098,
+servicePresent 0, category 0 and a nonempty address. The helper additionally
+validates the complete text, timestamps and concatenation headers before use.
+
+COMMIT allows one bounded helper attempt with an absolute 30-second uptime
+budget INCLUDING fresh app identity verification. There is no unsolicited
+1020 per-segment dispatch and no RIL 88 acknowledgment used for batch delivery.
+The helper broadcasts the full original PDU array together to avoid Samsung's
+faulty per-segment assembly path. A batch succeeds only with actual new stock
+inbox-row proof; an ordered-broadcast acknowledgment alone is insufficient.
+
+The app must persist its whole-batch INFLIGHT record before sending COMMIT,
+retain a wake lock for the bounded operation, and mark RECEIVED only on OK.
+The coordinated app waits 40 seconds and holds a 60-second wake lock. ERROR is
+proven prepublication rejection; UNKNOWN or missing response may have published.
+Neither native nor app automatically replays an uncertain batch. This candidate
+also pauses incoming processing on ERROR for explicit diagnosis.
+
+Native keeps the last 64 completed batch receipts for the worker lifetime,
+keyed by stable ID, count and SHA256 of count-prefix plus every complete raw row.
+Exact repeated batches return their prior result without invoking the helper;
+ID reuse with different bytes rejects. Disconnect clears partial assembly,
+not completed history. This bounded, non-durable cache supplements the app's
+durable journal; it cannot replace it.
+
+Privileged helper boundary
+--------------------------
+Fixed executable/argv, no shell:
+  /system/bin/app_process /system/bin org.retrobridge.callprobe.SmsDelivery
+      --deliver stableId absoluteUptimeDeadlineMs
+CLASSPATH is the current config-pinned main APK. The native verifier checks
+PackageManager UID, unique package, signer, APK path/hash before each attempt,
+then independently rehashes the APK. Deployment MUST stop ril-daemon before
+APK replacement and keep it stopped until config/native/APK pins are coherent;
+path-based Dalvik loading is not claimed safe against a concurrent privileged
+package replacement after those checks.
+
+Private stdin is big-endian 32-bit magic 0x534d5342 ('SMSB'), version 1, count,
+then count contiguous 372-byte structs and EOF. No payload file is written.
+Stdout must be exactly one bounded line:
+  SMSDELIVERY<TAB>1<TAB>sameStableId<TAB>OK|ERROR|UNKNOWN<LF>
+OK is accepted only with exit 0, complete stdin sent and clean output EOF.
+ERROR is accepted only with exit 1. Any malformed/mismatched/truncated result,
+timeout, peer loss, child signal or abnormal status after fork becomes UNKNOWN.
+Before fork, a failed identity/property/pipe check returns ERROR without publish.
+No detailed helper errors or message content pass to native logs.
+
+Child receives fixed Android VM environment plus validated ICS property workspace.
+Only stdin/stdout, /dev/null stderr and the exact root-owned read-only property
+FD survive exec. The property FD's identity/size/path/access mode are checked;
+only the child clears its CLOEXEC bit. Voice sockets, guard and listeners are
+closed. PR_SET_PDEATHSIG plus parent PID recheck prevents an orphan on worker
+exit. The native event loop independently enforces the absolute deadline, then
+kills/reaps within a further one-second bound. Unreaped ownership is retained
+and prevents another helper until the old child is confirmed dead.
+
+Helper must validate all content before broadcast, record maximum inbox ID,
+and require ordered callback plus exactly one new stock inbox row beyond that
+baseline matching canonical sender, Samsung-filtered full body and the delivery
+wall-time interval. Samsung does not set date_sent here. Publication uncertainty
+always returns UNKNOWN. MMS/RCS and recipient delivery reports are unsupported.
+
+Isolation and validation scope
+------------------------------
+The SMS executor owns no voice/model lock while the helper runs; its short radio
+state reads take model_mutex only. Identity uses try-lock. SMS callbacks retire
+ownership under sms_mutex, then invoke libril after unlock. No nested model/SMS
+locks, AT commands, voice pending slots, heartbeat updates or HFP drop flags.
+Incoming helper work can occupy the SMS thread up to 30 seconds; voice remains
+independent. Outgoing jobs retain their original 90-second deadline.
+
+Local checks: ARM32 non-PIE build with -Wall/-Wextra/-Werror; direct imports match
+captured ICS libc; 113 inherited actual-C/WASM SMS checks and 316 new actual-C
+batch parser/order/bounds/timeout/hash-cache/result tests and 10 exact socket
+address/length/bounds checks, plus inherited bridge,
+mute, lifecycle and SHA checks. These do not prove live pthread/pipe/child/Android
+broadcast/provider behavior. Independent read-only review covered native batch,
+executor, ownership and voice isolation. Runtime gates belong to the coordinator.
+
+build-result.txt has the current local build hashes. The public launcher and
+worker are built from this source with the configured identity and public
+namespace. They are not byte-identical to the development installation. No
+historical device binaries or personal recovery backups are distributed here.

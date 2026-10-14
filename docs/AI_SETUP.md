@@ -1,0 +1,19 @@
+# Setup with an AI assistant
+
+Give the assistant this request:
+
+> Read this repository's README, AGENTS.md and manual setup guide. Help me reproduce it on my own phones. Start with read-only inventory and show me which features my hardware can support. Keep all credentials and device-specific material in ignored local storage. Work in checkpoints; verify each feature on the phones and then without the PC. Ask me for account sign-in or decisions that only I can make. Do not weaken firmware checks or send messages to anyone without my authorization.
+
+The assistant should first record the exact S2 model/build, current root/recovery options, Pixel Android version, installed app versions, original file hashes, ADB states and existing modifications. Use explicit `adb -s SERIAL` for every operation; ignore unrelated emulators and phones. Android's `02:00:00:00:00:00` privacy placeholder is not an actual Bluetooth address.
+
+Use docs/MANUAL_SETUP.md in order. Produce a private plan with observed facts, proposed modifications, backup locations and rollback commands. Obtain authorization for the native system changes and HTTPS trust before performing them. Existing authorization can cover routine reversible continuation; do not repeatedly ask for the same permission.
+
+The repository is a source kit, not a complete unattended installer. The native install stage deliberately requires locally generated pins, a reviewed privileged entry point and exact firmware. The assistant must resolve any missing build/runtime input and record how it was obtained. A modified APK must be built from the owner's supplied original, signed locally, and compared with the patch script's assumptions.
+
+The Store library starts empty. Read docs/STORE.md and help the owner import their own APKs on the Pixel. Do not reproduce the original developer's app collection, scrape an archive wholesale, or treat a free download as permission to redistribute. APKs and app data never belong in a public setup commit. Register the owner's Google clients using docs/GOOGLE_ACCOUNTS.md; no shared account or developer OAuth project is provided.
+
+Authentication stays on the owner's Pixel/browser. Do not put login codes or tokens in chat. The owner chooses account identity and accepts service terms. Real message tests require explicit recipients and permission. Telegram Saved Messages can be used after authorization; a Google Voice SMS test does not validate RCS.
+
+After each checkpoint record: source revision, build hash, device installed identity, actual test performed, result, remaining limits and rollback path. Separate static inspection, build tests, synthetic tests, device observations and human audio/display confirmation. Never claim the public namespace has been tested simply because the original personal namespace worked.
+
+Before publishing anything, inspect every tracked file, scan for local paths, names, phone numbers, MAC addresses, Wi-Fi names, account IDs, domains and secrets. Do not publish a history containing an earlier private state. Use a fresh source-only repository and a neutral commit author if requested.

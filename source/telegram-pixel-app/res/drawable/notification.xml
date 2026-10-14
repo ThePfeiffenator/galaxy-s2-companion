@@ -1,0 +1,2 @@
+<!-- Original generic monochrome chat badge; no vendor image embedded. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle"><size android:width="24dp" android:height="24dp"/><solid android:color="#ffffffff"/><corners android:radius="4dp"/></shape>

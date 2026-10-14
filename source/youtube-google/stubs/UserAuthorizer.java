@@ -1,0 +1,1 @@
+package org.retrobridge.youtube2012.core.async; public class UserAuthorizer { protected void a(android.app.Activity a,org.retrobridge.youtube2012.core.model.UserAuth u){} void a(Exception e){} }

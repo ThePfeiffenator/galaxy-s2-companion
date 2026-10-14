@@ -1,0 +1,10 @@
+{
+  "pixel_bluetooth": "REPLACE_WITH_PIXEL_BLUETOOTH_ADDRESS",
+  "s2_bluetooth": "REPLACE_WITH_S2_BLUETOOTH_ADDRESS",
+  "pixel_serial": "REPLACE_WITH_ADB_SERIAL",
+  "s2_serial": "REPLACE_WITH_ADB_SERIAL",
+  "wifi_ssid": "GalaxySetup",
+  "call_app_uid": null,
+  "app_signer_sha256": null,
+  "identity_jar_sha256": null
+}

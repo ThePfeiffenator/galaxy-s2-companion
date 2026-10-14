@@ -1,0 +1,10 @@
+<resources>
+ <style name="Theme.GalaxyCompanion" parent="Theme.Material3.DayNight.NoActionBar">
+  <item name="colorPrimary">#425D2E</item><item name="colorOnPrimary">#FFFFFF</item>
+  <item name="colorPrimaryContainer">#D6E9BB</item><item name="colorOnPrimaryContainer">#182B0B</item>
+  <item name="android:colorBackground">#F7F9EE</item><item name="colorSurface">#F7F9EE</item>
+  <item name="colorSurfaceContainer">#EDF1E3</item><item name="colorOnSurface">#20251C</item>
+  <item name="colorOnSurfaceVariant">#5B6453</item>
+  <item name="android:fontFamily">sans</item><item name="android:windowLightStatusBar">true</item>
+ </style>
+</resources>

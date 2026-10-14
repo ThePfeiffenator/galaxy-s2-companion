@@ -1,0 +1,13 @@
+version=1
+device=SPH-D710
+build=IMM76I.FL24
+app_uid=@CALL_APP_UID@
+app_apk_path=/data/app/org.retrobridge.callprobe-1.apk
+app_apk_sha256=REPLACE_WITH_EXACT_INSTALLED_APK_SHA256
+app_cert_sha256=REPLACE_WITH_APK_SIGNER_CERT_SHA256
+identity_jar_path=/system/framework/galaxy-companion-identity.jar
+identity_jar_sha256=@IDENTITY_JAR_SHA256@
+launcher_path=/system/bin/rild
+launcher_sha256=REPLACE_WITH_LAUNCHER_SHA256
+worker_path=/system/bin/galaxy-companion-ril
+worker_sha256=REPLACE_WITH_WORKER_SHA256

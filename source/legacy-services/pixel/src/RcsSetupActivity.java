@@ -1,0 +1,15 @@
+package org.retrobridge.galaxyservices.pixel;
+import android.app.*;import android.os.*;import android.content.*;import android.provider.Settings;import android.widget.*;
+public final class RcsSetupActivity extends Activity {
+ public void onCreate(Bundle b){super.onCreate(b);if(!getIntent().getBooleanExtra("selfTest",false)){startActivity(new Intent(this,MainActivity.class).putExtra("page","Calls & messages"));finish();return;}if(getIntent().getBooleanExtra("selfTest",false)){try{int tests=RcsJobs.selfTest()+MediaJobs.selfTest()+PlatformTextJobs.selfTest();try(java.io.FileOutputStream f=openFileOutput("rcs-self-test.txt",MODE_PRIVATE)){f.write(("PASS journal checks="+tests).getBytes("US-ASCII"));}}catch(Exception e){throw new RuntimeException(e);}}LinearLayout page=new LinearLayout(this);page.setOrientation(1);page.setPadding(24,24,24,24);
+  Switch enabled=new Switch(this);enabled.setText("Relay message notifications to S2");enabled.setChecked(RcsRelay.get(this).enabled());page.addView(enabled);enabled.setOnCheckedChangeListener((v,on)->{getSharedPreferences("rcs-relay",0).edit().putBoolean("enabled",on).commit();RcsNotificationListener listener=RcsRelay.get(this).listener;if(on&&listener!=null)listener.onListenerConnected();});
+  Button permissions=new Button(this);permissions.setText("Contacts and SMS access");page.addView(permissions);permissions.setOnClickListener(v->requestPermissions(new String[]{android.Manifest.permission.READ_CONTACTS,android.Manifest.permission.READ_SMS,android.Manifest.permission.SEND_SMS},51));
+  Switch media=new Switch(this);media.setText("Send S2 pictures and videos");media.setChecked(getSharedPreferences("media-relay",0).getBoolean("enabled",false));page.addView(media);media.setOnCheckedChangeListener((v,on)->getSharedPreferences("media-relay",0).edit().putBoolean("enabled",on).commit());
+  Button notifications=new Button(this);notifications.setText("Notification access");page.addView(notifications);notifications.setOnClickListener(v->{Intent i=new Intent(Settings.ACTION_NOTIFICATION_LISTENER_DETAIL_SETTINGS);i.putExtra(Settings.EXTRA_NOTIFICATION_LISTENER_COMPONENT_NAME,new ComponentName(this,RcsNotificationListener.class).flattenToString());startActivity(i);});
+  TextView info=new TextView(this);info.setText("New one-to-one text notifications and replies. Contacts identify the conversation; SMS access prevents duplicate SMS copies. Pictures and videos can be sent from Samsung Messaging. Keep group chats and old history on the Pixel.");page.addView(info);
+  if(getActionBar()!=null)getActionBar().hide();
+  page.setOnApplyWindowInsetsListener((view,insets)->{view.setPadding(24+insets.getSystemWindowInsetLeft(),24+insets.getSystemWindowInsetTop(),24+insets.getSystemWindowInsetRight(),24+insets.getSystemWindowInsetBottom());return insets;});
+  setContentView(page);page.requestApplyInsets();
+ }
+ public void onRequestPermissionsResult(int request,String[] permissions,int[] results){super.onRequestPermissionsResult(request,permissions,results);RcsNotificationListener listener=RcsRelay.get(this).listener;if(listener!=null)listener.onListenerConnected();}
+}

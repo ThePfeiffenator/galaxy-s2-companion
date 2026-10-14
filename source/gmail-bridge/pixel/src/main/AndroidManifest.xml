@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <permission android:name="org.retrobridge.galaxymail.permission.BRIDGE" android:protectionLevel="signature"/>
+    <application android:label="Galaxy Companion accounts" android:icon="@mipmap/app_icon" android:theme="@style/Theme.GalaxyCompanion" android:allowBackup="false" android:usesCleartextTraffic="false">
+        <activity android:name=".SetupActivity" android:exported="true">
+
+        </activity>
+        <provider android:name=".MailProvider" android:authorities="org.retrobridge.galaxymail.pixel" android:exported="true" android:readPermission="org.retrobridge.galaxymail.permission.BRIDGE" android:writePermission="org.retrobridge.galaxymail.permission.BRIDGE"/>
+    </application>
+</manifest>

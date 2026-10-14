@@ -1,0 +1,10 @@
+plugins { id 'com.android.application' version '8.7.3' }
+android {
+    namespace 'org.retrobridge.galaxymail.pixel'
+    compileSdk 36
+    defaultConfig { applicationId 'org.retrobridge.galaxymail.pixel'; minSdk 26; targetSdk 36; versionCode 7; versionName '0.5.0' }
+    sourceSets { main { java.srcDirs += ['../../pixel-consolidation/ui']; res.srcDirs += ['../../legacy-services/pixel/res'] } }
+    buildTypes { release { minifyEnabled false; debuggable true } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
+}
+dependencies { implementation 'com.google.android.gms:play-services-auth:22.0.0'; implementation 'com.google.android.material:material:1.13.0' }

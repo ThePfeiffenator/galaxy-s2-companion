@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.retrobridge.storeinstaller" android:versionCode="1" android:versionName="1.0">
+ <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15"/>
+ <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+ <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+ <permission android:name="org.retrobridge.storeinstaller.INSTALL_VERIFIED" android:protectionLevel="signature"/>
+ <application android:label="Store installer" android:allowBackup="false">
+  <provider android:name=".VerifiedInstaller" android:authorities="org.retrobridge.storeinstaller" android:exported="true" android:permission="org.retrobridge.storeinstaller.INSTALL_VERIFIED"/>
+ </application>
+</manifest>

@@ -1,0 +1,5 @@
+<!-- Original generic gray chat badge. Replace locally with licensed reference artwork if desired. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+ <item android:left="3dp" android:right="3dp" android:top="5dp" android:bottom="5dp"><shape android:shape="rectangle"><size android:width="24dp" android:height="24dp"/><solid android:color="#ffb0b0b0"/><corners android:radius="3dp"/></shape></item>
+ <item android:left="7dp" android:right="7dp" android:top="10dp" android:bottom="10dp"><shape><solid android:color="#ff555555"/></shape></item>
+</layer-list>

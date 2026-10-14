@@ -1,0 +1,42 @@
+package org.retrobridge.companion.ui;
+
+import android.content.*;import android.content.res.ColorStateList;import android.graphics.*;import android.graphics.drawable.*;import android.util.TypedValue;import android.view.*;import android.widget.*;
+import com.google.android.material.card.MaterialCardView;import com.google.android.material.button.MaterialButton;import com.google.android.material.color.MaterialColors;
+
+/** Shared native Material styling. No account, transport or storage behavior. */
+public final class Ui {
+ public static int dp(Context c,float n){return Math.round(n*c.getResources().getDisplayMetrics().density);}
+ public static int color(Context c,int attr){TypedValue v=new TypedValue();c.getTheme().resolveAttribute(attr,v,true);return v.data;}
+ public static int primary(Context c){return color(c,androidx.appcompat.R.attr.colorPrimary);}
+ public static int textColor(Context c){return color(c,com.google.android.material.R.attr.colorOnSurface);}
+ public static int muted(Context c){return color(c,com.google.android.material.R.attr.colorOnSurfaceVariant);}
+ public static int surface(Context c){return color(c,com.google.android.material.R.attr.colorSurface);}
+ public static int container(Context c){return color(c,com.google.android.material.R.attr.colorSurfaceContainer);}
+ public static LinearLayout column(Context c){LinearLayout v=new LinearLayout(c);v.setOrientation(1);return v;}
+ public static TextView text(Context c,String s,float size,int color){TextView t=new TextView(c);t.setText(s);t.setTextSize(size);t.setTextColor(color);t.setFontFeatureSettings("kern");return t;}
+ public static MaterialCardView card(Context c,LinearLayout parent,boolean accent){MaterialCardView card=new MaterialCardView(c);card.setRadius(dp(c,26));card.setCardElevation(0);card.setStrokeWidth(0);card.setCardBackgroundColor(color(c,accent?com.google.android.material.R.attr.colorPrimaryContainer:com.google.android.material.R.attr.colorSurfaceContainer));LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-1,-2);p.bottomMargin=dp(c,12);parent.addView(card,p);return card;}
+ public static LinearLayout group(Context c,LinearLayout parent){LinearLayout inside=column(c);card(c,parent,false).addView(inside);return inside;}
+ public static void heading(Context c,LinearLayout parent,String label){TextView t=text(c,label,14,muted(c));t.setTypeface(null,Typeface.BOLD);t.setPadding(dp(c,6),dp(c,20),0,dp(c,12));parent.addView(t);}
+ public static LinearLayout row(Context c,LinearLayout parent,String icon,String title,String sub,Runnable action){LinearLayout r=new LinearLayout(c);r.setOrientation(0);r.setGravity(Gravity.CENTER_VERTICAL);r.setMinimumHeight(dp(c,76));r.setPadding(dp(c,18),dp(c,14),dp(c,18),dp(c,14));
+  if(icon!=null){ImageView im=new ImageView(c);im.setImageDrawable(new Glyph(icon,primary(c)));LinearLayout.LayoutParams ip=new LinearLayout.LayoutParams(dp(c,26),dp(c,26));ip.rightMargin=dp(c,16);r.addView(im,ip);}
+  LinearLayout copy=column(c);copy.addView(text(c,title,16,textColor(c)));if(sub!=null&&!sub.isEmpty()){TextView small=text(c,sub,12,muted(c));small.setPadding(0,dp(c,4),0,0);copy.addView(small);}r.addView(copy,new LinearLayout.LayoutParams(0,-2,1));
+  if(action!=null){ImageView a=new ImageView(c);a.setImageDrawable(new Glyph("chevron",muted(c)));r.addView(a,new LinearLayout.LayoutParams(dp(c,20),dp(c,20)));TypedValue tv=new TypedValue();c.getTheme().resolveAttribute(android.R.attr.selectableItemBackground,tv,true);r.setBackgroundResource(tv.resourceId);r.setFocusable(true);r.setOnClickListener(v->action.run());}
+  if(parent.getChildCount()>0){View line=new View(c);line.setBackgroundColor(MaterialColors.layer(container(c),textColor(c),.07f));LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,dp(c,1));lp.leftMargin=dp(c,18);lp.rightMargin=dp(c,18);parent.addView(line,lp);}parent.addView(r);return r;
+ }
+ public static MaterialButton button(Context c,String text,Runnable action){MaterialButton b=new MaterialButton(c);b.setText(text);b.setAllCaps(false);b.setCornerRadius(dp(c,22));b.setOnClickListener(v->action.run());return b;}
+ public static final class Glyph extends Drawable {
+  final Paint p=new Paint(3);final String name;final int color;ColorStateList tint;int alpha=255;
+  public Glyph(String name,int color){this.name=name;this.color=color;}
+  public void draw(Canvas c){Rect b=getBounds();c.save();c.translate(b.left,b.top);c.scale(b.width()/24f,b.height()/24f);p.setColor(tint==null?color:tint.getColorForState(getState(),tint.getDefaultColor()));p.setAlpha(alpha);p.setStyle(Paint.Style.STROKE);p.setStrokeWidth(1.8f);p.setStrokeCap(Paint.Cap.ROUND);p.setStrokeJoin(Paint.Join.ROUND);String s;
+   switch(name){case "home":s="M3,10 L12,3 L21,10 L21,21 L3,21 Z M9,21 V13 H15 V21";break;case "grid":s="M3,3 H10 V10 H3 Z M14,3 H21 V10 H14 Z M3,14 H10 V21 H3 Z M14,14 H21 V21 H14 Z";break;case "library":s="M5,6 H19 Q21,6 21,8 V20 Q21,22 19,22 H5 Q3,22 3,20 V8 Q3,6 5,6 M8,3 H16 M9,13 H15 M12,10 V16";break;case "phone":s="M7,3 L3,5 C2,13 11,22 19,21 L21,17 L16,14 L14,16 L8,10 L10,8 Z";break;case "cloud":s="M7,18 H5 C0,18 0,10 4,10 C4,3 14,1 17,7 C24,7 25,18 18,18 H17 M12,21 V12 M9,15 L12,12 L15,15";break;case "mail":s="M5,5 H19 Q21,5 21,7 V17 Q21,19 19,19 H5 Q3,19 3,17 V7 Q3,5 5,5 M4,7 L12,13 L20,7";break;case "play":s="M6,5 H18 Q22,5 22,9 V15 Q22,19 18,19 H6 Q2,19 2,15 V9 Q2,5 6,5 M10,9 L15,12 L10,15 Z";break;case "music":s="M9,18 V5 L20,3 V16 M9,8 L20,6 M9,18 A3,3 0,1 1,3,18 A3,3 0,1 1,9,18 M20,16 A3,3 0,1 1,14,16 A3,3 0,1 1,20,16";break;case "gear":s="M9,3 H15 L16,6 L19,7 L21,10 V14 L18,16 L17,19 L14,21 H10 L8,18 L5,17 L3,14 V10 L6,8 L7,5 Z M15,12 A3,3 0,1 1,9,12 A3,3 0,1 1,15,12";break;case "compass":s="M21,12 A9,9 0,1 1,3,12 A9,9 0,1 1,21,12 M15,8 L13,14 L8,16 L10,10 Z";break;case "mic":s="M9,5 A3,3 0,0 1,15,5 V11 A3,3 0,0 1,9,11 Z M6,10 V11 A6,6 0,0 0,18,11 V10 M12,17 V21 M8,21 H16";break;case "calendar":s="M4,5 H20 V21 H4 Z M4,10 H20 M8,3 V7 M16,3 V7 M8,14 H9 M14,14 H15 M8,18 H9";break;case "back":s="M20,12 H4 M10,5 L3,12 L10,19";break;case "plus":s="M12,5 V19 M5,12 H19";break;default:s="M9,6 L15,12 L9,18";}
+   c.drawPath(androidx.core.graphics.PathParser.createPathFromPathData(s),p);c.restore();
+  }
+  public void setTintList(ColorStateList colors){tint=colors;invalidateSelf();}public void setTint(int color){setTintList(ColorStateList.valueOf(color));}public boolean isStateful(){return tint!=null&&tint.isStateful();}protected boolean onStateChange(int[] state){if(tint!=null){invalidateSelf();return true;}return false;}
+  public void setAlpha(int alpha){this.alpha=alpha;invalidateSelf();}public void setColorFilter(ColorFilter f){p.setColorFilter(f);invalidateSelf();}public int getOpacity(){return PixelFormat.TRANSLUCENT;}public int getIntrinsicWidth(){return Math.round(24*android.content.res.Resources.getSystem().getDisplayMetrics().density);}public int getIntrinsicHeight(){return getIntrinsicWidth();}
+ }
+ public static final class Handset extends View {
+  final Paint p=new Paint(3);public Handset(Context c){super(c);setContentDescription("Galaxy S2 with four capacitive buttons");}
+  void box(Canvas c,float l,float t,float r,float b,float radius,int color){p.setStyle(Paint.Style.FILL);p.setColor(color);c.drawRoundRect(l,t,r,b,radius,radius,p);}
+  protected void onDraw(Canvas c){super.onDraw(c);c.save();c.scale(getWidth()/70f,getHeight()/120f);box(c,2,1,68,119,13,0xff7e858d);box(c,4,3,66,117,11,0xff252830);box(c,29,9,45,11.5f,1,0xff819486);p.setColor(0xff819486);c.drawCircle(15,11,2.2f,p);p.setColor(0xffd0ded3);p.setTextSize(4);p.setTypeface(Typeface.DEFAULT_BOLD);p.setTextAlign(Paint.Align.CENTER);c.drawText("SAMSUNG",35,19,p);box(c,9,23,61,98,1,0xff229aaa);box(c,12,28,58,44,2,0xffd8f1d3);p.setColor(0xff8cbbb0);c.drawCircle(23,36,5,p);p.setColor(0xff2e6863);c.drawPath(androidx.core.graphics.PathParser.createPathFromPathData("M22,33 L26,36 L22,39 Z"),p);box(c,34,32,52,34,1,0xff70a69c);box(c,34,37,46,39,1,0xff70a69c);for(int i=0;i<4;i++){box(c,13+i*12,50,21+i*12,58,2,0xffd4e8b8);box(c,13+i*12,85,21+i*12,93,2,0xffb1e5c6);}p.setStyle(Paint.Style.STROKE);p.setStrokeWidth(1.15f);p.setColor(0xffb7cdbb);c.drawPath(androidx.core.graphics.PathParser.createPathFromPathData("M12,106 H18 M12,108 H18 M12,110 H16 M26,107 L30,104 L34,107 V111 H26 Z M39,109 H44 Q48,109 46,105 H39 M41,103 L39,105 L41,107 M57,108 L59,110"),p);c.drawCircle(55,106,2.3f,p);p.setStyle(Paint.Style.FILL);c.restore();}
+ }
+}

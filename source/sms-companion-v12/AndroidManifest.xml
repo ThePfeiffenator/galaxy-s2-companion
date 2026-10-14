@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.retrobridge.callprobe" android:versionCode="14" android:versionName="0.14.0">
+<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15"/>
+<uses-permission android:name="android.permission.BLUETOOTH"/><uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+<uses-permission android:name="android.permission.RECORD_AUDIO"/><uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/><uses-permission android:name="android.permission.WAKE_LOCK"/>
+<uses-permission android:name="android.permission.READ_SMS"/><uses-permission android:name="android.permission.INTERNET"/>
+<permission android:name="org.retrobridge.callprobe.permission.NOTIFICATION_LINK" android:protectionLevel="signature"/><uses-permission android:name="org.retrobridge.callprobe.permission.NOTIFICATION_LINK"/>
+<application android:icon="@drawable/app_icon" android:label="Galaxy Companion" android:theme="@android:style/Theme.Holo" android:debuggable="true" android:allowBackup="false">
+<activity android:name=".ProbeActivity" android:exported="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+<service android:name=".CompanionService" android:exported="false"/>
+<service android:name=".SmsService" android:exported="false"/>
+<receiver android:name=".BootReceiver" android:exported="false"><intent-filter><action android:name="android.intent.action.BOOT_COMPLETED"/><action android:name="android.intent.action.MY_PACKAGE_REPLACED"/></intent-filter></receiver>
+</application></manifest>

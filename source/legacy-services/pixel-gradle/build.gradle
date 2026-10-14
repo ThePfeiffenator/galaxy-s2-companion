@@ -1,0 +1,14 @@
+plugins { id 'com.android.application' version '8.7.3' }
+android {
+ namespace 'org.retrobridge.galaxyservices.pixel'
+ compileSdk 36
+ defaultConfig { applicationId 'org.retrobridge.galaxyservices.pixel'; minSdk 26; targetSdk 36; versionCode 35; versionName '0.16.0' }
+ sourceSets { main { manifest.srcFile '../pixel/AndroidManifest.xml'; java.srcDirs=['../pixel/src','../common','../../pixel-consolidation/ui']; res.srcDirs=['../pixel/res']; assets.srcDirs=['../pixel/assets'] } }
+ buildTypes { release { minifyEnabled false; debuggable true } }
+ compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
+ packaging { resources { excludes += ['META-INF/versions/9/OSGI-INF/MANIFEST.MF'] } }
+}
+dependencies {
+ implementation 'com.google.android.material:material:1.13.0'
+ implementation fileTree(dir:'../lib',include:['*.jar'])
+}

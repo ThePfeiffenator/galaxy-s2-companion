@@ -1,0 +1,72 @@
+package org.retrobridge.callprobe;
+
+import android.app.*;import android.os.*;import android.content.*;import android.graphics.Typeface;import android.view.*;import android.widget.*;import android.provider.Settings;import java.util.*;
+
+/** Unified Holo controls. Closing this activity never tears down either bridge. */
+public final class ProbeActivity extends Activity implements CompanionService.Callback,ActionBar.TabListener {
+ static final String DATA="org.retrobridge.galaxyservices.s2";static final int BLUE=0xff33b5e5,WHITE=0xffeeeeee,MUTED=0xffbbbbbb;
+ CompanionService service;Messenger data;boolean callBound,dataBound,started,ready,updating;Bundle state=new Bundle();
+ LinearLayout content;ScrollView scroll;String page="Connection",detail="";TextView summary;CheckBox cameraBox,bootBox;Button pauseButton;
+ final Map<String,TextView> labels=new HashMap<String,TextView>();final Handler handler=new Handler();
+ final Messenger reply=new Messenger(new Handler(){public void handleMessage(Message m){Bundle b=m.getData();if(b.containsKey("error")){toast(b.getString("error"));return;}state=b;ready=true;if(m.what==4)getSharedPreferences("companion",0).edit().putBoolean("start_on_boot",m.arg1==1).commit();if(m.what==2&&service!=null){if(m.arg1==1)service.resume();else service.pause();}update();}});
+ final ServiceConnection callLink=new ServiceConnection(){public void onServiceConnected(ComponentName n,IBinder b){service=((CompanionService.LocalBinder)b).service();service.observe(ProbeActivity.this);update();}public void onServiceDisconnected(ComponentName n){service=null;update();}};
+ final ServiceConnection dataLink=new ServiceConnection(){public void onServiceConnected(ComponentName n,IBinder b){data=new Messenger(b);request(1,false);}public void onServiceDisconnected(ComponentName n){data=null;ready=false;update();}};
+ final Runnable poll=new Runnable(){public void run(){if(!started)return;if(!dataBound)bindData();request(1,false);update();handler.postDelayed(this,5000);}};
+ public void onCreate(Bundle saved){super.onCreate(saved);if(saved!=null){page=saved.getString("page");detail=saved.getString("detail");}if(page==null)page="Connection";if(detail==null)detail="";
+  getActionBar().setTitle("Galaxy Companion");getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+  scroll=new ScrollView(this);scroll.setFillViewport(true);scroll.setBackgroundColor(0xff111111);content=new LinearLayout(this);content.setOrientation(1);content.setPadding(0,0,0,dp(16));scroll.addView(content);setContentView(scroll);
+  String initial=page,initialDetail=detail;for(String name:new String[]{"Connection","Services","Settings"})getActionBar().addTab(getActionBar().newTab().setText(name).setTag(name).setTabListener(this),name.equals(initial));page=initial;detail=initialDetail;show();startService(new Intent(this,CompanionService.class));
+ }
+ protected void onStart(){super.onStart();started=true;callBound=bindService(new Intent(this,CompanionService.class),callLink,BIND_AUTO_CREATE);bindData();handler.post(poll);}
+ protected void onStop(){started=false;handler.removeCallbacksAndMessages(null);if(service!=null)service.unobserve(this);if(callBound)unbindService(callLink);if(dataBound)unbindService(dataLink);callBound=false;dataBound=false;service=null;data=null;ready=false;super.onStop();}
+ protected void onSaveInstanceState(Bundle b){b.putString("page",page);b.putString("detail",detail);super.onSaveInstanceState(b);}
+ void bindData(){if(dataBound)return;try{dataBound=bindService(new Intent().setClassName(DATA,DATA+".CompanionControlService"),dataLink,BIND_AUTO_CREATE);}catch(Exception e){dataBound=false;}}
+ boolean request(int op,boolean value){if(data==null){if(op!=1)toast("Waiting for data services");return false;}try{Message m=Message.obtain(null,op);m.arg1=value?1:0;m.replyTo=reply;data.send(m);return true;}catch(RemoteException e){data=null;ready=false;return false;}}
+ public void changed(String status,String ignoredReport){update();}
+ public void onTabSelected(ActionBar.Tab tab,FragmentTransaction ft){page=(String)tab.getTag();detail="";if(content!=null)show();}
+ public void onTabUnselected(ActionBar.Tab tab,FragmentTransaction ft){}
+ public void onTabReselected(ActionBar.Tab tab,FragmentTransaction ft){detail="";show();}
+ public boolean onCreateOptionsMenu(Menu m){m.add(0,1,0,"Settings");return true;}
+ public boolean onOptionsItemSelected(MenuItem m){if(m.getItemId()==android.R.id.home){detail="";show();return true;}if(m.getItemId()==1){getActionBar().setSelectedNavigationItem(2);return true;}return super.onOptionsItemSelected(m);}
+ public void onBackPressed(){if(!detail.isEmpty()){detail="";show();}else if(!page.equals("Connection"))getActionBar().setSelectedNavigationItem(0);else super.onBackPressed();}
+ int dp(float v){return (int)(getResources().getDisplayMetrics().density*v+.5f);}
+ TextView text(String value,float size,int color){TextView v=new TextView(this);v.setText(value);v.setTextSize(size);v.setTextColor(color);return v;}
+ void line(){View v=new View(this);v.setBackgroundColor(0xff333333);content.addView(v,new LinearLayout.LayoutParams(-1,dp(1)));}
+ void heading(String title){TextView v=text(title.toUpperCase(Locale.US),12,BLUE);v.setPadding(dp(14),dp(14),dp(14),dp(8));v.setTypeface(null,Typeface.BOLD);content.addView(v);line();}
+ TextView row(String title,String sub,String key,final Runnable action){LinearLayout r=new LinearLayout(this);r.setGravity(Gravity.CENTER_VERTICAL);r.setPadding(dp(16),dp(12),dp(16),dp(12));r.setMinimumHeight(dp(60));LinearLayout copy=new LinearLayout(this);copy.setOrientation(1);copy.addView(text(title,18,WHITE));TextView secondary=text(sub,13,MUTED);secondary.setPadding(0,dp(4),0,0);copy.addView(secondary);r.addView(copy,new LinearLayout.LayoutParams(0,-2,1));if(action!=null){TextView arrow=text("›",26,MUTED);r.addView(arrow);r.setBackgroundResource(android.R.drawable.list_selector_background);r.setPadding(dp(16),dp(12),dp(16),dp(12));r.setFocusable(true);r.setClickable(true);r.setOnClickListener(v->action.run());}content.addView(r,new LinearLayout.LayoutParams(-1,-2));line();if(key!=null)labels.put(key,secondary);return secondary;}
+ void openDetail(String name){detail=name;show();}
+ void link(String name,String sub,String key){row(name,sub,key,()->openDetail(name));}
+ void info(String value){TextView v=text(value,14,MUTED);v.setPadding(dp(16),dp(12),dp(16),dp(12));content.addView(v);}
+ Button action(String name,Runnable run){Button b=new Button(this);b.setText(name);LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-1,dp(48));p.setMargins(dp(12),dp(12),dp(12),0);content.addView(b,p);b.setOnClickListener(v->run.run());return b;}
+ CheckBox check(String name,String sub,boolean checked,final CompoundButton.OnCheckedChangeListener listener){LinearLayout r=new LinearLayout(this);r.setGravity(Gravity.CENTER_VERTICAL);r.setPadding(dp(16),dp(10),dp(12),dp(10));LinearLayout copy=new LinearLayout(this);copy.setOrientation(1);copy.addView(text(name,18,WHITE));TextView note=text(sub,13,MUTED);note.setPadding(0,dp(4),0,0);copy.addView(note);r.addView(copy,new LinearLayout.LayoutParams(0,-2,1));CheckBox box=new CheckBox(this);box.setContentDescription(name);box.setChecked(checked);r.addView(box);content.addView(r);line();box.setOnCheckedChangeListener((b,on)->{if(!updating)listener.onCheckedChanged(b,on);});r.setOnClickListener(v->{if(box.isEnabled())box.setChecked(!box.isChecked());});return box;}
+ void show(){labels.clear();summary=null;cameraBox=null;bootBox=null;pauseButton=null;content.removeAllViews();scroll.scrollTo(0,0);getActionBar().setDisplayHomeAsUpEnabled(!detail.isEmpty());getActionBar().setTitle(detail.isEmpty()?"Galaxy Companion":detail);
+  if(!detail.isEmpty()){details();update();return;}
+  if(page.equals("Connection")){TextView name=text("Pixel",25,WHITE);name.setPadding(dp(16),dp(18),dp(16),dp(2));content.addView(name);summary=text("Checking…",14,BLUE);summary.setPadding(dp(16),0,dp(16),dp(18));content.addView(summary);line();heading("Connection");link("Calls & messages","Checking…","calls");link("Internet","Checking…","wifi");heading("Sync");link("Camera backup","Checking…","camera");row("App library","Stored on Pixel",null,()->launch("org.retrobridge.play2012"));}
+  else if(page.equals("Services")){link("Calls & messages","Samsung Phone and Messaging","calls");row("Gmail","Account on Pixel",null,()->launch("org.retrobridge.gmail2012"));row("YouTube & Music","Account on Pixel",null,()->openDetail("YouTube & Music"));row("Maps & weather","Location from Pixel",null,()->openDetail("Maps & weather"));row("Calendar","Checking…","calendar",()->launch("com.android.calendar"));row("Voice input","Pixel speech recognition",null,()->openDetail("Voice input"));row("Browser & Reddit","Compatibility services",null,()->openDetail("Browser & Reddit"));}
+  else {heading("Connection");bootBox=check("Automatic startup","Start when the phone turns on",true,(b,on)->{if(!request(4,on))update();});link("Notifications","Connection status and alerts",null);heading("More");row("Telegram","Separate optional app",null,()->launch("org.retrobridge.galaxychat.s2"));link("Diagnostics","Connection details",null);link("About","Galaxy Companion",null);pauseButton=action("Checking…",()->toggleConnection());}
+  update();
+ }
+ void details(){
+  if(detail.equals("Calls & messages")){row("Calling","Checking…","calls",()->open(new Intent(Intent.ACTION_DIAL)));row("Text messages","Samsung Messaging",null,()->launch("com.android.mms"));row("Picture & video messages","Checking…","media",()->open(new Intent().setClassName(DATA,DATA+".MediaSetupActivity")));}
+  else if(detail.equals("Internet")){row("Wi-Fi","Checking…","wifi",()->open(new Intent(Settings.ACTION_WIFI_SETTINGS)));row("Compatibility service","Checking…","running",null);}
+  else if(detail.equals("Camera backup")){cameraBox=check("Back up new photos","S2 camera → Pixel",false,(b,on)->{if(!request(3,on))update();});row("Photos backed up","Checking…","camera",null);info("Pictures / Galaxy S2 on your Pixel");}
+  else if(detail.equals("YouTube & Music")){row("YouTube","Subscriptions, search and playback",null,()->launch("org.retrobridge.youtube2012"));row("Play Music","YouTube Music library",null,()->launch("org.retrobridge.playmusic2012"));}
+  else if(detail.equals("Maps & weather")){row("Maps","Location from Pixel",null,()->launch("com.google.android.apps.maps"));info("Weather stays in the original home-screen widget.");}
+  else if(detail.equals("Voice input")){info("Use the microphone in your keyboard or an app.");action("Voice input settings",()->open(new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS)));}
+  else if(detail.equals("Browser & Reddit")){row("Internet","Original browser",null,()->launch("com.android.browser"));row("Reddit is fun","Public posts and comments",null,()->launch("org.retrobridge.rif2012"));}
+  else if(detail.equals("Notifications")){row("Connection status","One shared silent notification",null,null);info("Keeps the background connection active. Message alerts remain separate.");}
+  else if(detail.equals("Diagnostics")){row("Call bridge","Checking…","calls",null);row("Data bridge","Checking…","running",null);row("Private Wi-Fi","Checking…","wifi",null);row("Calendar","Checking…","calendar",null);action("Refresh",()->request(1,false));}
+  else if(detail.equals("About")){info("Galaxy Companion 0.14.0\nAndroid 4.0 edition\n\nCall and data services retain their existing saved connections. Telegram is optional.\n\nWeather: Open-Meteo · CC BY 4.0\nLocations: GeoNames");}
+ }
+ boolean callsReady(){return CompanionService.messagingAllowed();}
+ boolean callsPaused(){return getSharedPreferences("companion",0).getBoolean("paused",false);}
+ void update(){if(content==null)return;boolean call=callsReady(),wifi=ready&&state.getBoolean("wifi"),running=ready&&state.getBoolean("running");if(summary!=null)summary.setText(call&&wifi&&running?"Connected":call?"Calls connected":wifi&&running?"Internet connected":service==null||!ready?"Checking…":callsPaused()&&!state.getBoolean("enabled")?"Paused":"Connecting to Pixel");
+  set("calls",service==null?"Connecting…":call?"Bluetooth connected":service.statusText);set("wifi",!ready?"Checking…":wifi?"Private Wi-Fi connected":"Waiting for Pixel Wi-Fi");set("running",!ready?"Checking…":running?"Running":"Paused");set("camera",!ready?"Checking…":!state.getBoolean("camera")?"Backup off":state.getInt("photos")+" photos backed up");set("calendar",!ready?"Checking…":state.getBoolean("calendar")?"Synced with Pixel":"Waiting for Pixel");set("media",!ready?"Checking…":state.getBoolean("media")?"Enabled":"Set up attachment relay");
+  updating=true;if(cameraBox!=null){cameraBox.setEnabled(ready&&data!=null);cameraBox.setChecked(ready&&state.getBoolean("camera"));}if(bootBox!=null){bootBox.setEnabled(ready&&data!=null);bootBox.setChecked(ready&&state.getBoolean("boot")&&getSharedPreferences("companion",0).getBoolean("start_on_boot",true));}updating=false;if(pauseButton!=null){pauseButton.setEnabled(ready&&data!=null&&service!=null);pauseButton.setText(callsPaused()||!state.getBoolean("enabled")?"Resume connection":"Pause connection");}
+ }
+ void set(String key,String value){TextView v=labels.get(key);if(v!=null)v.setText(value);}
+ void toggleConnection(){if(service==null||!ready)return;boolean on=callsPaused()||!state.getBoolean("enabled");if(!on&&service.hasActiveCall()){toast("End the call before pausing");return;}request(2,on);}
+ void launch(String packageName){Intent i=getPackageManager().getLaunchIntentForPackage(packageName);if(i==null){toast("App is unavailable");return;}open(i);}
+ void open(Intent i){try{startActivity(i);}catch(Exception e){toast("This screen is unavailable");}}
+ void toast(String text){Toast.makeText(this,text,Toast.LENGTH_SHORT).show();}
+}

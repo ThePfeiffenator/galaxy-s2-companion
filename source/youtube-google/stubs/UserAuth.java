@@ -1,0 +1,1 @@
+package org.retrobridge.youtube2012.core.model; public class UserAuth {public String b; public enum AuthMethod {CLIENTLOGIN,OAUTH2} public UserAuth(String a,String b,AuthMethod c,String d){} }
