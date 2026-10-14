@@ -4,6 +4,7 @@ import hashlib,json,re,sys
 R=Path(__file__).resolve().parents[1]
 TEXT={'.md','.py','.java','.c','.h','.inc','.cjs','.js','.json','.xml','.sh','.cmd','.txt','.s','.ld','.example','.gradle','.properties'}
 SPECIAL={'.gitignore','.gitattributes','LICENSE','config.example'}
+SCREENSHOTS={'docs/screenshots/s2-services.png','docs/screenshots/s2-settings.png','docs/screenshots/modern-services.png'}
 PATTERNS={
  'user home path':re.compile(r'[A-Za-z]:[\\/]+Users[\\/]+[A-Za-z]'),
  'MAC address':re.compile(r'(?i)(?<![0-9a-f])(?:[0-9a-f]{2}:){5}[0-9a-f]{2}(?![0-9a-f])'),
@@ -18,7 +19,7 @@ for path in sorted(R.rglob('*')):
  if any(p in {'.git','.local','__pycache__'} for p in rel.parts) or not path.is_file() or rel.as_posix()=='local.json':continue
  files.append(path)
  if path.suffix.lower()=='.png':
-  if not rel.as_posix().startswith('source/') or not path.read_bytes().startswith(b'\x89PNG\r\n\x1a\n'):problems.append((str(rel),'unexpected image'))
+  if not (rel.as_posix().startswith('source/') or rel.as_posix() in SCREENSHOTS) or not path.read_bytes().startswith(b'\x89PNG\r\n\x1a\n'):problems.append((str(rel),'unexpected image'))
   continue
  if path.suffix.lower() not in TEXT and path.name not in SPECIAL:problems.append((str(rel),'unexpected file type'));continue
  try:text=path.read_text(encoding='utf-8')

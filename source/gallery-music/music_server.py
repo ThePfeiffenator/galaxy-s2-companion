@@ -1,7 +1,7 @@
-"""Private Pixel catalog for the original S2 player. No account-write routes.
+"""Private modern-phone catalog for the original S2 player. No account writes.
 
-Google's official API exposes owned playlists and likes, not the full YTM saved
-album/library collection. Preserve that distinction in the returned capabilities.
+Google Data supplies owned playlists/likes; a read-only TV browse adapter adds
+saved playlists. Saved albums remain outside the returned capabilities.
 """
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -118,6 +118,10 @@ class GoogleLibrary:
             seen.add(token)
             params['pageToken'] = token
 
+    def saved_library(self):
+        from music_playlists import SavedPlaylists
+        return SavedPlaylists(self)
+
     def catalog(self):
         self.calls = 0
         self.deadline = time.monotonic() + 600
@@ -129,12 +133,7 @@ class GoogleLibrary:
                 songs[track['id']] = track
                 liked.append(track['id'])
         playlists = [{'id': 'liked', 'name': 'Liked songs', 'tracks': liked}]
-        for item in self.pages('playlists', part='snippet,contentDetails', mine='true'):
-            pid = item.get('id', '')
-            if not PLAYLIST.fullmatch(pid):
-                continue
-            entries = self.pages('playlistItems', part='contentDetails', playlistId=pid)
-            ids = [entry.get('contentDetails', {}).get('videoId', '') for entry in entries]
+        def append_playlist(pid, name, ids, saved=False):
             ids = [vid for vid in ids if VIDEO.fullmatch(vid)]
             missing = list(dict.fromkeys(vid for vid in ids if vid not in songs))
             for start in range(0, len(missing), 50):
@@ -145,11 +144,22 @@ class GoogleLibrary:
                         songs[track['id']] = track
             if len(songs) > MAX_TRACKS:
                 raise RuntimeError('catalog_limit')
-            playlists.append({'id': pid, 'name': item.get('snippet', {}).get('title', 'Playlist'),
+            playlists.append({'id': pid, 'name': name, 'saved': saved,
                               'tracks': [vid for vid in ids if vid in songs]})
-        return {'schema': 1, 'updated': int(time.time() * 1000), 'source': 'youtube-data',
+        for item in self.pages('playlists', part='snippet,contentDetails', mine='true'):
+            pid = item.get('id', '')
+            if not PLAYLIST.fullmatch(pid):continue
+            entries = self.pages('playlistItems', part='contentDetails', playlistId=pid)
+            append_playlist(pid,item.get('snippet',{}).get('title','Playlist'),
+                [entry.get('contentDetails',{}).get('videoId','') for entry in entries])
+        saved=self.saved_library();known={p['id'] for p in playlists}
+        for item in saved.playlists():
+            if item['id'] in known:continue
+            append_playlist(item['id'],item['name'],saved.tracks(item['id']),saved=True)
+            known.add(item['id'])
+        return {'schema': 1, 'updated': int(time.time() * 1000), 'source': 'youtube-data+saved-library',
                 'capabilities': {'owned_playlists': True, 'music_likes': True,
-                                 'saved_albums': False, 'saved_other_playlists': False,
+                                 'saved_albums': False, 'saved_other_playlists': True,
                                  'account_writes': False},
                 'songs': list(songs.values()), 'playlists': playlists}
 

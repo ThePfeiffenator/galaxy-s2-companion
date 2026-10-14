@@ -12,16 +12,16 @@ An APK update can change its installed path as well as its hash. The native brid
 
 ## Message journals
 
-Never delete a journal merely because a send or receive is marked uncertain. First compare the Pixel and Samsung Messaging state. A send may already have reached the recipient. A receive batch may have reached Samsung's provider before its acknowledgment was lost. Resolve that ambiguity before any manual retry or journal repair.
+Never delete a journal merely because a send or receive is marked uncertain. First compare the modern Android phone and Samsung Messaging state. A send may already have reached the recipient. A receive batch may have reached Samsung's provider before its acknowledgment was lost. Resolve that ambiguity before any manual retry or journal repair.
 
-Disable the optional RCS relay from its Pixel setup screen to stop notification ingestion. Revoking notification access is also possible in Android settings. Removing the S2 pairing file changes routing behavior and should be a deliberate, documented rollback, not an automatic fallback.
+Disable the optional RCS relay from its modern Android phone setup screen to stop notification ingestion. Revoking notification access is also possible in Android settings. Removing the S2 pairing file changes routing behavior and should be a deliberate, documented rollback, not an automatic fallback.
 
 ## Accounts and trust
 
-Revoke Telegram sessions in Telegram and Google OAuth access in the Google account when retiring the setup. A normal APK update with the same signer preserves app storage; uninstalling does not. Android Keystore-encrypted data may not be restorable by copying files to another Pixel.
+Revoke Telegram sessions in Telegram and Google OAuth access in the Google account when retiring the setup. A normal APK update with the same signer preserves app storage; uninstalling does not. Android Keystore-encrypted data may not be restorable by copying files to another modern Android phone.
 
-Remove the exact Galaxy Services CA installed on the S2 using the trust tool's reviewed removal path. Do not remove unrelated certificates. Disabling the proxy alone does not remove system trust. Keep the Pixel CA private key secret until the trust has been removed from all clients.
+Remove the exact Galaxy Services CA installed on the S2 using the trust tool's reviewed removal path. Do not remove unrelated certificates. Disabling the proxy alone does not remove system trust. Keep the modern Android phone CA private key secret until the trust has been removed from all clients.
 
 Pause the helper before changing the S2's saved Wi-Fi proxy. Only remove the loopback proxy owned by this setup. Do not overwrite another network's proxy settings. Restore hidden launcher components from the saved component list rather than resetting the entire launcher.
 
-Camera backup never removes originals. Retain them until independently verifying the Pixel copy and your normal photo backup. Media caches can be regenerated; authorization files and signing keys cannot.
+Camera backup never removes originals. Retain them until independently verifying the modern Android phone copy and your normal photo backup. Media caches can be regenerated; authorization files and signing keys cannot.

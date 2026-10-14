@@ -35,6 +35,7 @@ public final class ChatActivity extends Activity implements ChatService.Observer
     private ChatService service;
 
     private boolean bound,resumed,archive,restoring;
+    private boolean chatListTopPending=true;
 
     private String chat="",draftChat="",reply="0",title="Telegram",readFingerprint="";private String menuState="";
 
@@ -82,7 +83,7 @@ public final class ChatActivity extends Activity implements ChatService.Observer
 
         more=new Button(this);more.setText("Earlier");more.setPadding(0,0,0,0);more.setMinHeight(0);more.setTextSize(13);more.setTextColor(ClassicUi.BLUE);more.setBackgroundDrawable(ClassicUi.feedback(0x20000000));more.setOnClickListener(new View.OnClickListener(){public void onClick(View v){if(service!=null){if(chat.length()>0)list.setSelection(0);service.more();}}});root.addView(more,new LinearLayout.LayoutParams(-1,dp(32)));
 
-        content=new FrameLayout(this);list=new ListView(this);list.setDivider(null);list.setDividerHeight(0);list.setCacheColorHint(Color.TRANSPARENT);list.setSelector(new android.graphics.drawable.ColorDrawable(0x18000000));list.setAdapter(adapter);list.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_NORMAL);content.addView(list,new FrameLayout.LayoutParams(-1,-1));
+        content=new FrameLayout(this);list=new ListView(this);list.setDivider(null);list.setDividerHeight(0);list.setCacheColorHint(Color.TRANSPARENT);list.setSelector(new android.graphics.drawable.ColorDrawable(0x18000000));list.setAdapter(adapter);list.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_DISABLED);content.addView(list,new FrameLayout.LayoutParams(-1,-1));
 
         empty=text(18,0xff687780);empty.setGravity(Gravity.CENTER);empty.setPadding(dp(28),dp(16),dp(28),dp(16));content.addView(empty,new FrameLayout.LayoutParams(-1,-1));list.setEmptyView(empty);root.addView(content,new LinearLayout.LayoutParams(-1,0,1));
 
@@ -109,7 +110,7 @@ public final class ChatActivity extends Activity implements ChatService.Observer
 
     protected void onStart(){super.onStart();startService(new Intent(this,ChatService.class));bindService(new Intent(this,ChatService.class),connection,BIND_AUTO_CREATE);bound=true;}
 
-    protected void onResume(){super.onResume();resumed=true;attachments.resume();if(service!=null)service.viewing(true);handler.postDelayed(markRead,500);}
+    protected void onResume(){super.onResume();resumed=true;if(chat.length()==0){resetChatListPosition();changed();}attachments.resume();if(service!=null)service.viewing(true);handler.postDelayed(markRead,500);}
 
     protected void onPause(){ReactionUi.dismiss(this);attachments.pause();saveDraft();resumed=false;handler.removeCallbacks(markRead);if(service!=null)service.viewing(false);super.onPause();}
 
@@ -127,7 +128,18 @@ public final class ChatActivity extends Activity implements ChatService.Observer
 
     public void onBackPressed(){if(chat.length()>0){backToList();return;}if(archive){archive=false;backToList();return;}super.onBackPressed();}
 
-    private void backToList(){saveDraft();chat="";draftChat="";reply="0";readFingerprint="";title=archive?"Archived chats":"Telegram";getIntent().removeExtra("chat");if(service!=null)service.showList(archive);changed();}
+    private void resetChatListPosition(){
+        chatListTopPending=true;
+        if(list!=null){
+            list.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_DISABLED);
+            // Reset the ListView's layout/selection state synchronously. Keeping
+            // the conversation's old children until the next layout flashes its
+            // bottom position and can overwrite the queued top selection.
+            list.setAdapter(adapter);
+        }
+    }
+
+    private void backToList(){saveDraft();chat="";resetChatListPosition();draftChat="";reply="0";readFingerprint="";title=archive?"Archived chats":"Telegram";getIntent().removeExtra("chat");if(service!=null)service.showList(archive);changed();}
 
     private void open(String id){if(service==null||!ClientRules.decimal(id,true))return;saveDraft();chat=id;JSONObject c=service.chat(id);title=c==null?"Conversation":c.optString("title","Conversation");String[] d=service.draft(chat);restoring=true;composer.setText(d[0]);restoring=false;draftChat=chat;reply=d[1];readFingerprint="";service.showChat(chat);service.viewing(resumed);changed();list.post(new Runnable(){public void run(){if(adapter.getCount()>0)list.setSelection(adapter.getCount()-1);}});}
 
@@ -149,7 +161,15 @@ public final class ChatActivity extends Activity implements ChatService.Observer
 
         rows.clear();if(service!=null){if(chat.length()==0)rows.addAll(service.chats(archive));else{rows.addAll(service.messages(chat));HashSet<String> delivered=new HashSet<String>();for(JSONObject r:rows)delivered.add(r.optString("id"));for(JSONObject op:service.operations(chat)){if("SENT".equals(op.optString("state"))&&op.optString("text").length()==0)continue;if(!delivered.contains(op.optString("message_id")))rows.add(op);}}}
 
-        adapter.notifyDataSetChanged();if(chat.length()>0&&bottom&&rows.size()>0)list.setSelection(rows.size()-1);else list.setSelectionFromTop(first,offset);
+        // A conversation and the chat list share this ListView. Never carry the
+        // conversation's bottom position/transcript behavior into the chat list.
+        list.setTranscriptMode(chat.length()>0?AbsListView.TRANSCRIPT_MODE_NORMAL:AbsListView.TRANSCRIPT_MODE_DISABLED);
+        adapter.notifyDataSetChanged();
+        if(chat.length()==0&&chatListTopPending){
+            list.setSelectionFromTop(0,0);
+            if(!rows.isEmpty())chatListTopPending=false;
+        }else if(chat.length()>0&&bottom&&rows.size()>0)list.setSelection(rows.size()-1);
+        else list.setSelectionFromTop(first,offset);
 
         more.setVisibility(service!=null&&service.connected()&&service.hasMore()?View.VISIBLE:View.GONE);more.setText(chat.length()>0?"Earlier":"More");
 

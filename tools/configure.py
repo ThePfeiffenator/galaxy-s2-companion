@@ -1,6 +1,7 @@
 """Materialize private build sources; never connects to a phone or the internet."""
 from pathlib import Path
 import argparse, hashlib, json, re
+from local_config import load
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / '.local/work'
@@ -24,6 +25,10 @@ def mappings(config):
         if not re.fullmatch(r'[A-Za-z0-9 _.-]{1,64}', value) or value.startswith('REPLACE_'):
             raise ValueError('Provide a plain alphanumeric ' + name)
         values['@' + name.upper() + '@'] = value
+    if len(config['wifi_ssid'].encode('ascii')) > 32:
+        raise ValueError('Wi-Fi SSID must be at most 32 bytes')
+    if config['s2_serial'] == config['pixel_serial']:
+        raise ValueError('The two phones must have different serials')
     for name in ('app_signer_sha256', 'identity_jar_sha256'):
         value = config.get(name)
         if value is not None:
@@ -39,12 +44,12 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--config', type=Path, default=ROOT/'local.json')
     a = p.parse_args()
-    values = mappings(json.loads(a.config.read_text(encoding='utf-8-sig')))
+    values = mappings(load(a.config))
     receipt = ROOT/'.local/materialized.json'
     previous = json.loads(receipt.read_text()) if receipt.exists() else {}
     pending = []
     for src in sorted((ROOT/'source').rglob('*')):
-        if not src.is_file(): continue
+        if not src.is_file() or '__pycache__' in src.parts or src.suffix in ('.pyc','.pyo'): continue
         rel = src.relative_to(ROOT/'source').as_posix()
         data = src.read_bytes()
         if src.suffix != '.png':

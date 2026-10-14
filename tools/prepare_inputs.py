@@ -1,6 +1,6 @@
 """Copy your local inputs and decode original APKs. No downloads/device operations."""
 from pathlib import Path
-import argparse, os, shutil, subprocess, sys, zipfile
+import argparse, os, shutil, subprocess, sys
 ROOT=Path(__file__).resolve().parents[1];W=ROOT/'.local/work'
 PLAIN={
  'android15':'telegram-s2-client/sdk/platform/android-4.0.4/android.jar',
@@ -23,7 +23,7 @@ APKS={
 }
 def main():
  p=argparse.ArgumentParser(description=__doc__)
- p.add_argument('kind',choices=list(PLAIN)+list(APKS)+['framework','peggle','bouncycastle']);p.add_argument('file',type=Path);a=p.parse_args()
+ p.add_argument('kind',choices=list(PLAIN)+list(APKS)+['framework','bouncycastle']);p.add_argument('file',type=Path);a=p.parse_args()
  if not W.is_dir():p.error('Run configure.py first')
  if not a.file.is_file():p.error('Input file does not exist')
  def copy(rel):
@@ -34,9 +34,7 @@ def main():
  elif a.kind=='bouncycastle':
   if a.file.name not in [n+'-jdk15to18-1.86.jar' for n in ('bcpkix','bcprov','bctls','bcutil')]:p.error('Expected pinned Bouncy Castle 1.86 jar')
   copy('legacy-services/lib/'+a.file.name)
- elif a.kind=='peggle':
-  f=copy('peggle-diagnostics/peggle-original.apk')
-  with zipfile.ZipFile(f) as z:(f.parent/'installed-libpeggle.so').write_bytes(z.read('lib/armeabi/libpeggle.so'))
+
  else:
   java=str(Path(os.environ['JAVA_HOME'])/'bin/java.exe');tool=W/'peggle-debug-tools/apktool.jar'
   framework=W/'peggle-debug-tools/framework';framework.mkdir(exist_ok=True)

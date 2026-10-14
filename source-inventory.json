@@ -5,7 +5,7 @@
   },
   {
     "path": "source/gallery-music/bridge-src/MusicBridge.java",
-    "sha256": "d52356cc52aa42584d66f2e256d35dba38bb52f1e1f8c8339b94ac167315299e"
+    "sha256": "3a1e262c336def9b87c2a03b9caf5522dfbe56c487f1abaed73a5af93b17d307"
   },
   {
     "path": "source/gallery-music/bridge-stubs/org/retrobridge/playmusic2012/store/MusicFile.java",
@@ -28,8 +28,12 @@
     "sha256": "81553c1a355efba26c7d6d550bdc8d707a34a0ba04b0a71e6d8bf20b843b5e51"
   },
   {
+    "path": "source/gallery-music/music_playlists.py",
+    "sha256": "a25280348501b4774209e99bd068b973555dafbd6c3d26686ea15048079863df"
+  },
+  {
     "path": "source/gallery-music/music_server.py",
-    "sha256": "f1cf0a76f2b936684052d7cf52efadf4579918ab27b036ce20ef4905011ca72d"
+    "sha256": "d0bfdf6f4e061a60aaee1ff8ad9087be034fdf166090457c333523826cd06719"
   },
   {
     "path": "source/gallery-music/music_signature.py",
@@ -41,7 +45,7 @@
   },
   {
     "path": "source/gallery-music/music_uploads.py",
-    "sha256": "84121aa8c74a96ae277ba2f95a0818c0e01ae4a94d6cc96fba10ed292704a7d7"
+    "sha256": "c8731ff4f3ce7d2d3b591240c8ec267a59614b929e786b3f459c247466110387"
   },
   {
     "path": "source/gallery-music/prepare_music_decode.py",
@@ -54,6 +58,14 @@
   {
     "path": "source/gallery-music/start.sh",
     "sha256": "bea02111a7305538d4f30d9e57b83ab0db1473df0479b4e4264ac971cf5f24ea"
+  },
+  {
+    "path": "source/gallery-music/test_audio_segments.cjs",
+    "sha256": "36a488a1718bdf80820f005e2a7c9955661534d47757e5ee22bc9f34746ea720"
+  },
+  {
+    "path": "source/gallery-music/test_music_playlists.py",
+    "sha256": "1062c55252d8882c972e43cfb2cc85512067ecc16fe96a1c6a1f2a758772348d"
   },
   {
     "path": "source/gallery-music/upload_sabr.js",
@@ -800,10 +812,6 @@
     "sha256": "19c32e82ee2b6f7fc440526d8f6805459cf86ea94b66d5f7e843721fe3fecbbf"
   },
   {
-    "path": "source/peggle-debug-tools/build_atomic_fix.py",
-    "sha256": "501100c36d4a813a901e29a74f732bbfdf9f9c91af9cd1d32e1611a620af39fb"
-  },
-  {
     "path": "source/pixel-consolidation/build_google.py",
     "sha256": "6a77199b0ec77bdcdeec9d41b5599e66a56062ee0732764a1fcd0c970d8ec428"
   },
@@ -1265,7 +1273,7 @@
   },
   {
     "path": "source/telegram-pixel-engine/build_engine.py",
-    "sha256": "cc62527f79049eb204d7c9b0477c67172e24a8f82269dbe48f749ca5d437e83b"
+    "sha256": "6590e7c9ceb811473bf41bc54b5fd55d7e5b3786ed6a580a180cec14ff1fd39c"
   },
   {
     "path": "source/telegram-pixel-engine/build_openssl.sh",
@@ -1317,11 +1325,11 @@
   },
   {
     "path": "source/telegram-s2-client/build.py",
-    "sha256": "4ee328c95c6ea88992427c4c2b83edb7874fa565977a2a3e0afc7161b6e21242"
+    "sha256": "d4e8fca1ed920fc6b651bc698c39dd7abb8ce1780dc596d4347ece0f6d074b78"
   },
   {
     "path": "source/telegram-s2-client/ChatActivity.java",
-    "sha256": "caaac73485bb6e6753b3cbee211630d07202b10b1bc2254e1a910c205825debd"
+    "sha256": "32db7b19a7200e995d1c4dc7433b153890c50c33128e4f9a1ec8f708781ea416"
   },
   {
     "path": "source/telegram-s2-client/ChatService.java",
@@ -1394,6 +1402,10 @@
   {
     "path": "source/youtube-google/build.py",
     "sha256": "342a381f3e20a72fe2450e57d1eac33f1cbd5635f3785833663b65cd0614ecf5"
+  },
+  {
+    "path": "source/youtube-google/galaxy-audio.js",
+    "sha256": "3ce7387ff4427ba5630e96860e11a1729a90a3a23f0ca5623df384b1b5182ac9"
   },
   {
     "path": "source/youtube-google/galaxy-stream-fixed.js",

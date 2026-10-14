@@ -20,20 +20,33 @@ The public kit uses `org.retrobridge.*`, synthetic device identities for build t
 
 Completed locally:
 
-- Built and verified current Pixel/S2 compatibility services, S2 calls/control app, Google account component and privileged Store installer helper.
+- Built and verified current modern Android/S2 compatibility services, S2 calls/control app, Google account component and privileged Store installer helper.
 - Built the identity verifier; its 17 checks passed.
 - Built native launcher/worker and ran 113 SMS, 316 batch, 10 socket-address, 23 mute and 15 reconnect/epoch checks, plus bridge parsing and SHA-256 vectors.
 - Ran the first-install transaction's eight C ordering/failure/recovery checks.
 - Built the exact-firmware Bluetooth patch/installer and checked imports against the supplied old libc.
-- Decoded locally supplied original APKs and built/signed the Store, Gmail, final Google-enabled YouTube, RIF, Google widget, Play Music and exact Peggle patch. Original inputs, decoded resources and resulting APKs remain outside the public files.
-- Built/signed both Telegram companions with current reactions/media code and local classic artwork. This used the previously built pinned TDLib native library; **TDLib itself was not rebuilt for this publication**.
-- Assembled the Pixel yt2009 runtime archive from the pinned upstream Git archive plus public overlays, including the current mobile streaming profile. Runtime execution with fresh accounts was not tested during publication.
-- Parsed public Python, JavaScript, XML and JSON; checked local documentation links. Ran source inventory/file-type/credential/device-identifier checks and an additional private developer-identifier audit. The catalog contains zero apps; the only published bitmap assets are metadata-free first-party icons.
+- Built the trust-store helper with a short-lived synthetic certificate and checked its old-libc imports; built the API 15 launcher helper. Neither helper was installed or run on a phone during the audit.
+- Decoded locally supplied original APKs and built/signed the Store, Gmail, final Google-enabled YouTube, RIF, Google widget, Play Music. Original inputs, decoded resources and resulting APKs remain outside the public files.
+- Repeated the build from a fresh GitHub checkout and new synthetic configuration/signing key. Original owner-supplied APKs were decoded afresh; installed compiler/SDK prerequisites were reused. The six original-app patches listed above and all core targets built without borrowing the previous generated build tree.
+- Rebuilt TDLib from pinned upstream source, including host generation, OpenSSL 3.5.9 extraction/compilation and the arm64 ThinLTO link. Built/signed both Telegram companions using that newly generated library and locally extracted reference artwork. Alignment/signature checks passed. No prebuilt TDLib library was substituted in this fresh audit.
+- Assembled the complete credential-free modern runtime bundle from pinned upstream plus public overlays. Extracted it into an isolated host folder, installed npm dependencies, initialized public visitor context and obtained the expected loopback health response. The test backend was then stopped. This was a host smoke test, **not a fresh Termux/device or account test**. Pinned music Python dependencies also installed into a fresh virtual environment.
+- Eight setup-tool tests cover configuration aliases, bad/duplicate identities, SSID limits, source injection, staged identity changes, local-edit preservation and generated-cache exclusion. The audit added explicit input, native-deployment, pairing/permissions, runtime and compatibility instructions.
+- Parsed public Python, JavaScript, XML and JSON; checked local documentation links. Ran source inventory/file-type/credential/device-identifier checks and an additional private developer-identifier audit. The APK catalog contains zero apps. Reviewed interface screenshots contain no account/message/device identifiers; the modern screenshot retains only a standard sRGB color tag.
 
 The old public source export had a package-length-dependent Unix socket bug; its corrected exact-length implementation and tests are retained. The current Store export also handles an empty owner-provided catalog instead of depending on a developer app collection.
 
+## Follow-up changes on the development pair
+
+The clean-setup audit itself did not change the working phones. The owner separately authorized the following targeted updates afterward:
+
+- Music now copies AAC packets rather than independently encoding each six-second piece. Synthetic FFmpeg tests reproduced 14–37 ms overlaps in the previous path and measured less than 0.04 ms rounding at joins with the fix, including source-chunk boundaries, seeking and the partial ending. Both public-track and uploaded-audio paths passed local checks. The owner reported smooth playback so far after installing the matching update, including the requested screen-off test. This does not establish every track/network condition.
+- Saved/bookmarked playlists are read with the existing authorized session. Full pagination and catalog import were checked on the development pair, and the owner confirmed that the previously missing playlist appears and plays on the S2. Seven synthetic adapter tests cover deduplication, ordered repeats, filtering, cursors and layout failures. The broader private music regression suite passed 28 checks. Saved albums remain unsupported.
+- Telegram disables conversation transcript scrolling in the chat-list view and resets the reused view synchronously on entry. The owner confirmed that Chats now appears at the top immediately, without the earlier bottom-to-top jump. The update builds and the existing 71 client-rule and seven host SQLite checks pass; those automated checks do not themselves validate Android scrolling.
+
+These private-namespace updates do not establish a complete public-namespace deployment. APK and runtime rollback copies were preserved outside the repository. The Peggle fix is excluded from the current public source kit at the owner's request.
+
 ## Not established by these checks
 
-A complete clean install using only this public namespace on a second pair of phones remains unverified. Native deployment/recovery, fresh API registration, startup permissions and each upstream service need the operator's device checkpoints. The empty Store feature screen was compiled but not visually tested on a second phone. Other S2 variants, Pixel versions, carriers and Google Messages versions are not certified by this export.
+A complete clean install using only this public namespace on a second pair of phones remains unverified. Native deployment/recovery, fresh API registration, startup permissions and each upstream service need the operator's device checkpoints. The empty Store feature screen was compiled but not visually tested on a second phone. Other S2 variants, modern Android versions and manufacturers, carriers and Google Messages versions are not certified by this export.
 
 Follow the manual in stages. Keep a private record of build hashes, actual installed identities and physical results. Do not weaken guards or describe packaging checks as end-to-end validation.

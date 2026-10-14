@@ -44,7 +44,7 @@ class Uploads:
         self.lock=threading.RLock()
         self.players={}
         self.parts={}
-        self.cache=home/'upload-stream-cache'
+        self.cache=home/'upload-stream-cache-copy-v1'
         self.cache.mkdir(mode=0o777 if os.name=='nt' else 0o700,exist_ok=True)
 
     def known(self, ident):
@@ -183,8 +183,8 @@ class Uploads:
                 (root/'parts.txt').write_text('\n'.join(lines)+'\n')
                 out=root/'out.ts'
                 args=['ffmpeg','-hide_banner','-loglevel','error','-y','-f','concat','-safe','1',
-                    '-i',str(root/'parts.txt'),'-af','atrim=start=%.6f:duration=%.6f,asetpts=PTS-STARTPTS'%(start-selected[0]['start'],end-start),
-                    '-t','%.6f'%(end-start),'-c:a','aac','-b:a','128k','-ac','2','-ar','44100',
+                    '-i',str(root/'parts.txt'),'-ss','%.9f'%(start-selected[0]['start']),
+                    '-t','%.9f'%(end-start),'-map','0:a:0','-c:a','copy',
                     '-output_ts_offset','%.6f'%(start+1),'-avoid_negative_ts','disabled',
                     '-muxdelay','0','-muxpreload','0','-f','mpegts',str(out)]
                 converted=subprocess.run(args,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,timeout=20)

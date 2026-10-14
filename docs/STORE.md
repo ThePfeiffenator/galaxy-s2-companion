@@ -1,6 +1,6 @@
 # 2012 Store and your private APK library
 
-The original Store interface is locally patched to browse installers held on your Pixel. It skips Google login because this catalog does not use Google's Store service. It does not unlock purchases, remove DRM, or make an incompatible app run.
+The original Store interface is locally patched to browse installers held on your modern Android phone. It skips Google login because this catalog does not use Google's Store service. It does not unlock purchases, remove DRM, or make an incompatible app run.
 
 ## Build
 
@@ -20,11 +20,11 @@ This helper accepts only the matching signed Store and checks the package, versi
 
 ## Add your own APKs
 
-1. Copy a legally obtained APK to the Pixel using your preferred local transfer or download it yourself.
-2. Open Galaxy Companion on the Pixel, then **App library → Add APK**.
+1. Copy a legally obtained APK to the modern Android phone using your preferred local transfer or download it yourself.
+2. Open Galaxy Companion on the modern Android phone, then **App library → Add APK**.
 3. Select the APK in Android's file picker. Review the app name/version and complete the import.
 4. On the S2, open the modified Play Store and choose **Refresh**. Your library entry and icon should appear.
-5. Tap Install. The verified file transfers from the Pixel and the old Store shows progress. Launch it and check actual behavior.
+5. Tap Install. The verified file transfers from the modern Android phone and the old Store shows progress. Launch it and check actual behavior.
 
 The public library starts empty. Its featured tiles use original generic artwork and populate from your imported files. It contains neither the developer's installed-app list nor an archive.org collection.
 
@@ -32,7 +32,7 @@ Import requires a complete APK with minSdk at most 15, a legacy APK signature, a
 
 ## Preserve existing apps for reinstallation
 
-My apps can show installed non-system applications even before an installer has been imported. **An installed listing alone is not a backup.** To make one reinstallable, obtain its actual APK from your own backup or use `adb -s YOUR_S2_SERIAL shell pm path PACKAGE` to find its installed path, pull that exact file to private storage, then add it on the Pixel. Preserve any required game data and saves separately. Keep the APK's original signature; do not re-sign an unrelated app merely to import it. Verify the library has a complete copy before uninstalling anything.
+My apps can show installed non-system applications even before an installer has been imported. **An installed listing alone is not a backup.** To make one reinstallable, obtain its actual APK from your own backup or use `adb -s YOUR_S2_SERIAL shell pm path PACKAGE` to find its installed path, pull that exact file to private storage, then add it on the modern Android phone. Preserve any required game data and saves separately. Keep the APK's original signature; do not re-sign an unrelated app merely to import it. Verify the library has a complete copy before uninstalling anything.
 
 ## Sharing a catalog
 
@@ -40,4 +40,4 @@ Supply your own files unless you have explicit redistribution permission. Being 
 
 ## Checkpoint
 
-Test the empty featured screen, import, refresh, details, one approved install, app launch and My apps. Check a caller without the Store's identity cannot invoke the privileged helper. Test again with the Pixel locked and both phones unplugged. Record downloaded, installed and launched as separate results.
+Test the empty featured screen, import, refresh, details, one approved install, app launch and My apps. Check a caller without the Store's identity cannot invoke the privileged helper. Test again with the modern Android phone locked and both phones unplugged. Record downloaded, installed and launched as separate results.

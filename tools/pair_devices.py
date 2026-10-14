@@ -1,13 +1,16 @@
 """Provision app pairing files on explicitly named USB devices. No root/system edits."""
 from pathlib import Path
 import argparse, base64, json, os, secrets, subprocess
+from local_config import load
+from configure import mappings
 ROOT=Path(__file__).resolve().parents[1]
 def main():
  p=argparse.ArgumentParser(description=__doc__)
  p.add_argument('feature',choices=['services','telegram','music','rcs','media'])
  p.add_argument('--config',type=Path,default=ROOT/'local.json')
  p.add_argument('--apply',action='store_true',help='Write private pairing files to the specified devices')
- a=p.parse_args();config=json.loads(a.config.read_text(encoding='utf-8-sig'))
+ a=p.parse_args();config=load(a.config);mappings(config)
+ if config['pixel_serial']==config['s2_serial']:p.error('The two phones must have different serials')
  if not a.apply:p.error('Review docs first; --apply is required for device writes')
  adb=str(Path(os.environ['ANDROID_SDK_ROOT'])/'platform-tools/adb.exe')
  def run(serial,*args,data=None):
@@ -49,7 +52,7 @@ def main():
   writes.append((config['s2_serial'],'org.retrobridge.callprobe','rcs-relay.key',data))
  else:
   writes.append((config['pixel_serial'],'org.retrobridge.galaxyservices.pixel','music-relay.key',data))
-  print('Copy .local/pairing/music.key into Pixel Termux ~/galaxy-music/relay.key through a private, authorized transfer.')
+  print('Copy .local/pairing/music.key into modern-phone Termux ~/galaxy-music/relay.key through a private, authorized transfer.')
  for args in writes:preflight(*args)
  for args in writes:write(*args)
  print('Pairing files verified; key contents were not printed. Keep .local private.')

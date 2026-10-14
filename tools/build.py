@@ -25,13 +25,15 @@ TARGETS = {
  'google-widget': ['google-widget/build_widget.py'],
  'music': ['gallery-music/build_music.py'],
  'launcher': ['launcher-cleanup/build.py'],
- 'peggle': ['peggle-debug-tools/build_atomic_fix.py'],
 }
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('target', choices=TARGETS);a=p.parse_args()
  if not WORK.is_dir():p.error('Run tools/configure.py first')
  for name in ('JAVA_HOME','ANDROID_SDK_ROOT'):
   if not os.environ.get(name):p.error('Set '+name)
+ from doctor import problems
+ errors=problems(a.target)
+ if errors:p.error('\n'.join(errors))
  for rel in TARGETS[a.target]:
   subprocess.run([sys.executable,str(WORK/rel)],check=True,cwd=WORK)
  print('Local build finished. This does not establish device compatibility.')

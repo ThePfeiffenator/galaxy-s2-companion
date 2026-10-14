@@ -1,6 +1,6 @@
 # Google accounts, Gmail and YouTube
 
-Google sign-in happens on the Pixel through Google's account chooser. The S2 receives data over the paired private service; it does not receive a Google password or OAuth access token. Having an account on the Pixel avoids a separate password login but does not replace the required consent.
+Google sign-in happens on the modern Android phone through Google's account chooser. The S2 receives data over the paired private service; it does not receive a Google password or OAuth access token. Having an account on the modern Android phone avoids a separate password login but does not replace the required consent.
 
 ## Register your own application
 
@@ -16,7 +16,7 @@ The Android account component uses Google's AuthorizationClient; there is no sha
 python tools/build.py google-accounts
 ```
 
-Install `.local/work/gmail-bridge/pixel/galaxy-mail-pixel.apk` on the Pixel. Open Galaxy Companion → Google accounts (or the Google Bridge component if shown). Choose **Connect Gmail** and/or **Connect YouTube**, select the correct account and review the permission prompts. Account choice and consent belong to the owner.
+Install `.local/work/gmail-bridge/pixel/galaxy-mail-pixel.apk` on the modern Android phone. Open Galaxy Companion → Google accounts (or the Google Bridge component if shown). Choose **Connect Gmail** and/or **Connect YouTube**, select the correct account and review the permission prompts. Account choice and consent belong to the owner.
 
 Gmail requests `gmail.modify`, which permits reading and changing mail, including sending. YouTube initially requests `youtube.readonly`; **Enable YouTube controls** requests `youtube`, which includes broad account management rights. The implemented controls include ratings, subscriptions, playlists and comments. Do not grant controls if you only want reading. Google's scope can be broader than the controls this interface exposes.
 
@@ -29,16 +29,16 @@ python tools/prepare_inputs.py gmail 'C:\PrivateInputs\Gmail-original.apk'
 python tools/build.py gmail
 ```
 
-Inspect the build's output filename in `.local/work/gmail-bridge` and install it on the S2. Open the modified Gmail after the Pixel says connected. The local account bootstrap should select the paired Pixel account, without asking the old Gmail app to perform its obsolete Google login.
+Inspect the build's output filename in `.local/work/gmail-bridge` and install it on the S2. Open the modified Gmail after the modern Android phone says connected. The local account bootstrap should select the paired modern Android phone account, without asking the old Gmail app to perform its obsolete Google login.
 
 Verify inbox, reading a message, refresh, stars/labels and attachment download. Only send a self-addressed test after the owner explicitly approves it. Confirm delivery and attachment contents; a cleared outbox alone is insufficient. Do not capture mail bodies/account names in public diagnostics.
 
 ## Avoid Testing's seven-day renewal cycle
 
-For external OAuth projects in Testing, Google's refresh-token policy commonly imposes a seven-day lifetime for these scopes. Complete your own project information, resolve the console's requirements and switch its audience/publishing status to **In production** when appropriate. Then renew the connection on the Pixel so it is authorized under that configuration. Production is not a promise of permanent credentials: revocation, password/security changes, provider policy and other expiration conditions still apply. See [Google's expiration rules](https://developers.google.com/identity/protocols/oauth2#expiration).
+For external OAuth projects in Testing, Google's refresh-token policy commonly imposes a seven-day lifetime for these scopes. Complete your own project information, resolve the console's requirements and switch its audience/publishing status to **In production** when appropriate. Then renew the connection on the modern Android phone so it is authorized under that configuration. Production is not a promise of permanent credentials: revocation, password/security changes, provider policy and other expiration conditions still apply. See [Google's expiration rules](https://developers.google.com/identity/protocols/oauth2#expiration).
 
 YouTube Music's Termux runtime is a separate limited-input-device authorization described in [media apps](MEDIA_APPS.md). Register its own appropriate client and preserve its private token files; the Android Gmail/YouTube account component does not replace that client.
 
 ## Checkpoint and recovery
 
-Test Gmail and YouTube separately with the Pixel locked, then after a reboot and one PIN unlock. Never copy another person's Google session. If authorization is revoked, reconnect on the Pixel. To retire the setup, revoke the app in Google's account settings and remove its private local caches. Keep account data out of source backups and issue reports.
+Test Gmail and YouTube separately with the modern Android phone locked, then after a reboot and one PIN unlock. Never copy another person's Google session. If authorization is revoked, reconnect on the modern Android phone. To retire the setup, revoke the app in Google's account settings and remove its private local caches. Keep account data out of source backups and issue reports.

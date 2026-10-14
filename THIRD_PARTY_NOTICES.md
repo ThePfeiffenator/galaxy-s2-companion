@@ -7,7 +7,7 @@
 - Termux: https://github.com/termux/termux-app . Install from the official project's documented distribution sources. Its application and packages have their own licenses.
 - OpenSSL, FFmpeg, ImageMagick, Node.js, Python, yt-dlp, ytmusicapi and their dependencies are external build/runtime inputs. Follow their licenses when distributing any resulting binaries.
 - Weather data uses Open-Meteo and GeoNames; preserve the attribution shown by Galaxy Services.
-- Samsung/Google apps (including Gmail and Play Store), Reddit is fun and Peggle are user-supplied inputs. Their APKs, decoded resources, firmware files and patched binaries are not redistributed here. Owning a device does not transfer a third party's redistribution rights.
+- Samsung/Google apps (including Gmail and Play Store), Reddit is fun are user-supplied inputs. Their APKs, decoded resources, firmware files and patched binaries are not redistributed here. Owning a device does not transfer a third party's redistribution rights.
 
 The root LICENSE covers first-party additions and compatible upstream files; it does not relicense external applications or assets. Build recipes that extract artwork do so only from the owner's local reference APK.
 

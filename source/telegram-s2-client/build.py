@@ -14,7 +14,7 @@ classes=(P/'classes').resolve()
 assert classes.parent==P.resolve() and classes.name=='classes'
 if classes.exists():shutil.rmtree(classes)
 for d in ['classes','dex','res/drawable','compiled','gen']:(P/d).mkdir(parents=True,exist_ok=True)
-(P/'AndroidManifest.xml').write_text('''<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.retrobridge.galaxychat.s2" android:versionCode="11" android:versionName="0.6.1">
+(P/'AndroidManifest.xml').write_text('''<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.retrobridge.galaxychat.s2" android:versionCode="13" android:versionName="0.6.3">
 <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15"/>
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/><uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/><uses-permission android:name="android.permission.BLUETOOTH"/><uses-permission android:name="android.permission.WAKE_LOCK"/>
 <application android:label="Telegram" android:icon="@drawable/classic_ic_launcher" android:theme="@style/ClassicTelegram" android:debuggable="true" android:allowBackup="false">

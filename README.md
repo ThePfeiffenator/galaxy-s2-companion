@@ -1,13 +1,23 @@
 # Galaxy S2 Companion
 
-Use an Android 4.0.4 Galaxy S2 through a modern Pixel, with the old phone's original dialer, messaging, maps and media interfaces wherever possible.
+Use an Android 4.0.4 Galaxy S2 through a modern Android phone, with the old phone's original dialer, messaging, maps and media interfaces wherever possible.
 
-The S2 connects to the Pixel over Bluetooth and private Wi-Fi. The Pixel provides calls, texts, modern network access and account sessions. A PC is needed for building and initial setup; everyday operation is designed to work with the PC unplugged.
+The S2 connects to the modern Android phone over Bluetooth and private Wi-Fi. The modern Android phone provides calls, texts, modern network access and account sessions. A PC is needed for building and initial setup; everyday operation is designed to work with the PC unplugged.
 
 **This is an experimental source kit, not a one-click installer.** The development phone was the **Sprint Samsung Epic 4G Touch (SPH-D710), Android 4.0.4, IMM76I.FL24**, paired with a Pixel 9 Pro. Native calling/audio changes require that exact old firmware. Another Galaxy S2 model is not interchangeable. Never remove a firmware or identity check to force installation.
 
+A Pixel is not a brand requirement. **The current full setup targets a modern Android 16+ phone**, with feature-specific requirements; only the Pixel 9 Pro development pairing has been tested. Read the [compatibility matrix](docs/COMPATIBILITY.md) before buying hardware or assuming another phone works. Older declared minimum SDK values are not an end-to-end support guarantee.
+
 ## Choose your setup guide
 
+<p>
+  <img src="docs/screenshots/s2-services.png" height="440" alt="Android 4 style S2 companion services">
+  <img src="docs/screenshots/modern-services.png" height="440" alt="Modern Android companion services">
+</p>
+
+[More example screenshots](docs/SCREENSHOTS.md). These show the development installation; the public library starts empty.
+
+- **[Local prerequisites and inputs](docs/INPUTS.md)** — exact tools, original input files and a no-device preflight.
 - **[Manual setup](docs/MANUAL_SETUP.md)** — prerequisites, build commands and ordered checkpoints.
 - **[AI-assisted setup](docs/AI_SETUP.md)** — a ready-to-copy prompt and instructions for a coding assistant with local device access.
 - **[Recovery](docs/RECOVERY.md)** — read before changing the S2 system partition.
@@ -17,27 +27,26 @@ The S2 connects to the Pixel over Bluetooth and private Wi-Fi. The Pixel provide
 
 | Feature | What the bridge provides | Limits |
 | --- | --- | --- |
-| Samsung Phone | Calls from the Pixel number, stock dialer, ringing, answer/end, earpiece/microphone and mute | Exact-firmware native integration and S2 root required |
+| Samsung Phone | Calls from the modern Android phone number, stock dialer, ringing, answer/end, earpiece/microphone and mute | Exact-firmware native integration and S2 root required |
 | Samsung Messaging | Bluetooth SMS; optional RCS notification text and inline replies; photo/video relay paths | One-to-one messaging; incoming video and RCS attachments are not fully validated |
 | Telegram, optional | Classic chat list/history, text, photos, camera/gallery sending, videos, files, stickers and reactions | Separate companion and own TDLib session; voice messages deferred |
-| Maps / Navigation | Pixel location mirrored into the old interface | Backend availability and map coverage remain external dependencies |
+| Maps / Navigation | modern Android phone location mirrored into the old interface | Backend availability and map coverage remain external dependencies |
 | Weather / Calendar / browser | Compatibility endpoints, private HTTPS proxy and modern upstream connections | Old rendering and discontinued-service limitations remain |
-| Voice input / Google widget | Recognition performed through the Pixel, including supported keyboard/app entry points | Different keyboards and microphones need their own test |
+| Voice input / Google widget | Recognition performed through the modern Android phone, including supported keyboard/app entry points | Different keyboards and microphones need their own test |
 | YouTube | Search, feeds, subscriptions, comments and account controls; compatible segmented video | Some original buttons have no modern equivalent; see media guide |
 | Reddit is fun | Public posts/comments and compatible media | No login; upstream public access may change |
-| Play Music | YouTube Music library, likes, playlists, uploads, artwork and playback | Own Google authorization; upstream changes can break extraction |
-| Gmail | Original inbox interface with Pixel account authorization, mail actions and attachments | Separate Google permission and API project required |
-| Camera backup | New S2 camera JPEGs copied to Pixel Pictures/Galaxy S2 | Backup only; no deletion sync or historical gallery mirror |
-| 2012 Play Store interface | Private Pixel APK library, local search, installed apps, download/install progress | **Empty by default. Bring your own APKs.** No Google Store login, billing or license bypass |
-| Peggle | Exact-version native atomic-operation patch | Requires the owner's original APK and save backup |
+| Play Music | YouTube Music likes, owned/saved playlists, uploads, artwork and audio-only streaming | Own Google authorization; saved albums are not synced; upstream changes can break adapters |
+| Gmail | Original inbox interface with modern Android phone account authorization, mail actions and attachments | Separate Google permission and API project required |
+| Camera backup | New S2 camera JPEGs copied to modern Android phone Pictures/Galaxy S2 | Backup only; no deletion sync or historical gallery mirror |
+| 2012 Play Store interface | Private modern Android phone APK library, local search, installed apps, download/install progress | **Empty by default. Bring your own APKs.** No Google Store login, billing or license bypass |
 
-The Pixel has one main Galaxy Companion interface with account and runtime components behind it. The S2 uses an Android 4-style Connection / Services / Settings interface. Telegram remains optional and separate. Shared background status reduces notification clutter; the background services still need Android's required permissions and notifications.
+The modern Android phone has one main Galaxy Companion interface with account and runtime components behind it. The S2 uses an Android 4-style Connection / Services / Settings interface. Telegram remains optional and separate. Shared background status reduces notification clutter; the background services still need Android's required permissions and notifications.
 
 ## What you supply
 
 Your own compatible phones, recovery method, original applications and firmware inputs, signing key, Bluetooth pairing, and any Google/Telegram account authorization you choose to use. The repository uses neutral `org.retrobridge.*` package names. Each person builds and signs their own packages and registers their own API clients.
 
-**No APK collection is bundled.** Add your own compatible files using the Pixel's **App library → Add APK**. Free to download does not mean free to redistribute. A future bundled entry must have an explicit redistribution license/permission and its required notices/source; archive.org availability alone is not permission. See [Store and APK library](docs/STORE.md).
+**No APK collection is bundled.** Add your own compatible files using the modern phone's **App library → Add APK**. Free to download does not mean free to redistribute. A future bundled entry must have an explicit redistribution license/permission and its required notices/source; archive.org availability alone is not permission. See [Store and APK library](docs/STORE.md).
 
 There are no personal backups, account credentials, messages, contacts, device identifiers or developer signing keys in this repository. Generated files stay under ignored `.local/`. Do not upload your configuration or runtime data when asking for help.
 
@@ -53,11 +62,11 @@ There are no personal backups, account credentials, messages, contacts, device i
 
 - `source/sms-companion-v12`: current S2 call/SMS control app; the directory name is historical (current manifest version 14).
 - `source/stock-*`: exact-firmware native calling, identity checks and guarded installers.
-- `source/legacy-services`: current Pixel/S2 data services (versions 35/15), private network, camera, messaging and catalog endpoints.
-- `source/pixel-consolidation` and `source/gmail-bridge`: shared Pixel UI and Google account component; local Gmail patch.
+- `source/legacy-services`: current modern Android/S2 data services (versions 35/15), private network, camera, messaging and catalog endpoints.
+- `source/pixel-consolidation` and `source/gmail-bridge`: shared modern Android phone UI and Google account component; local Gmail patch.
 - `source/play-store-investigation`: local Store patch and narrowly scoped privileged installer helper.
-- `source/youtube-google`, `gallery-music`, `reddit-compatibility`: app patches and Pixel runtime adapters.
+- `source/youtube-google`, `gallery-music`, `reddit-compatibility`: app patches and modern Android phone runtime adapters.
 - `source/telegram-*`: optional chat companion, engine recipes and owner-supplied classic artwork preparation.
 - `tools`: local configuration, dependency fetching, build dispatch, pairing and publication audit.
 
-Not an official Samsung, Google, Telegram or Reddit product. Use the Pixel directly for emergency calls. Read [privacy](PRIVACY.md) and [third-party notices](THIRD_PARTY_NOTICES.md). First-party additions are Apache-2.0 unless stated otherwise; this does not relicense original applications.
+Not an official Samsung, Google, Telegram or Reddit product. Use the modern Android phone directly for emergency calls. Read [privacy](PRIVACY.md) and [third-party notices](THIRD_PARTY_NOTICES.md). First-party additions are Apache-2.0 unless stated otherwise; this does not relicense original applications.
