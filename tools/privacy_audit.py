@@ -4,7 +4,27 @@ import hashlib,json,re,sys
 R=Path(__file__).resolve().parents[1]
 TEXT={'.md','.py','.java','.c','.h','.inc','.cjs','.js','.json','.xml','.sh','.cmd','.txt','.s','.ld','.example','.gradle','.properties'}
 SPECIAL={'.gitignore','.gitattributes','LICENSE','config.example'}
-SCREENSHOTS={'docs/screenshots/s2-services.png','docs/screenshots/s2-settings.png','docs/screenshots/modern-services.png'}
+SCREENSHOTS={
+ 'docs/screenshots/calendar-redacted.png',
+ 'docs/screenshots/gallery-redacted.png',
+ 'docs/screenshots/gmail-inbox-redacted.png',
+ 'docs/screenshots/google-maps.png',
+ 'docs/screenshots/google-widget.png',
+ 'docs/screenshots/internet-browser.png',
+ 'docs/screenshots/modern-services.png',
+ 'docs/screenshots/navigation-redacted.png',
+ 'docs/screenshots/play-music-now-playing.png',
+ 'docs/screenshots/rif-comments.png',
+ 'docs/screenshots/rif-posts.png',
+ 'docs/screenshots/s2-services.png',
+ 'docs/screenshots/s2-settings.png',
+ 'docs/screenshots/samsung-messaging.png',
+ 'docs/screenshots/samsung-phone.png',
+ 'docs/screenshots/store-download.png',
+ 'docs/screenshots/telegram-reactions-redacted.png',
+ 'docs/screenshots/weather-redacted.png',
+ 'docs/screenshots/youtube-search.png',
+}
 PATTERNS={
  'user home path':re.compile(r'[A-Za-z]:[\\/]+Users[\\/]+[A-Za-z]'),
  'MAC address':re.compile(r'(?i)(?<![0-9a-f])(?:[0-9a-f]{2}:){5}[0-9a-f]{2}(?![0-9a-f])'),

@@ -8,14 +8,22 @@ The S2 connects to the modern Android phone over Bluetooth and private Wi-Fi. Th
 
 A Pixel is not a brand requirement. **The current full setup targets a modern Android 16+ phone**, with feature-specific requirements; only the Pixel 9 Pro development pairing has been tested. Read the [compatibility matrix](docs/COMPATIBILITY.md) before buying hardware or assuming another phone works. Older declared minimum SDK values are not an end-to-end support guarantee.
 
-## Choose your setup guide
+## Screenshots
+
+<p>
+  <img src="docs/screenshots/play-music-now-playing.png" height="360" alt="Google Play Music playing a track through the companion">
+  <img src="docs/screenshots/rif-posts.png" height="360" alt="Reddit is fun showing public subreddit posts">
+  <img src="docs/screenshots/store-download.png" height="360" alt="The restored 2012 Store downloading an owner-provided APK">
+</p>
 
 <p>
   <img src="docs/screenshots/s2-services.png" height="440" alt="Android 4 style S2 companion services">
   <img src="docs/screenshots/modern-services.png" height="440" alt="Modern Android companion services">
 </p>
 
-[More example screenshots](docs/SCREENSHOTS.md). These show the development installation; the public library starts empty.
+[See every restored app in the screenshot gallery](docs/SCREENSHOTS.md). These are real captures from the development installation, with personal information covered where needed. The public APK library starts empty.
+
+## Choose your setup guide
 
 - **[Local prerequisites and inputs](docs/INPUTS.md)** — exact tools, original input files and a no-device preflight.
 - **[Manual setup](docs/MANUAL_SETUP.md)** — prerequisites, build commands and ordered checkpoints.
