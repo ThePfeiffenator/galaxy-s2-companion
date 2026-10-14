@@ -42,7 +42,7 @@ cd "$HOME"
 test ! -e yt2009 && test ! -e galaxy-music || exit 1
 umask 077
 tar -xzf "$HOME/storage/downloads/modern-runtime.tar.gz" -C "$HOME"
-bash "$HOME/install_packages.sh"
+bash "$HOME/install_packages.sh" --fresh-install
 bash "$HOME/setup_backend.sh"
 bash "$HOME/configure_startup.sh"
 chmod 700 "$HOME/galaxy-youtube.sh" "$HOME/galaxy-music/start.sh"
@@ -50,7 +50,7 @@ chmod 700 "$HOME/galaxy-youtube.sh" "$HOME/galaxy-music/start.sh"
 termux-reload-settings
 ```
 
-Do not use the clean-install extraction as an upgrade over credentials or edited runtime files. Stop on each failed command; only initial setup should create the runtime directories. `setup_backend.sh` installs npm dependencies and initializes public visitor context, so it requires working internet. Upstream refusal is an error, not a reason to copy somebody else's cookies. The old `upgrade_packages.sh` is not part of this setup; a blanket package upgrade is unnecessary.
+Do not use the clean-install extraction as an upgrade over credentials or edited runtime files. Stop on each failed command; only initial setup should create the runtime directories. The explicit `--fresh-install` step updates the new Termux bootstrap packages before installing current media dependencies. Without that update, an old bundled C++ library can prevent FFmpeg from loading. It preserves existing package configuration files and refuses an existing video runtime or music client configuration. This is not an upgrade recipe for a working installation. `setup_backend.sh` installs npm dependencies and initializes public visitor context, so it requires working internet. Upstream refusal is an error, not a reason to copy somebody else's cookies.
 
 The final locations are `~/yt2009`, `~/galaxy-youtube.sh` and `~/galaxy-music`. Galaxy Companion needs Termux's `com.termux.permission.RUN_COMMAND` in addition to the Termux `allow-external-apps` property. Grant it through Android settings if exposed, or after reviewing that permission:
 
@@ -58,7 +58,9 @@ The final locations are `~/yt2009`, `~/galaxy-youtube.sh` and `~/galaxy-music`. 
 & "$env:ANDROID_SDK_ROOT\platform-tools\adb.exe" -s YOUR_MODERN_SERIAL shell pm grant org.retrobridge.galaxyservices.pixel com.termux.permission.RUN_COMMAND
 ```
 
-This is a device step, excluded from offline audits. See [Termux RUN_COMMAND](https://github.com/termux/termux-app/wiki/RUN_COMMAND-Intent). Resume Galaxy Companion, wait for its runtime check, then in Termux check `http://127.0.0.1:8768/galaxy-health` (for example with Python urllib.request). It must return `Galaxy YouTube ready`. Logs stay privately in `~/yt2009/galaxy-backend.log`. Keep the backend bound to loopback; do not expose it via a tunnel. A successful npm install does not prove runtime startup.
+This is a device step, excluded from offline audits. See [Termux RUN_COMMAND](https://github.com/termux/termux-app/wiki/RUN_COMMAND-Intent). In Android's app battery settings, allow unrestricted/background operation for **both Termux and Galaxy Companion**, and allow their service notifications. Labels vary by manufacturer. Termux's permission and `allow-external-apps` setting alone do not establish background startup: the fresh Android 16 emulator rejected it with `BackgroundServiceStartNotAllowedException` until battery exemptions were configured. Do not grant overlay permission for these background commands; a foreground terminal window is not required.
+
+Resume Galaxy Companion, wait for its runtime check, then in Termux check `http://127.0.0.1:8768/galaxy-health` (for example with Python urllib.request). It must return `Galaxy YouTube ready`. Logs stay privately in `~/yt2009/galaxy-backend.log`. Keep the backend bound to loopback; do not expose it via a tunnel. A successful npm install does not prove runtime startup.
 
 The current YouTube profile uses low-bitrate 360p H.264 and six-second chunks, scaled without stretching to the S2's 800×480 screen. This accounts for simultaneous Bluetooth/Wi-Fi airtime. YouTube playback prepares short compatible media segments so playback can begin before a full conversion completes. Test first playback, sustained audio/video, a different video and seeking several minutes ahead. A cached video alone does not test extraction/startup. RIF's video adapter uses the same modern Android phone runtime; test more than one host/post format.
 

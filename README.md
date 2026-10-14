@@ -22,6 +22,7 @@ A Pixel is not a brand requirement. **The current full setup targets a modern An
 - **[AI-assisted setup](docs/AI_SETUP.md)** — a ready-to-copy prompt and instructions for a coding assistant with local device access.
 - **[Recovery](docs/RECOVERY.md)** — read before changing the S2 system partition.
 - **[Validation and remaining gaps](docs/VALIDATION.md)** — distinguishes the original working phones from the generalized public build.
+- **[Isolated emulator checks](docs/EMULATOR_TESTING.md)** — fresh installation tests without accessing a working phone.
 
 ## Features
 

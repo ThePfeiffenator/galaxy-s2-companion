@@ -45,6 +45,16 @@ The clean-setup audit itself did not change the working phones. The owner separa
 
 These private-namespace updates do not establish a complete public-namespace deployment. APK and runtime rollback copies were preserved outside the repository. The Peggle fix is excluded from the current public source kit at the owner's request.
 
+## Fresh emulator installation — October 14, 2026
+
+Two new emulator installations extended the earlier host-only audit: Android 4.0.4/API 15 ARMv7 and Android 16/API 36 x86_64 with ARM64 translation. A separate ADB server excluded all real USB devices. No working phone was accessed or changed, and no real account or pairing data was copied.
+
+All 13 public APKs installed. Twelve activity entry points launched without a recorded fatal exception after correcting the call builder's obsolete native source. It now generates JNI headers and checks 11 exports. The optional modern Telegram companion loaded its freshly built TDLib library. The account component remained disconnected and the APK library empty. Legacy screenshots were black, so those launch checks do not establish visual correctness.
+
+Fresh Termux setup exposed a bootstrap C++ library mismatch; the clean-install script now updates the bootstrap before installing media dependencies. A retry from empty storage completed. Video and authenticated music health checks passed, including expected rejection without the music key. The empty catalog was served over verified TLS, with invalid authentication/replays rejected. The native installer's self-tests passed and its production guard rejected the generic emulator without changing the radio binary or mount table.
+
+A modern-emulator reboot exposed the need to explicitly configure Termux/Companion battery exemptions. After saving those settings, video and music started automatically following reboot/unlock without opening either app. No real playback, account sign-in, radio pairing or silent Store install was tested. See [the emulator procedure and evidence boundaries](EMULATOR_TESTING.md).
+
 ## Not established by these checks
 
 A complete clean install using only this public namespace on a second pair of phones remains unverified. Native deployment/recovery, fresh API registration, startup permissions and each upstream service need the operator's device checkpoints. The empty Store feature screen was compiled but not visually tested on a second phone. Other S2 variants, modern Android versions and manufacturers, carriers and Google Messages versions are not certified by this export.

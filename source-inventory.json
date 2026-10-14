@@ -789,7 +789,7 @@
   },
   {
     "path": "source/legacy-services/termux/install_packages.sh",
-    "sha256": "5e92a5f56cf09ed0644981fe01740402a3fab48962df42400d0361dd0fd0c7ca"
+    "sha256": "c3ccbc59382a70d83ab9c636f98a0d57d322320b9a3f6e6e36953848c25583ac"
   },
   {
     "path": "source/legacy-services/termux/prepare_youtube.py",
@@ -873,7 +873,7 @@
   },
   {
     "path": "source/sms-companion-v12/build.py",
-    "sha256": "1162e2f385cf0daeff32afcefedd85311e42323e7e124b4d63181c817a10826c"
+    "sha256": "939235405ccac2763d56a32b2c052b0f3c5a3529b75ef68ea10a325dcf37a67d"
   },
   {
     "path": "source/sms-companion-v12/CdmaCodec.java",
@@ -926,6 +926,10 @@
   {
     "path": "source/sms-companion-v12/NotificationCoordinator.java",
     "sha256": "5ed382e9bc4a418251b76436bef63aae975231f93f4683635a8adb3658983a75"
+  },
+  {
+    "path": "source/sms-companion-v12/probe.c",
+    "sha256": "78c67e6333e3cac1b744209879190bf1a0e12ad82c008b93caaad928f6e183bf"
   },
   {
     "path": "source/sms-companion-v12/ProbeActivity.java",
