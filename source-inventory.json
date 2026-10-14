@@ -161,15 +161,15 @@
   },
   {
     "path": "source/launcher-cleanup/LauncherEntries.java",
-    "sha256": "7b80b36a4ec8f219e9901201776a39ea738d72ac777c436891f7c11d4195bf05"
+    "sha256": "40b440ee2f5cd868e50dbd2884b9d63e14aa83add651da292f6117c0178c61b7"
   },
   {
     "path": "source/legacy-services/BOUNCY-CASTLE-LICENSE.txt",
-    "sha256": "b3c0e23a6fd287e05c4849faa17632d0b31bdc31fccc409caeb7661caea9d967"
+    "sha256": "89e61e44dcdd5bf128446fcdb8b2adf41d597d5c5a3de25e91c0b682af710ed8"
   },
   {
     "path": "source/legacy-services/browsing/backend.js",
-    "sha256": "db6d3171be5e8aa4bb8b419d559840f657761bd7c0bec8e903201a966b6838bf"
+    "sha256": "2aa4811affdde1037b0176de2cc638c059e7af7f431dbed332fff58afee9f832"
   },
   {
     "path": "source/legacy-services/browsing/galaxy-browse.js",
@@ -177,11 +177,11 @@
   },
   {
     "path": "source/legacy-services/browsing/yt2009templates.js",
-    "sha256": "9ddbd8476b19642085dede89746aea153bbdf2f23d8736bcf84820bad27e080d"
+    "sha256": "3f59eee09e0ea59a2d0ae5859e2d0bdb4eeea13b89b6c56db5a5f49875ff9d2a"
   },
   {
     "path": "source/legacy-services/browsing/yt2009utils.js",
-    "sha256": "ae76b3f270bf76ada225f103dca588e8979c346b51841a0f90d17f0a37e38edf"
+    "sha256": "2507a7f167ab4e1a77d39ae927b8e1b8d522b08b61b6604bcbb305ad319e9b74"
   },
   {
     "path": "source/legacy-services/build.py",
@@ -309,7 +309,7 @@
   },
   {
     "path": "source/legacy-services/pixel/assets/catalog/catalog.json",
-    "sha256": "61145e5bc6da094bbad1223eb0989f12a3b6b2de9c008f2c65cb6ada63c648db"
+    "sha256": "90a2246ac8d3369de1cd93eb04ad4733799a689e31fc8dada25785998cbef731"
   },
   {
     "path": "source/legacy-services/pixel/assets/reddit-reader.js",
@@ -1109,7 +1109,7 @@
   },
   {
     "path": "source/stock-sms-native/persistent_support.inc",
-    "sha256": "4675942114f53d74f88e1b7e06daab8639bab9713f77de0d7abc453957bffeaf"
+    "sha256": "fa51c6a6aff14e4d524ce38de03facafad01a5a9eb1483fb26eb5d82f8e2e585"
   },
   {
     "path": "source/stock-sms-native/PROTOCOL.txt",
@@ -1121,7 +1121,7 @@
   },
   {
     "path": "source/stock-sms-native/self_test.cjs",
-    "sha256": "23051ca57f00559491668e4c6074c0d0162e04e506e1a4c60d0f369ea75cdce5"
+    "sha256": "f8e6ba76ab2f3e9919a4260fd8293c1acf428220c6e8d1ca7e1e2e30b38f6eba"
   },
   {
     "path": "source/stock-sms-native/sha256.c",
@@ -1189,7 +1189,7 @@
   },
   {
     "path": "source/telegram-companion/protocol.md",
-    "sha256": "6ebc8094c5cb8cd4947c777ab6f88254a4e5bb8a2d6be3e587e27aa98c57f4dd"
+    "sha256": "c9644b24126c12367bdf0a83fcdfb5f97c92426fb2f6941c2f2c68cae6bdbb19"
   },
   {
     "path": "source/telegram-companion/Wire.java",
@@ -1273,7 +1273,7 @@
   },
   {
     "path": "source/telegram-pixel-engine/candidate/java/org/drinkless/tdlib/JsonClient.java",
-    "sha256": "0cecc3b8957f680c3706e3b9d062238a2e0eb467195acef797ead10bad630d8b"
+    "sha256": "e92666f288e599d1c55bf5d24774f5e3e890b0999b0629931a7cf627a4323510"
   },
   {
     "path": "source/telegram-pixel-engine/candidate/licenses/Android-NDK-NOTICE.txt",
@@ -1289,11 +1289,11 @@
   },
   {
     "path": "source/telegram-pixel-engine/candidate/licenses/SQLite.txt",
-    "sha256": "c5be4f05a1af4d7d67593d03a5e87a5996537768e181c9b9ebc31645055a9a08"
+    "sha256": "92a681e777538e3cc012d5886505fec7704fb9c1957ef6b67807d771985d457e"
   },
   {
     "path": "source/telegram-pixel-engine/candidate/licenses/TDLib-Boost-1.0.txt",
-    "sha256": "beb8e42e9d6b4284e03304d05a81a0755200a965fc8d0a5e0aea1e84cf805d6e"
+    "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566"
   },
   {
     "path": "source/telegram-pixel-engine/host_environment.cmd",
