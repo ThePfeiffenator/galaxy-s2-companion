@@ -17,7 +17,7 @@ These images illustrate the interfaces, not a fresh-install compatibility guaran
 | Internet browser | [Public HTTPS page](#internet-browser) |
 | Google widget and voice-search entry | [Home-screen widget](#google-widget) |
 | Gallery and camera backup | [Original Gallery](#gallery-and-camera-backup) |
-| Telegram | [Reaction picker](#telegram) |
+| Telegram | [Main Chats screen](#telegram) |
 | Google Play Music | [Now playing](#google-play-music) |
 | Reddit is fun | [Posts and comments](#reddit-is-fun) |
 | 2012 Store | [APK download](#2012-store) |
@@ -91,9 +91,9 @@ The original Gallery remains on the S2. Personal camera thumbnails and other per
 
 ## Telegram
 
-The working reaction picker in the optional classic Telegram companion. Private conversation content visible around the dialog has been covered. [Telegram setup](TELEGRAM.md).
+The main Chats screen in the optional classic Telegram companion. Chat names, avatars, message previews and dates are covered; the original header, spacing and row separators are unchanged. [Telegram setup](TELEGRAM.md).
 
-<img src="screenshots/telegram-reactions-redacted.png" height="560" alt="Telegram emoji reaction picker with surrounding conversation redacted">
+<img src="screenshots/telegram-chats-redacted.png" height="560" alt="Telegram main Chats screen with avatars, names, message previews and dates redacted">
 
 ## Google Play Music
 

@@ -21,7 +21,7 @@ SCREENSHOTS={
  'docs/screenshots/samsung-messaging.png',
  'docs/screenshots/samsung-phone.png',
  'docs/screenshots/store-download.png',
- 'docs/screenshots/telegram-reactions-redacted.png',
+ 'docs/screenshots/telegram-chats-redacted.png',
  'docs/screenshots/weather-redacted.png',
  'docs/screenshots/youtube-search.png',
 }
