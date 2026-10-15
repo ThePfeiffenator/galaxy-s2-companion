@@ -91,9 +91,9 @@ The original Gallery remains on the S2. Personal camera thumbnails and other per
 
 ## Telegram
 
-The main Chats screen in the optional classic Telegram companion. Chat names, avatars, message previews and dates are covered; the original header, spacing and row separators are unchanged. [Telegram setup](TELEGRAM.md).
+The main Chats screen in the optional classic Telegram companion. Chat names, avatars and message previews are covered; dates, the original header, spacing and row separators are unchanged. [Telegram setup](TELEGRAM.md).
 
-<img src="screenshots/telegram-chats-redacted.png" height="560" alt="Telegram main Chats screen with avatars, names, message previews and dates redacted">
+<img src="screenshots/telegram-chats-redacted.png" height="560" alt="Telegram main Chats screen with avatars, names and message previews redacted">
 
 ## Google Play Music
 
