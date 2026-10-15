@@ -87,6 +87,7 @@ On the modern Android phone open Galaxy Companion → Services → Calls & messa
 - YouTube, Reddit is fun and Play Music/YouTube Music: docs/MEDIA_APPS.md.
 - Automatic contacts, camera JPEG/MP4/3GP backup to one album, selected notification forwarding, and upgrade permissions: [contacts, camera and notifications](CONTACTS_CAMERA_NOTIFICATIONS.md). Both photo and video backups use modern-phone `Pictures/Galaxy S2`.
 - Original AP Mobile science/space widget: [AP Mobile](AP_MOBILE.md), including the original APK/odex inputs and new widget binding.
+- Optional [80%/75% charging protection](CHARGING.md): exact-firmware S2 controller, identity/boot inputs, guarded installation, restart checks and rollback. It starts disabled; no modern-phone update is required.
 - Original launcher duplicates: use the launcher cleanup tool only after verifying each replacement. Hide launcher components, not entire service packages; keep a restoration list. Do not delete original app data.
 
 ## 7. Daily operation and final checks

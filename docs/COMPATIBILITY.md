@@ -20,3 +20,12 @@ Several APK manifests declare minSdk 26, but the combined service uses newer API
 Source folders, output names, package IDs and internal keys containing `pixel` are historical identifiers for the modern-phone role. Keep them stable: renaming packages affects installed storage, signature permissions and OAuth. New config uses `modern_serial` / `modern_bluetooth`; the tools also accept the previous `pixel_*` names. Some original app labels still say “Pixel”; these are legacy labels, not hardware restrictions.
 
 See Android's [configured hotspot API](https://developer.android.com/reference/android/net/wifi/WifiManager) and Termux's [RUN_COMMAND setup](https://github.com/termux/termux-app/wiki/RUN_COMMAND-Intent). These references do not replace physical compatibility tests.
+
+## Optional charging controller
+
+The [80% limit](CHARGING.md) requires the exact SPH-D710/FL24 kernel and its
+MAX8922 physical-cable/charger-state interface. Generic S2 variants and
+emulators are not hardware substitutes. It needs no modern-phone feature,
+but does need S2 root, a compatible original boot hook and Android running.
+The full natural 80%/75% cycle, wall charger and powered-off charging remain
+unqualified; do not expand support by deleting runtime or installer guards.

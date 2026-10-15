@@ -98,6 +98,37 @@ Follow [the feature guide](CONTACTS_CAMERA_NOTIFICATIONS.md) and
 The earlier emulator checks predate these new features; this publication does
 not claim another emulator or public-namespace phone deployment for them.
 
+## Optional charging protection — October 15, 2026
+
+The development installation demonstrated hardware charging pause and automatic
+resumption in a bounded trial using the real battery percentage at temporarily
+lower thresholds. No battery percentage, health or temperature was fabricated.
+A terminated trial worker was recovered by the supervisor, with stock charging
+restored before restart. The normal 80%/75% setting then survived a real S2 reboot
+without opening Companion. Its wake alarm ran during a screen-off check, and
+the owner confirmed calls, text and browsing after unplugging USB. Reconnection
+returned normal charging without a controller fault.
+
+The full natural 80%/75% cycle, AC wall charger and fully powered-off charging
+remain unqualified. USB-connected screen-off observations do not by themselves
+prove a complete unplugged deep-suspend cycle. These are private-development
+hardware results, not a public-namespace phone deployment.
+
+For this public update, a fresh isolated local source copy used a newly generated
+test signing key, synthetic app identity and the original local firmware inputs.
+The public Companion APK (version 16), ARM32 charging controller and guarded
+installer built successfully. The actual C policy passed 40 WebAssembly checks;
+10 input-validation tests and eight setup-tool tests passed. Native imports were
+checked against the original Android 4.0.4 libc. No device was accessed by these
+build/tests, and no original firmware, test keys, generated identity headers,
+APKs, root configurations or private recovery archives are distributed.
+
+The public app avoids scheduling recurring charge alarms when the optional
+native backend is absent. Native runtime checks also reject a different model
+or display build. Public namespace deployment and live removal still require
+the operator's checks in [the charging guide](CHARGING.md); compilation is not
+a substitute. This update was not installed on the working development phones.
+
 ## Not established by these checks
 
 A complete clean install using only this public namespace on a second pair of phones remains unverified. Native deployment/recovery, fresh API registration, startup permissions and each upstream service need the operator's device checkpoints. The empty Store feature screen was compiled but not visually tested on a second phone. Other S2 variants, modern Android versions and manufacturers, carriers and Google Messages versions are not certified by this export.

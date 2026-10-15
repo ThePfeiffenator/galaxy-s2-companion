@@ -16,6 +16,42 @@
     "sha256": "5730dad155cf0d1d1d19f58cd753a3fb9ee26b30669279bfd8346a706ac1e4bd"
   },
   {
+    "path": "source/charging/build.py",
+    "sha256": "98d48b40512ae2323ef97b801a4d2df7ddb4cdfb859e3a6c36bb86f5a07d5fcf"
+  },
+  {
+    "path": "source/charging/charge_manager.c",
+    "sha256": "1707f18b0536c8dd4bb3fed5ef827bc796f20318ccd040ec54c5e6dc08bd0f8c"
+  },
+  {
+    "path": "source/charging/charge_policy.c",
+    "sha256": "dc1f0f450b33a2936350b3a3a08f58cd2cde8c263222bb1a76a7458dcc47272e"
+  },
+  {
+    "path": "source/charging/charge_policy.h",
+    "sha256": "b727b6bbadb73668fa7102b170609c7c364da71892b7349b25d105fca89c5e35"
+  },
+  {
+    "path": "source/charging/install_charge.c",
+    "sha256": "afec0c69c8c58f857e009db4c647e6f366ba34482a8d1c8637524b2e05da96c0"
+  },
+  {
+    "path": "source/charging/profile.py",
+    "sha256": "cd7a9b2d1de03a6e692de007765cff082d5e74b14c8582db28d06ded2a735120"
+  },
+  {
+    "path": "source/charging/sha256.c",
+    "sha256": "57f87801b7d390f7fef9ac4fa46f069de987310c137f2b1f959772e8775d0365"
+  },
+  {
+    "path": "source/charging/sha256.h",
+    "sha256": "1222d71dc44733bfcd367633e4a06e3b5ff5fff87daf6a52d545b7e3b5d1e07f"
+  },
+  {
+    "path": "source/charging/test_policy.py",
+    "sha256": "8e75ba25e733d9246893d268510cab479ebdbbb4e535613a4d889acf39112821"
+  },
+  {
     "path": "source/companion-checks/ContactChecks.java",
     "sha256": "7f46ba309f58e9ef92b79a645e456a545695e55bb0460af815be9b3c4a5f5b0c"
   },
@@ -933,7 +969,15 @@
   },
   {
     "path": "source/sms-companion-v12/AndroidManifest.xml",
-    "sha256": "8dc09accd7ddb7c415539afa329d11c80494631eeb8cfcc37c116d676b134e96"
+    "sha256": "625377d8ef3e01eab080085d0fc439ff3e0e14ba4127b29ea82d19cc81811b3b"
+  },
+  {
+    "path": "source/sms-companion-v12/BatteryControl.java",
+    "sha256": "1251e254fed2181e0451cc1aaada23854fdad0ea56d55d5f14aff946f94506f6"
+  },
+  {
+    "path": "source/sms-companion-v12/BatteryWake.java",
+    "sha256": "2e157df661cc58cae8bdb2ac71310d1ca6fa9f041b8881439244271bf2f1c289"
   },
   {
     "path": "source/sms-companion-v12/BootReceiver.java",
@@ -1001,7 +1045,7 @@
   },
   {
     "path": "source/sms-companion-v12/ProbeActivity.java",
-    "sha256": "aae6c4b043333b654ac8e3519fc1df2b9ea1f7640f59c15abd1182d4702f22ce"
+    "sha256": "392d4d7f2ff0bc0618913edc9a1d80d0e9d7492396ee51a40e157d0194700aa7"
   },
   {
     "path": "source/sms-companion-v12/RcsClient.java",

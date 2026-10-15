@@ -17,6 +17,7 @@ INPUTS = {
     'services': [API15],
     'ap-mobile': [APKTOOL, BAKSMALI, 'ap-mobile/inputs/APNews.apk', 'ap-mobile/inputs/APNews.odex', 'ap-mobile/inputs/framework/core.odex'],
     'native-calls': [LIBC],
+    'charging': [LIBC, 'sms-companion-v12/galaxy-companion-v14.apk', 'charging/inputs/identity.json', 'charging/inputs/install-recovery.original.sh'],
     'native-installer': [LIBC, 'call-feasibility/stock-original/rild', 'call-feasibility/stock-original/libril.so'],
     'bluetooth-patch': ['peggle-debug-tools/symbols/system/lib/libandroid_runtime.so'],
     'bluetooth-installer': [LIBC],

@@ -10,6 +10,10 @@ Record an independent recovery route before modifying `/system/bin/rild` or a fr
 
 An APK update can change its installed path as well as its hash. The native bridge checks both and its signer/UID. Preserve the previous APK and config as a matched pair. Generate a new guarded config update for the actual installed candidate; a stale configuration is expected to reject it. The first-install source is not a generic upgrade/recovery tool for arbitrary modified installations.
 
+## Battery protection
+
+See [charging installation and recovery](CHARGING.md) for the matching guarded boot installer. Disable the cap and verify charging restoration before stopping the supervisor or removing its executable. Preserve the original boot script and old installer. An APK update also changes the charging identity pin: remove the old backend with its matching installer, complete the APK/call-config update, then rebuild charging for the new identity. Do not apply a newly built installer over an unknown prior binary or restore an older APK alone.
+
 ## Message journals
 
 Never delete a journal merely because a send or receive is marked uncertain. First compare the modern Android phone and Samsung Messaging state. A send may already have reached the recipient. A receive batch may have reached Samsung's provider before its acknowledgment was lost. Resolve that ambiguity before any manual retry or journal repair.

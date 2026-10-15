@@ -47,3 +47,13 @@ Input preparation refuses to overwrite a different existing file or decoded dire
 Copy config.example.json to local.json. Fill real identities for a real installation; leave native UID/hash fields null initially. Configure, generate a key **once**, fetch dependencies and stage inputs. Build calls, measure its real installed identity, then complete the native identity sequence. Finish configure passes **before** generating Telegram artwork or editing materialized sources: configure deliberately preserves changed files.
 
 Synthetic identities are only for offline compilation tests. Never install native artifacts built with synthetic UID/path values. Installed identity still requires a device checkpoint. Keep `.local`, originals, signed outputs and receipts private.
+
+## Optional charging inputs
+
+The `charging` target additionally needs your installed public Companion identity,
+your original FL24 `install-recovery.sh`, the locally built matching Companion
+APK and captured old libc. See [CHARGING.md](CHARGING.md) for capture commands,
+JSON fields and the exact boot-script hash. Keep all captures in `.local`;
+the repository contains neither a developer identity nor a ready-to-install
+charging binary. `tools/test_charging_setup.py` tests input rejection without
+a phone. `.local/work/charging/test_policy.py` runs the C policy checks locally.

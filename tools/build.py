@@ -6,6 +6,7 @@ WORK = ROOT/'.local/work'
 TARGETS = {
  'services': ['legacy-services/build.py'],
  'calls': ['sms-companion-v12/build.py'],
+ 'charging': ['charging/build.py'],
  'identity': ['stock-identity/build.py'],
  'native-calls': ['stock-sms-native/build.py'],
  'native-installer': ['stock-install/build.py'],
