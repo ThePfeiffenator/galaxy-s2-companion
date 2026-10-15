@@ -15,6 +15,7 @@ APKTOOL = 'peggle-debug-tools/apktool.jar'
 BAKSMALI = 'call-feasibility/baksmali-2.5.2.jar'
 INPUTS = {
     'services': [API15],
+    'ap-mobile': [APKTOOL, BAKSMALI, 'ap-mobile/inputs/APNews.apk', 'ap-mobile/inputs/APNews.odex', 'ap-mobile/inputs/framework/core.odex'],
     'native-calls': [LIBC],
     'native-installer': [LIBC, 'call-feasibility/stock-original/rild', 'call-feasibility/stock-original/libril.so'],
     'bluetooth-patch': ['peggle-debug-tools/symbols/system/lib/libandroid_runtime.so'],
@@ -59,7 +60,7 @@ def problems(target=None):
         if not WORK.is_dir(): errors.append('Run tools/configure.py first')
         for rel in INPUTS.get(target, []): need(WORK/rel, '.local/work/' + rel + ' (see INPUTS.md)')
         if target in ('services', 'calls', 'google-accounts', 'store-installer', 'gmail', 'store',
-                      'youtube', 'rif', 'google-widget', 'music', 'telegram-s2', 'telegram-pixel'):
+                      'youtube', 'rif', 'google-widget', 'music', 'ap-mobile', 'telegram-s2', 'telegram-pixel'):
             for name in ('signing.p12', 'signing-password.txt'): need(WORK/'signing-private'/name, 'private signing files; run create_signing_key.py only on a new setup')
         if target == 'trust-store' and importlib.util.find_spec('cryptography') is None:
             errors.append('Install Python cryptography in this build environment')

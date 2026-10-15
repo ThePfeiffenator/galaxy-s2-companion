@@ -11,6 +11,8 @@ These are new-install device steps, **not part of an offline audit**. Use explic
 7. Check the intended S2 network and managed proxy `127.0.0.1:8766`. Its DHCP gateway must be the modern phone, serving authenticated port 8765. A shared home router is not equivalent: forwarding uses the gateway. Preserve other proxies.
 8. Set the S2's clock/date correctly. Authentication allows only two minutes of skew; TLS also checks dates. A wrong clock can look like broken pairing.
 
+Optional [contact syncing and notification forwarding](CONTACTS_CAMERA_NOTIFICATIONS.md) each start disabled. Enable them deliberately in the modern Companion Services tab; Contacts needs Contacts permission, and forwarding needs the separate notification-listener grant. Camera backup is enabled on the S2. The [AP Mobile widget](AP_MOBILE.md) is an additional owner-built app.
+
 YouTube/RIF/music need the additional [runtime setup](MEDIA_APPS.md). Google authorization is separate from Bluetooth pairing.
 
 ## Public certificate transfer

@@ -14,7 +14,7 @@ classes=(P/'classes').resolve()
 assert classes.parent==P.resolve() and classes.name=='classes'
 if classes.exists():shutil.rmtree(classes)
 for d in ['classes','dex','res/drawable','compiled','gen']:(P/d).mkdir(parents=True,exist_ok=True)
-(P/'AndroidManifest.xml').write_text('''<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.retrobridge.galaxychat.s2" android:versionCode="13" android:versionName="0.6.3">
+(P/'AndroidManifest.xml').write_text('''<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.retrobridge.galaxychat.s2" android:versionCode="14" android:versionName="0.6.4">
 <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15"/>
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/><uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/><uses-permission android:name="android.permission.BLUETOOTH"/><uses-permission android:name="android.permission.WAKE_LOCK"/>
 <application android:label="Telegram" android:icon="@drawable/classic_ic_launcher" android:theme="@style/ClassicTelegram" android:debuggable="true" android:allowBackup="false">
@@ -27,7 +27,7 @@ for d in ['classes','dex','res/drawable','compiled','gen']:(P/d).mkdir(parents=T
 shutil.copyfile(P.parent/'telegram-companion/Wire.java',P/'Wire.java')
 run([BT/'aapt2.exe','compile','--dir',P/'res','-o',P/'compiled/resources.zip'])
 run([BT/'aapt2.exe','link','-o',P/'base.apk','--manifest',P/'AndroidManifest.xml','-I',AND,'--java',P/'gen',P/'compiled/resources.zip'])
-sources=[P/(n+'.java') for n in ['ReactionIcons','ReactionUi','ClassicUi','NotificationLinkService','ClientRules','ChatStore','BootReceiver','ChatService','ChatActivity','MediaClient','LegacyDiscovery','AttachmentUi','AttachmentJob','MediaProvider','MediaActivity','Wire']]
+sources=[P/(n+'.java') for n in ['MessageNotice','ReactionIcons','ReactionUi','ClassicUi','NotificationLinkService','ClientRules','ChatStore','BootReceiver','ChatService','ChatActivity','MediaClient','LegacyDiscovery','AttachmentUi','AttachmentJob','MediaProvider','MediaActivity','Wire']]
 run([J/'javac.exe','-source','8','-target','8','-encoding','UTF-8','-classpath',AND,'-d',P/'classes']+sources+list((P/'gen').rglob('*.java')))
 run([J/'java.exe','-cp',BT/'lib/d8.jar','com.android.tools.r8.D8','--min-api','15','--lib',AND,'--output',P/'dex']+list((P/'classes').rglob('*.class')))
 with zipfile.ZipFile(P/'base.apk') as a,zipfile.ZipFile(P/'unsigned.apk','w',zipfile.ZIP_DEFLATED) as b:

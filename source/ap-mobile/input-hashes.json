@@ -1,0 +1,17 @@
+{
+  "APNews.apk": "90a851811bd0da6742ec9835750c4b4b3cd999a2af5b7352a0b8fdcad84ae9c8",
+  "APNews.odex": "3899b87da943ccec4c1ce4657dd5b61e052dd0efcac69fe58a3da07526b9e7d1",
+  "framework/core.odex": "35c0b0a82a0ced03eb9c99a8f566ee293e35c621df8870f2a8397f14947c9821",
+  "framework/core-junit.odex": "adcbfbfd138995e0da887a21aa6fdb7f383350c2a81c14f73404aecc2497a1c6",
+  "framework/bouncycastle.odex": "66d8101ef2c1c8031d3dc09c40aeb6e6cda594f924ef8ad0bbb87292e6ec632d",
+  "framework/ext.odex": "018b5c570153b24469d1c14da6e25eadd09e737ce5166e24b4fa52b4238fd79c",
+  "framework/framework.odex": "f8d662dca34272a4f1f5164908f899436dc7d0b80a8b63bf7165390aa7c5616f",
+  "framework/framework2.odex": "cdfdbaa23220dbc3d91f75218003412d1582f62b94b580f599e3766376b30df2",
+  "framework/android.policy.odex": "15fa02c2391e03184d655551c73f27448c945aa744e135fb76e884acc774a7de",
+  "framework/services.odex": "4fa6a642743b9a75c271d346f980d5fb7f07b92aac6d38f204a939cc42f00e0c",
+  "framework/apache-xml.odex": "910d0fe17686279b7aa7d95c77bbcc1edf3e948f6ac1c6a1807a863540168821",
+  "framework/filterfw.odex": "a5f7da666e6a9a5db2f67561732b63a2802f93811502d4fc3799c7f9246395a9",
+  "framework/sechardware.odex": "f65416fc32af07e5e0c2d3e12afe73cc7df2bb152817d500384ac1ba004ec9f6",
+  "framework/wimax.odex": "2c50f554fa182ac628a347c7b144081208c8ecceeeeed4b5139b25947062c2b1",
+  "framework/twframework.odex": "f6eee7019f98ffd6d67f5fcbea343aea162fd66dca544ae0a466fb084b5c5d08"
+}

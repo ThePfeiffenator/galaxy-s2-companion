@@ -24,4 +24,8 @@ Remove the exact Galaxy Services CA installed on the S2 using the trust tool's r
 
 Pause the helper before changing the S2's saved Wi-Fi proxy. Only remove the loopback proxy owned by this setup. Do not overwrite another network's proxy settings. Restore hidden launcher components from the saved component list rather than resetting the entire launcher.
 
+Contact sync keeps managed ownership markers and private pre-change snapshots on the S2. Disable its modern-phone switch before manually restoring contacts; do not clear ownership or import a snapshot blindly, which can duplicate or misidentify contacts. General notification forwarding can be disabled independently of RCS; revoking their shared listener affects both.
+
+Camera video transfers keep durable offsets, pending MediaStore URIs and completed hashes. Preserve those journals across updates. A deleted completed backup is not automatically re-uploaded, and older Movies/Galaxy S2 files are not automatically moved by the shared-album update.
+
 Camera backup never removes originals. Retain them until independently verifying the modern Android phone copy and your normal photo backup. Media caches can be regenerated; authorization files and signing keys cannot.

@@ -85,7 +85,8 @@ On the modern Android phone open Galaxy Companion → Services → Calls & messa
 - 2012 Store and your own APK library: [docs/STORE.md](STORE.md).
 - Telegram: docs/TELEGRAM.md.
 - YouTube, Reddit is fun and Play Music/YouTube Music: docs/MEDIA_APPS.md.
-- Camera backup: enable it in the S2 Galaxy Companion Services tab. Take a new harmless JPEG with the original Camera, wait for transfer and verify it in modern Android phone `Pictures/Galaxy S2`. Existing older photos and non-JPEG media are outside the current backup scope.
+- Automatic contacts, camera JPEG/MP4/3GP backup to one album, selected notification forwarding, and upgrade permissions: [contacts, camera and notifications](CONTACTS_CAMERA_NOTIFICATIONS.md). Both photo and video backups use modern-phone `Pictures/Galaxy S2`.
+- Original AP Mobile science/space widget: [AP Mobile](AP_MOBILE.md), including the original APK/odex inputs and new widget binding.
 - Original launcher duplicates: use the launcher cleanup tool only after verifying each replacement. Hide launcher components, not entire service packages; keep a restoration list. Do not delete original app data.
 
 ## 7. Daily operation and final checks

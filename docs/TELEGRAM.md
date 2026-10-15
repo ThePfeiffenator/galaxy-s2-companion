@@ -54,6 +54,8 @@ With your own authorization, use Saved Messages for text, image, camera/gallery,
 
 Reactions are included. Test adding/removing one on an authorized message and compare with the modern phone's Telegram view. Reaction icons are rendered by the modern Android phone and cached privately on the S2; no system font replacement is needed.
 
+S2 client 0.6.4 shows the chat/person title and a message preview in incoming notifications, with the sender included for groups and a short label for media. It retains the gray notification icon. Preview formatting has synthetic checks; confirm a naturally arriving or explicitly authorized message on your own setup, with the chat closed.
+
 The chat list opens at the top when returning from a conversation or reopening the list. Conversation history retains its own scrolling behavior; background chat-list refreshes do not repeatedly pull a browsing user back to the top.
 
 Restart each phone in turn and unlock the modern Android phone once after boot. Leave the companion screens closed, then open Telegram on the S2. Finish with both USB cables removed and the modern Android phone locked. Logout/revocation belongs on the modern Android phone setup screen; uninstalling the modern Android phone app loses its private session and may require a fresh login.

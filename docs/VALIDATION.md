@@ -55,6 +55,49 @@ Fresh Termux setup exposed a bootstrap C++ library mismatch; the clean-install s
 
 A modern-emulator reboot exposed the need to explicitly configure Termux/Companion battery exemptions. After saving those settings, video and music started automatically following reboot/unlock without opening either app. No real playback, account sign-in, radio pairing or silent Store install was tested. See [the emulator procedure and evidence boundaries](EMULATOR_TESTING.md).
 
+## Contacts, video backup, news and notifications — October 15, 2026
+
+The development pairing completed reboot recovery with helper screens closed,
+followed by user confirmation of a real S2 Camera video transfer with USB
+unplugged and the modern phone locked. The AP Mobile widget's headlines/images
+and normal notification app names/icons were also confirmed. Generated contact
+provider checks covered create, update, idempotence, incomplete-snapshot rejection
+and removal of only a managed test contact; preexisting contact rows were retained.
+Video tests rejected corrupt/out-of-order chunks and incomplete completion,
+resumed a partial transfer over the real phone link, and verified the full hash.
+
+The later folder-only update published a generated video in Pictures/Galaxy S2
+with the same MediaStore album as existing photos. Its full hash matched,
+repeated completion did not duplicate it, and existing photo hashes were
+unchanged. This receiver check used authenticated USB forwarding; the preceding
+real S2 wireless transfer was separately user-confirmed. Test clips were removed.
+Telegram preview formatting has six synthetic checks; a naturally arriving
+notification with the new formatting has not yet been independently confirmed.
+
+For this public source update, without accessing either working phone:
+
+- Built/signed the modern and S2 services, optional S2 Telegram client, and S2
+  calls/interface package, including photo/video labels and counts.
+- Built AP Mobile from the pinned owner-supplied stock APK, odex and framework
+  odex files, freshly deodexed into ignored local storage. No prepatched APK or
+  decoded vendor resources are distributed.
+- Ran eight contact validation/matching checks, six Telegram preview formatting
+  checks and eight setup-tool regression tests. These do not substitute for
+  Contacts provider, notification listener or real radio tests on a fresh pair.
+
+To run the new synthetic checks after configuration, with JDK 17 configured:
+
+```powershell
+python .local/work/companion-checks/run.py
+```
+
+That command fetches one hash-pinned JSON library from Maven Central if absent;
+it never accesses a phone. Build outputs and test dependencies remain ignored.
+Follow [the feature guide](CONTACTS_CAMERA_NOTIFICATIONS.md) and
+[AP Mobile](AP_MOBILE.md) for the manual permissions and device checkpoints.
+The earlier emulator checks predate these new features; this publication does
+not claim another emulator or public-namespace phone deployment for them.
+
 ## Not established by these checks
 
 A complete clean install using only this public namespace on a second pair of phones remains unverified. Native deployment/recovery, fresh API registration, startup permissions and each upstream service need the operator's device checkpoints. The empty Store feature screen was compiled but not visually tested on a second phone. Other S2 variants, modern Android versions and manufacturers, carriers and Google Messages versions are not certified by this export.

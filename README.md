@@ -28,6 +28,8 @@ A Pixel is not a brand requirement. **The current full setup targets a modern An
 - **[Local prerequisites and inputs](docs/INPUTS.md)** — exact tools, original input files and a no-device preflight.
 - **[Manual setup](docs/MANUAL_SETUP.md)** — prerequisites, build commands and ordered checkpoints.
 - **[AI-assisted setup](docs/AI_SETUP.md)** — a ready-to-copy prompt and instructions for a coding assistant with local device access.
+- **[Contacts, camera and notifications](docs/CONTACTS_CAMERA_NOTIFICATIONS.md)** — enable switches, permissions, upgrades and no-PC checks.
+- **[AP Mobile widget](docs/AP_MOBILE.md)** — build from your own original firmware and restore science/space headlines.
 - **[Recovery](docs/RECOVERY.md)** — read before changing the S2 system partition.
 - **[Validation and remaining gaps](docs/VALIDATION.md)** — distinguishes the original working phones from the generalized public build.
 - **[Isolated emulator checks](docs/EMULATOR_TESTING.md)** — fresh installation tests without accessing a working phone.
@@ -46,7 +48,10 @@ A Pixel is not a brand requirement. **The current full setup targets a modern An
 | Reddit is fun | Public posts/comments and compatible media | No login; upstream public access may change |
 | Play Music | YouTube Music likes, owned/saved playlists, uploads, artwork and audio-only streaming | Own Google authorization; saved albums are not synced; upstream changes can break adapters |
 | Gmail | Original inbox interface with modern Android phone account authorization, mail actions and attachments | Separate Google permission and API project required |
-| Camera backup | New S2 camera JPEGs copied to modern Android phone Pictures/Galaxy S2 | Backup only; no deletion sync or historical gallery mirror |
+| Contacts | Automatic one-way sync into Samsung Contacts and the original dialer | Modern phone is authoritative; unrelated S2 contacts retained |
+| Camera backup | New camera JPEGs and MP4/3GP videos in one modern-phone Pictures/Galaxy S2 album | Resumable, checksum-verified; originals retained; no historical gallery mirror |
+| AP Mobile | Original Samsung widget/list with NASA science and space headlines and pictures | Owner-supplied exact-firmware APK/odex inputs; discontinued AP service is not restored |
+| Notification forwarding | Selected modern-phone alerts with app names, icons and previews | Off by default; duplicate/service alerts excluded; no general remote actions |
 | 2012 Play Store interface | Private modern Android phone APK library, local search, installed apps, download/install progress | **Empty by default. Bring your own APKs.** No Google Store login, billing or license bypass |
 
 The modern Android phone has one main Galaxy Companion interface with account and runtime components behind it. The S2 uses an Android 4-style Connection / Services / Settings interface. Telegram remains optional and separate. Shared background status reduces notification clutter; the background services still need Android's required permissions and notifications.
@@ -64,14 +69,16 @@ There are no personal backups, account credentials, messages, contacts, device i
 1. Inventory both devices and establish a restorable S2 backup.
 2. Build and validate [calling and SMS](docs/CALLS_SMS.md).
 3. Pair the compatibility services and review the [private HTTPS trust](PRIVACY.md).
-4. Add [Google accounts / Gmail](docs/GOOGLE_ACCOUNTS.md), [media apps](docs/MEDIA_APPS.md), [Store](docs/STORE.md) and [Telegram](docs/TELEGRAM.md) as separate checkpoints.
-5. Test reboot/reconnection and each selected feature with both phones unplugged from the PC.
+4. Enable [contacts, camera and selected notifications](docs/CONTACTS_CAMERA_NOTIFICATIONS.md), and optionally the [AP Mobile widget](docs/AP_MOBILE.md).
+5. Add [Google accounts / Gmail](docs/GOOGLE_ACCOUNTS.md), [media apps](docs/MEDIA_APPS.md), [Store](docs/STORE.md) and [Telegram](docs/TELEGRAM.md) as separate checkpoints.
+6. Test reboot/reconnection and each selected feature with both phones unplugged from the PC.
 
 ## Source map
 
-- `source/sms-companion-v12`: current S2 call/SMS control app; the directory name is historical (current manifest version 14).
+- `source/sms-companion-v12`: current S2 call/SMS control app; the directory name is historical (current manifest version 15).
 - `source/stock-*`: exact-firmware native calling, identity checks and guarded installers.
-- `source/legacy-services`: current modern Android/S2 data services (versions 35/15), private network, camera, messaging and catalog endpoints.
+- `source/legacy-services`: current modern Android/S2 data services (versions 37/16), private network, camera, messaging and catalog endpoints.
+- `source/ap-mobile`: guarded local patch recipe for the original Samsung news widget; no vendor APK/resources included.
 - `source/pixel-consolidation` and `source/gmail-bridge`: shared modern Android phone UI and Google account component; local Gmail patch.
 - `source/play-store-investigation`: local Store patch and narrowly scoped privileged installer helper.
 - `source/youtube-google`, `gallery-music`, `reddit-compatibility`: app patches and modern Android phone runtime adapters.

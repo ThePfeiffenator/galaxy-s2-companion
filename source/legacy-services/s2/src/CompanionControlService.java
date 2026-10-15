@@ -49,6 +49,7 @@ public final class CompanionControlService extends Service {
         b.putBoolean("boot",getSharedPreferences("settings",0).getBoolean("start_on_boot",true));
         b.putBoolean("camera",getSharedPreferences("camera-backup",0).getBoolean("enabled",false));
         b.putInt("photos",getSharedPreferences("camera-sent",0).getInt("count",0));
+        b.putInt("videos",getSharedPreferences("camera-sent",0).getInt("videos",0));
         b.putBoolean("media",getSharedPreferences("media-relay",0).getBoolean("enabled",false));
         b.putBoolean("calendar",read("calendar-status.txt").startsWith("Synced "));
         // Association alone can survive a stalled hotspot. Require the existing

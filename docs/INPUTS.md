@@ -38,7 +38,7 @@ python tools/prepare_inputs.py android15 'C:\PrivateInputs\android-15\android.ja
 
 Use the manual's commands for firmware. `fetch_dependencies.py` separately downloads/hash-checks four pinned Bouncy Castle 1.86 JARs. Record provenance/version/SHA-256 privately (`Get-FileHash -Algorithm SHA256 PATH`); a filename is not provenance.
 
-Optional original APK reference versions: Store 3.7.15, Gmail 4.1.2, Music 4.3.615.481147, RIF 3.6.16, Google Quick Search Box 1.4.1.488656, Telegram 3.9.0. YouTube must satisfy its layout guards. Arbitrary versions are not supported.
+Optional original APK reference versions: Store 3.7.15, Gmail 4.1.2, Music 4.3.615.481147, RIF 3.6.16, Google Quick Search Box 1.4.1.488656, Telegram 3.9.0. AP Mobile 12.01.09.01 additionally needs its matching odex and pinned FL24 framework files; see [AP Mobile inputs](AP_MOBILE.md). YouTube must satisfy its layout guards. Arbitrary versions are not supported.
 
 Input preparation refuses to overwrite a different existing file or decoded directory. YouTube's first candidate preparation also refuses an existing tree. On failure inspect the error; use a separate fresh materialization for a clean rebuild, preserving your signing files and declared original inputs. Do not delete credentials or edits to force success.
 

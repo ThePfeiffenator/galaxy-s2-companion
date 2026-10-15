@@ -24,6 +24,7 @@ TARGETS = {
  'rif': ['reddit-compatibility/build_rif.py'],
  'google-widget': ['google-widget/build_widget.py'],
  'music': ['gallery-music/build_music.py'],
+ 'ap-mobile': ['ap-mobile/build.py'],
  'launcher': ['launcher-cleanup/build.py'],
 }
 def main():

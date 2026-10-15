@@ -1,8 +1,10 @@
 """Copy your local inputs and decode original APKs. No downloads/device operations."""
 from pathlib import Path
-import argparse, os, shutil, subprocess, sys
+import argparse, os, shutil, subprocess, sys, json, hashlib
 ROOT=Path(__file__).resolve().parents[1];W=ROOT/'.local/work'
 PLAIN={
+ 'ap-mobile':'ap-mobile/inputs/APNews.apk',
+ 'ap-mobile-odex':'ap-mobile/inputs/APNews.odex',
  'android15':'telegram-s2-client/sdk/platform/android-4.0.4/android.jar',
  'apktool':'peggle-debug-tools/apktool.jar',
  'baksmali':'call-feasibility/baksmali-2.5.2.jar',
@@ -23,8 +25,20 @@ APKS={
 }
 def main():
  p=argparse.ArgumentParser(description=__doc__)
- p.add_argument('kind',choices=list(PLAIN)+list(APKS)+['framework','bouncycastle']);p.add_argument('file',type=Path);a=p.parse_args()
+ p.add_argument('kind',choices=list(PLAIN)+list(APKS)+['framework','bouncycastle','ap-mobile-framework']);p.add_argument('file',type=Path);a=p.parse_args()
  if not W.is_dir():p.error('Run configure.py first')
+ if a.kind=='ap-mobile-framework':
+  if not a.file.is_dir():p.error('Expected the original firmware framework directory')
+  pins=json.loads((ROOT/'source/ap-mobile/input-hashes.json').read_text(encoding='utf-8'))
+  copies=[]
+  for rel,digest in pins.items():
+   if not rel.startswith('framework/'):continue
+   src=a.file/Path(rel).name;dest=W/'ap-mobile/inputs'/rel
+   if not src.is_file() or hashlib.sha256(src.read_bytes()).hexdigest()!=digest:p.error('Missing or incompatible FL24 input: '+Path(rel).name)
+   if dest.exists() and dest.read_bytes()!=src.read_bytes():p.error('Different existing input preserved: '+rel)
+   copies.append((src,dest))
+  for src,dest in copies:dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,dest)
+  print('Verified and staged',len(copies),'original framework inputs. No device operations.');return
  if not a.file.is_file():p.error('Input file does not exist')
  def copy(rel):
   dest=W/rel;dest.parent.mkdir(parents=True,exist_ok=True)

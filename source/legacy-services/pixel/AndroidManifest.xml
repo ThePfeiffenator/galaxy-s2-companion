@@ -1,7 +1,9 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.retrobridge.galaxyservices.pixel" android:versionCode="35" android:versionName="0.16.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.retrobridge.galaxyservices.pixel" android:versionCode="37" android:versionName="0.17.1">
  <uses-permission android:name="org.retrobridge.galaxymail.permission.BRIDGE"/>
  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="36"/>
  <uses-permission android:name="android.permission.READ_CALENDAR"/>
+ <!-- Notification forwarding needs labels/icons even for apps without launcher entries. -->
+ <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/><uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/><uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/><uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
  <uses-permission android:name="android.permission.INTERNET"/><uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/><uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/><uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/><uses-permission android:name="android.permission.FOREGROUND_SERVICE"/><uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE"/><uses-permission android:name="android.permission.POST_NOTIFICATIONS"/><uses-permission android:name="android.permission.WAKE_LOCK"/>
  <uses-permission android:name="com.termux.permission.RUN_COMMAND"/>
@@ -12,7 +14,7 @@
   <activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
   <activity android:name=".RcsSetupActivity" android:exported="true"/>
   <activity android:name=".CatalogActivity" android:exported="false"/>
-  <service android:name=".RcsNotificationListener" android:label="Galaxy Services message relay" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" android:exported="true"><intent-filter><action android:name="android.service.notification.NotificationListenerService"/></intent-filter></service>
+  <service android:name=".RcsNotificationListener" android:label="Galaxy Companion notifications" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" android:exported="true"><intent-filter><action android:name="android.service.notification.NotificationListenerService"/></intent-filter></service>
   <provider android:name=".MediaPduProvider" android:authorities="org.retrobridge.galaxyservices.pixel.media" android:exported="false" android:grantUriPermissions="true"/>
   <receiver android:name=".PlatformTextResult" android:exported="false"/>
   <receiver android:name=".MediaResultReceiver" android:exported="false"/>
