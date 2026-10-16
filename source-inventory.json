@@ -261,7 +261,7 @@
   },
   {
     "path": "source/legacy-services/build_pixel.py",
-    "sha256": "add44f9232ad26903454bef0d76efbcff85b592c39019bb7ab8a876c851dc199"
+    "sha256": "68f63596a0ada86db3308e01c48b5ebe570bba9b487e8726a98989dad908b512"
   },
   {
     "path": "source/legacy-services/build_trust_store.py",
@@ -381,7 +381,7 @@
   },
   {
     "path": "source/legacy-services/pixel/AndroidManifest.xml",
-    "sha256": "a69f24eeeeb6f44fd6822a536171ad5987a203d61580e6ab382596e7cc67f9eb"
+    "sha256": "ccfc6b47c8ed014d26209afd8fa05c1eb058337264002d7271e52a97cc06a43d"
   },
   {
     "path": "source/legacy-services/pixel/assets/catalog/catalog.json",
@@ -509,7 +509,7 @@
   },
   {
     "path": "source/legacy-services/pixel/src/CompanionEndpoint.java",
-    "sha256": "8609f5d9fb704e53ff6ccda266cbaf8f35d589bfc184761ef214f4c28aa92d32"
+    "sha256": "b5281583238d95c72109a1cbce58b6347c0bbf9a8e065b4c2eca323d11124c96"
   },
   {
     "path": "source/legacy-services/pixel/src/ContactsFeed.java",
@@ -549,7 +549,7 @@
   },
   {
     "path": "source/legacy-services/pixel/src/MainActivity.java",
-    "sha256": "278add1eadd2f2839b8f0c321f4323e4b928ce7b26c99df4c6b6b674941b4457"
+    "sha256": "d8361b71572030607ee0628606bee2a59bf91fd87efa84f828b2fb3af2b5f60c"
   },
   {
     "path": "source/legacy-services/pixel/src/MediaEndpoint.java",
@@ -589,7 +589,7 @@
   },
   {
     "path": "source/legacy-services/pixel/src/NotificationRelay.java",
-    "sha256": "02a90f00dc023225ebfc8022ac029c2c7222e1e3c2e006b19ca01abaadcc5a12"
+    "sha256": "6c81998d04900b8af395c876cc4f3856d1a463d9c794f2e1c659c6a511dbfa9a"
   },
   {
     "path": "source/legacy-services/pixel/src/PlatformText.java",
@@ -705,7 +705,7 @@
   },
   {
     "path": "source/legacy-services/pixel-gradle/build.gradle",
-    "sha256": "94472c389f4b224fe4c976b39c1167d5de0a0b3796fb47b628402f2435a9801c"
+    "sha256": "340f5cc8715e46e01a3ae6319203a744c5780c5c902f0108f1f9a9a49e95c712"
   },
   {
     "path": "source/legacy-services/pixel-gradle/gradle.properties",
@@ -717,7 +717,7 @@
   },
   {
     "path": "source/legacy-services/s2/AndroidManifest.xml",
-    "sha256": "a0e669bc4f99c1cf2ad714a990de1fa2863419dd8468d90df4127e363a2a98a2"
+    "sha256": "d65788cfac3fccaaac793dfc598245d7bfe2ab0dd43eb47e4f69164938b4d41d"
   },
   {
     "path": "source/legacy-services/s2/legacy_discovery.c",
@@ -784,8 +784,12 @@
     "sha256": "3ab261ab31b573906f671001b60fca4c3d2002f47a25d84cfbff077a6bafd470"
   },
   {
+    "path": "source/legacy-services/s2/src/CompanionRequest.java",
+    "sha256": "31f9b2950d69d17b2369e863cf0680c8377fc434108658e8a046d5d6de9732a4"
+  },
+  {
     "path": "source/legacy-services/s2/src/CompanionSync.java",
-    "sha256": "e3d38f9e53447a2f965ef00df9eee7f4ffb33da1cbc831f0f6a0726d6d3d6f7d"
+    "sha256": "cc1083dfb6ecc7952ec9f8c9555d70b169b5b23507b1795e1adc3e150fd88e0f"
   },
   {
     "path": "source/legacy-services/s2/src/ContactsMirror.java",
@@ -797,7 +801,7 @@
   },
   {
     "path": "source/legacy-services/s2/src/ForwardedNoticeActivity.java",
-    "sha256": "9d3b419ada59891d3a1420aa2e8f38add2c7f6891518c20893daab89772c880f"
+    "sha256": "ea4cabe7e2d4ccabbd19b15eddf1fd457df3dce14f20abb80266c55c1e881715"
   },
   {
     "path": "source/legacy-services/s2/src/HotspotLink.java",

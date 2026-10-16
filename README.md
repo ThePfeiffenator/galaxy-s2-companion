@@ -52,7 +52,7 @@ A Pixel is not a brand requirement. **The current full setup targets a modern An
 | Contacts | Automatic one-way sync into Samsung Contacts and the original dialer | Modern phone is authoritative; unrelated S2 contacts retained |
 | Camera backup | New camera JPEGs and MP4/3GP videos in one modern-phone Pictures/Galaxy S2 album | Resumable, checksum-verified; originals retained; no historical gallery mirror |
 | AP Mobile | Original Samsung widget/list with NASA science and space headlines and pictures | Owner-supplied exact-firmware APK/odex inputs; discontinued AP service is not restored |
-| Notification forwarding | Selected modern-phone alerts with app names, icons and previews | Off by default; duplicate/service alerts excluded; no general remote actions |
+| Notification forwarding | App names, icons and previews; host dismissals remove the S2 copy; **Clear on phone** dismisses the matching host alert | Periodic sync; off by default; duplicate/service alerts excluded; no general replies or remote app launch |
 | Battery protection, optional | Pause charging at 80%, resume at 75%, saved switch and automatic S2 startup | Exact SPH-D710/FL24 kernel and root; Android must be running; wall/offline charging unqualified |
 | 2012 Play Store interface | Private modern Android phone APK library, local search, installed apps, download/install progress | **Empty by default. Bring your own APKs.** No Google Store login, billing or license bypass |
 
@@ -81,7 +81,7 @@ There are no personal backups, account credentials, messages, contacts, device i
 - `source/sms-companion-v12`: current S2 call/SMS control app; the directory name is historical (current manifest version 16).
 - `source/charging`: optional exact-firmware 80%/75% controller, guarded boot installer and local-input build recipe.
 - `source/stock-*`: exact-firmware native calling, identity checks and guarded installers.
-- `source/legacy-services`: current modern Android/S2 data services (versions 37/16), private network, camera, messaging and catalog endpoints.
+- `source/legacy-services`: current modern Android/S2 data services (versions 38/17), private network, camera, messaging and catalog endpoints.
 - `source/ap-mobile`: guarded local patch recipe for the original Samsung news widget; no vendor APK/resources included.
 - `source/pixel-consolidation` and `source/gmail-bridge`: shared modern Android phone UI and Google account component; local Gmail patch.
 - `source/play-store-investigation`: local Store patch and narrowly scoped privileged installer helper.

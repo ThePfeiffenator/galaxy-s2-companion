@@ -12,9 +12,7 @@ final class CompanionSync {
  void close(){stopped=true;handler.removeCallbacksAndMessages(null);((AlarmManager)app.getSystemService(Context.ALARM_SERVICE)).cancel(alarm());}
  synchronized void kick(){if(stopped||busy)return;busy=true;new Thread(new Runnable(){public void run(){sync();}},"companion-sync").start();}
  JSONObject fetch(String path,int limit)throws Exception{
-  HttpsURLConnection c=(HttpsURLConnection)new URL("https://companion.galaxy-services.invalid/"+path).openConnection(new Proxy(Proxy.Type.HTTP,new InetSocketAddress("127.0.0.1",Wire.LOCAL)));
-  c.setConnectTimeout(10000);c.setReadTimeout(30000);c.setUseCaches(false);c.setInstanceFollowRedirects(false);c.setRequestProperty("X-Companion-Key",new String(Wire.readFile(new File(app.getFilesDir(),"link.key")),"US-ASCII").trim());
-  try{if(c.getResponseCode()!=200)throw new IOException("Companion unavailable");ByteArrayOutputStream b=new ByteArrayOutputStream();try(InputStream in=c.getInputStream()){byte[] bytes=new byte[8192];int n;while((n=in.read(bytes))!=-1){if(b.size()+n>limit)throw new IOException("Snapshot limit");b.write(bytes,0,n);}}return new JSONObject(b.toString("UTF-8"));}finally{c.disconnect();}
+  return CompanionRequest.send(app,path,null,limit);
  }
  android.graphics.Bitmap icon(String hash){try{if(!hash.matches("[0-9a-f]{64}"))return null;File file=new File(app.getCacheDir(),"notice-icon-"+hash+".png");if(!file.isFile()){JSONObject result=fetch("icons/"+hash,100000);byte[] png=android.util.Base64.decode(result.getString("png"),android.util.Base64.DEFAULT);if(png.length>65536||!hash.equals(Wire.hex(java.security.MessageDigest.getInstance("SHA-256").digest(png))))throw new IOException("Icon checksum");Wire.writeFile(file,png);}return android.graphics.BitmapFactory.decodeFile(file.toString());}catch(Exception e){return null;}}
  void notices(JSONObject feed)throws Exception{

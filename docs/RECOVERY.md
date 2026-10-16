@@ -20,6 +20,16 @@ Never delete a journal merely because a send or receive is marked uncertain. Fir
 
 Disable the optional RCS relay from its modern Android phone setup screen to stop notification ingestion. Revoking notification access is also possible in Android settings. Removing the S2 pairing file changes routing behavior and should be a deliberate, documented rollback, not an automatic fallback.
 
+## Notification-only service updates
+
+Keep the modern and S2 **data-service** APKs as a matched saved pair, along with
+the existing signer and app data. This does not require replacing the separate
+S2 calls/interface APK or changing native call/charging identity pins. Preserve
+the service data because it also contains pairing and message-transfer state.
+Dismissal actions are not stored in a retry queue; a connection failure should
+be retried only for the selected alert after reconnection. See the
+[notification guide](CONTACTS_CAMERA_NOTIFICATIONS.md).
+
 ## Accounts and trust
 
 Revoke Telegram sessions in Telegram and Google OAuth access in the Google account when retiring the setup. A normal APK update with the same signer preserves app storage; uninstalling does not. Android Keystore-encrypted data may not be restorable by copying files to another modern Android phone.

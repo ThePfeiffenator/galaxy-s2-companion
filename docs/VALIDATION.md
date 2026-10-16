@@ -129,6 +129,37 @@ or display build. Public namespace deployment and live removal still require
 the operator's checks in [the charging guide](CHARGING.md); compilation is not
 a substitute. This update was not installed on the working development phones.
 
+## Clear forwarded notifications on the host — October 16, 2026
+
+The development pair's general notification detail now has **Clear on phone**.
+Generated-alert tests checked forwarding metadata, missing authentication,
+GET requests, duplicate authentication headers, non-clearable notifications,
+changed revisions, exact-alert cancellation with other alerts retained, repeated
+requests after removal, and notifications no longer eligible for forwarding.
+The actual S2 button was checked against the final installed private build:
+opening the detail retained the host alert and pressing the button removed it.
+The owner then repeated dismissal with both phones unplugged and confirmed it
+worked. Host-to-S2 removal was also user-confirmed unplugged: dismissing an alert
+on the modern phone removed its S2 copy after the normal polling delay. That
+direction uses the existing snapshot sync and required no additional app change.
+No real message was sent for the generated-alert checks.
+
+For this public export, both service APKs were built and signed in an isolated
+source copy using a new test key and synthetic configuration. Inputs were the
+Android API 15 platform jar, installed JDK/Android SDK/Gradle tools, and downloaded
+open-source dependencies; the four TLS jars were verified against the public
+fetcher's pinned hashes. Eight setup-tool regression tests passed. Source/link
+and publication privacy checks passed. These build/publication checks did not
+access or change either working phone. No test key, built APK or notification
+data is included.
+
+The public service versions are modern 38 / 0.18.0 and S2 17 / 0.12.0. This is
+build validation of the neutral public namespace, not a second-pair deployment.
+The prior startup/reconnection results remain separate: a full phone reboot was
+not repeated specifically for this dismissal update. New installations should
+complete the [notification guide's checks](CONTACTS_CAMERA_NOTIFICATIONS.md),
+including reboot and no-PC operation, on their own devices.
+
 ## Not established by these checks
 
 A complete clean install using only this public namespace on a second pair of phones remains unverified. Native deployment/recovery, fresh API registration, startup permissions and each upstream service need the operator's device checkpoints. The empty Store feature screen was compiled but not visually tested on a second phone. Other S2 variants, modern Android versions and manufacturers, carriers and Google Messages versions are not certified by this export.

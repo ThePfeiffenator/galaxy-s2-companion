@@ -24,11 +24,15 @@ Companion interface. Its camera page now shows both photo and video counts.
 
 Install the modern and S2 service APKs with your existing signer, explicit device
 serials and `adb install -r`, as in [manual setup](MANUAL_SETUP.md). The public
-modern service is version 37 / 0.17.1 and the S2 service is version 16 / 0.11.0.
-The S2 calls/interface package is version 15 / 0.15.0. Updating that package also
+modern service is version 38 / 0.18.0 and the S2 service is version 17 / 0.12.0.
+The S2 calls/interface package is version 16 / 0.16.0. Updating that package also
 requires the installed path/hash/UID checks and matching native configuration
 described in [recovery](RECOVERY.md) and [calls](CALLS_SMS.md). Do not interrupt a
 call to update it. No native firmware guard has been relaxed for these features.
+
+If you already have these features and only want **Clear on phone**, follow the
+[notification-only upgrade](#notification-only-upgrade) below. It does not need
+a calls/interface APK update or a charging/native configuration change.
 
 ## Automatic contacts
 
@@ -121,8 +125,101 @@ The relay can only forward content Android exposes to the notification
 listener. Protected or hidden content is not bypassed. It checks periodically,
 so delivery is not instantaneous. Reboot recovery initially restores current
 alerts silently; new eligible alerts can use the S2's notification sound.
-Tapping opens a local detail view. It does not launch the modern app remotely,
-forward general reply/actions, or dismiss the modern phone's notification.
+Tapping opens a local detail view. Opening that screen alone leaves the modern
+phone's notification in place. It does not remotely launch the source app or
+forward its reply/action buttons.
+
+If you dismiss an alert on the **modern phone**, its S2 copy is removed on the
+next successful sync. Normal checks run about every **15 seconds while awake**,
+with a wake check roughly **once a minute while the S2 sleeps**. Allow extra time
+for network recovery or a busy sync; this is periodic synchronization, not an
+instant push. During a connection failure, existing S2 alerts are retained until
+a complete host snapshot can be read. This removal sync is already part of
+notification forwarding and needs no additional switch.
+
+### Clear an alert on the modern phone
+
+1. Tap a forwarded notification in the S2's notification drawer.
+2. Tap **Clear on phone** in its detail screen.
+3. The S2 confirms **Cleared on phone** after the modern phone reports that the
+   matching alert is gone. If it was already removed, it reports that instead.
+
+This uses your existing pairing, private Wi-Fi connection, certificate and
+notification-listener permission. There is no new account, permission prompt,
+cloud service or PC dependency. It has the same Android dismissal effect as
+swiping away that alert on the modern phone; the source app can respond to its
+normal dismissal callback. The bridge does not open the app or send a mark-read
+or delete-message action.
+
+The button applies only to **general forwarded notifications**. Samsung
+Messaging, Gmail and Telegram have their own S2 clients and notification behavior.
+
+- Non-clearable alerts have a disabled button. Service and ongoing alerts are
+  generally filtered before forwarding.
+- If the notification has changed, open its latest alert before clearing it.
+  The old screen does not intentionally dismiss the updated content.
+- If forwarding is turned off or that app is excluded, the alert is retained.
+- If the connection is unavailable or removal cannot be confirmed, the screen
+  reports failure and lets you retry. Dismissal requests are not queued for
+  later or automatically replayed.
+
+### Notification-only upgrade
+
+Back up the two installed service APKs and keep your existing signing key,
+pairing and app data. Do not clear storage, uninstall the helpers or regenerate
+the pairing key. Wait until calls and message transfers are idle.
+
+Update your source checkout, then run:
+
+```powershell
+python tools/configure.py
+python tools/build.py services
+```
+
+If configure reports independent local edits, reconcile them first as described
+above. Replace `MODERN_SERIAL` and `S2_SERIAL` below with the actual serials from
+your own `adb devices` inventory:
+
+```powershell
+adb -s MODERN_SERIAL install -r ".local/work/legacy-services/pixel/galaxy-services-pixel.apk"
+adb -s S2_SERIAL install -r ".local/work/legacy-services/s2/galaxy-services-s2.apk"
+```
+
+Install **both** service updates. An older modern service cannot handle the new
+button; an older S2 service does not display it. Keep each package's existing
+signer. The separate S2 calls/interface APK, root call configuration and optional
+charging controller do not change in this upgrade. Allow private Wi-Fi to
+reconnect after the modern service restarts. If services stay stopped, open
+Galaxy Companion on each phone and check its connection controls.
+
+The existing forwarding switch and app exclusions are retained. For a fresh
+setup, enable forwarding and notification access using the steps above. Do not
+turn on unrelated RCS or account features just for this button.
+
+### Check dismissal without the PC
+
+Use a harmless notification you are willing to dismiss; do not send a real
+message to someone solely for this check without permission.
+
+1. Let it appear on both phones. On the S2, open the notification detail and
+   confirm that the host alert remains until you press the button.
+2. Tap **Clear on phone**. Check that only the matching modern-phone alert
+   disappears and other notifications remain.
+3. With a different forwarded alert, dismiss it on the modern phone. Wait for
+   the next sync and check that its S2 copy disappears without pressing anything
+   on the S2. Other alerts should remain.
+4. Unplug both phones from the PC, keep the modern phone nearby with the saved
+   connection active, and repeat both directions with harmless alerts.
+5. As part of initial setup, repeat after restarting each phone and unlocking
+   the modern phone once. Leave helper screens closed to check startup recovery.
+
+For a connection error, verify private Wi-Fi and notification access before
+retrying. If the host already removed the alert, a retry safely reports that.
+To roll back this feature, reinstall your previously saved service APKs using
+the same signer and retain their data; do not replace the separate calls APK or
+clear shared RCS message journals. If Android rejects a version downgrade, stop
+and preserve the working installation rather than uninstalling it. See
+[recovery](RECOVERY.md).
 
 Disabling the forwarding switch clears mirrored alerts after the next successful
 poll. Do not revoke the shared listener if you still need RCS notification
